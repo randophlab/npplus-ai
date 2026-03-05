@@ -3,358 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>綠佳利 AI 智慧助理</title>
+<title>綠佳利 AI 助理</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap');
-:root {
-  --green-deep: #1a3a2a;
-  --green-mid: #2d6a4f;
-  --green-light: #52b788;
-  --green-pale: #b7e4c7;
-  --gold: #c9a84c;
-  --cream: #f8f4ed;
-  --text: #1a1a1a;
-  --text-light: #666;
-  --red: #e74c3c;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Zen Kaku Gothic New',sans-serif; background:var(--cream); min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+  :root {
+    --green-mid: #2d6a4f;
+    --green-light: #52b788;
+    --green-pale: #b7e4c7;
+    --gold: #d4a942;
+    --gold-light: #f0c96e;
+    --bg: #0d1f17;
+    --surface: #1c3326;
+    --surface2: #234030;
+    --text: #e8f5ee;
+    --text-dim: #8ab89a;
+    --border: #2d5040;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg); color: var(--text);
+    height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background: radial-gradient(ellipse at 20% 20%, rgba(82,183,136,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(212,169,66,0.06) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+  header {
+    position: relative; z-index: 10; padding: 14px 20px;
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(18,32,24,0.97); border-bottom: 1px solid var(--border); flex-shrink: 0;
+  }
+  .logo {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0; box-shadow: 0 4px 16px rgba(82,183,136,0.3);
+  }
+  .header-text h1 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--green-pale); }
+  .header-text p { font-size: 11px; color: var(--text-dim); margin-top: 1px; }
+  .status { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-dim); }
+  .status::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--green-light); box-shadow: 0 0 8px var(--green-light);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-/* HEADER */
-.header { width:100%; background:var(--green-deep); padding:16px 24px; display:flex; align-items:center; gap:14px; }
-.header-icon { width:44px; height:44px; background:linear-gradient(135deg,var(--green-light),var(--gold)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
-.header-text h1 { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:var(--cream); font-weight:600; letter-spacing:2px; }
-.header-text p { font-size:0.72rem; color:var(--green-pale); margin-top:2px; }
-.header-right { margin-left:auto; display:flex; align-items:center; gap:12px; }
-.member-badge { display:none; background:var(--gold); color:var(--green-deep); padding:4px 10px; border-radius:12px; font-size:0.72rem; font-weight:700; }
-.member-badge.show { display:block; }
-.status-dot { display:flex; align-items:center; gap:6px; font-size:0.72rem; color:var(--green-pale); }
-.dot { width:7px; height:7px; background:var(--green-light); border-radius:50%; animation:pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+  #chat { flex: 1; overflow-y: auto; padding: 20px 16px; position: relative; z-index: 1; scroll-behavior: smooth; }
+  #chat::-webkit-scrollbar { width: 4px; }
+  #chat::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
-/* USAGE BAR */
-.usage-bar { width:100%; max-width:720px; padding:10px 16px; display:flex; align-items:center; gap:12px; }
-.usage-info { font-size:0.78rem; color:var(--text-light); white-space:nowrap; }
-.usage-info span { color:var(--green-mid); font-weight:700; }
-.usage-info.warn span { color:var(--red); }
-.progress-wrap { flex:1; height:6px; background:#e0e0e0; border-radius:3px; overflow:hidden; }
-.progress-fill { height:100%; background:linear-gradient(90deg,var(--green-light),var(--gold)); border-radius:3px; transition:width 0.4s; }
-.unlock-btn { background:var(--gold); border:none; color:var(--green-deep); padding:6px 12px; border-radius:12px; font-size:0.75rem; font-weight:700; cursor:pointer; white-space:nowrap; transition:all 0.2s; }
-.unlock-btn:hover { transform:scale(1.05); }
+  .welcome {
+    max-width: 760px; margin: 0 auto 20px; padding: 18px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); border-left: 3px solid var(--gold);
+  }
+  .welcome h2 { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--gold-light); margin-bottom: 7px; }
+  .welcome p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+  .chip {
+    padding: 5px 12px; background: rgba(212,169,66,0.1);
+    border: 1px solid rgba(212,169,66,0.25); border-radius: 20px;
+    font-size: 12px; color: var(--gold-light); cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif; transition: all 0.2s;
+  }
+  .chip:hover { background: rgba(212,169,66,0.2); transform: translateY(-1px); }
 
-/* CHAT */
-.chat-wrapper { width:100%; max-width:720px; flex:1; display:flex; flex-direction:column; padding:16px 16px 0; }
-.quick-section { margin-bottom:16px; }
-.quick-label { font-size:0.7rem; color:var(--text-light); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
-.quick-btns { display:flex; flex-wrap:wrap; gap:7px; }
-.quick-btn { background:white; border:1.5px solid var(--green-pale); color:var(--green-deep); padding:7px 13px; border-radius:18px; font-size:0.8rem; font-family:'Zen Kaku Gothic New',sans-serif; cursor:pointer; transition:all 0.2s; }
-.quick-btn:hover { background:var(--green-deep); color:var(--cream); border-color:var(--green-deep); }
+  .msg { display: flex; gap: 10px; margin-bottom: 16px; animation: fadeUp 0.3s ease; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .msg.user { flex-direction: row-reverse; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  .avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0; margin-top: 2px;
+  }
+  .msg.ai .avatar { background: linear-gradient(135deg, var(--green-mid), var(--green-light)); box-shadow: 0 2px 10px rgba(82,183,136,0.25); }
+  .msg.user .avatar { background: var(--surface2); border: 1px solid var(--border); }
+  .bubble { padding: 12px 15px; border-radius: var(--radius); font-size: 14px; line-height: 1.75; max-width: calc(100% - 44px); }
+  .msg.ai .bubble { background: var(--surface); border: 1px solid var(--border); border-top-left-radius: 4px; }
+  .msg.user .bubble { background: linear-gradient(135deg, var(--green-mid), #3a8a63); border-top-right-radius: 4px; color: #fff; }
 
-.messages { flex:1; display:flex; flex-direction:column; gap:14px; min-height:320px; max-height:460px; overflow-y:auto; padding:4px 4px 16px; scrollbar-width:thin; scrollbar-color:var(--green-pale) transparent; }
-.msg { display:flex; gap:10px; animation:fadeIn 0.3s ease; }
-@keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
-.msg.user { flex-direction:row-reverse; }
-.avatar { width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
-.avatar.ai { background:var(--green-deep); }
-.avatar.user-av { background:var(--gold); }
-.bubble { max-width:78%; padding:12px 15px; border-radius:14px; font-size:0.88rem; line-height:1.7; color:var(--text); }
-.msg.ai .bubble { background:white; border-bottom-left-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06); }
-.msg.user .bubble { background:var(--green-deep); color:var(--cream); border-bottom-right-radius:4px; }
-.typing { display:flex; gap:5px; align-items:center; padding:14px 16px; }
-.typing span { width:6px; height:6px; background:var(--green-light); border-radius:50%; animation:bounce 1.2s infinite; }
-.typing span:nth-child(2){animation-delay:0.2s}.typing span:nth-child(3){animation-delay:0.4s}
-@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+  .thinking { display: flex; gap: 5px; align-items: center; padding: 12px 15px; }
+  .thinking span { width: 7px; height: 7px; border-radius: 50%; background: var(--green-light); animation: bounce 1.2s infinite; }
+  .thinking span:nth-child(2) { animation-delay: 0.2s; }
+  .thinking span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,60%,100%{transform:translateY(0);opacity:0.4} 30%{transform:translateY(-6px);opacity:1} }
 
-/* INPUT */
-.input-area { width:100%; max-width:720px; padding:12px 16px 20px; background:var(--cream); position:sticky; bottom:0; }
-.input-box { display:flex; gap:8px; background:white; border:2px solid var(--green-pale); border-radius:22px; padding:7px 7px 7px 16px; transition:border-color 0.2s; box-shadow:0 4px 16px rgba(0,0,0,0.06); }
-.input-box:focus-within { border-color:var(--green-light); }
-.input-box input { flex:1; border:none; outline:none; font-family:'Zen Kaku Gothic New',sans-serif; font-size:0.9rem; color:var(--text); background:transparent; }
-.input-box input::placeholder { color:#aaa; }
-.input-box input:disabled { opacity:0.5; cursor:not-allowed; }
-.send-btn { width:38px; height:38px; background:var(--green-deep); border:none; border-radius:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; flex-shrink:0; }
-.send-btn:hover { background:var(--green-mid); transform:scale(1.05); }
-.send-btn:disabled { opacity:0.4; cursor:not-allowed; transform:none; }
-.send-btn svg { width:17px; height:17px; fill:white; }
-.disclaimer { text-align:center; font-size:0.68rem; color:#ccc; margin-top:6px; }
-
-/* MODAL */
-.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:100; align-items:center; justify-content:center; backdrop-filter:blur(4px); }
-.modal-overlay.show { display:flex; }
-.modal { background:white; border-radius:24px; padding:32px 28px; max-width:380px; width:90%; text-align:center; animation:popIn 0.3s ease; }
-@keyframes popIn { from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)} }
-.modal-icon { font-size:48px; margin-bottom:12px; }
-.modal h2 { font-family:'Noto Serif TC',serif; font-size:1.2rem; color:var(--green-deep); margin-bottom:8px; }
-.modal p { font-size:0.85rem; color:var(--text-light); line-height:1.6; margin-bottom:20px; }
-.limit-info { background:var(--cream); border-radius:12px; padding:12px 16px; margin-bottom:20px; text-align:left; }
-.limit-row { display:flex; justify-content:space-between; font-size:0.82rem; padding:4px 0; color:var(--text-light); }
-.limit-row span:last-child { color:var(--green-mid); font-weight:700; }
-.modal-input { width:100%; border:2px solid var(--green-pale); border-radius:12px; padding:10px 14px; font-family:'Zen Kaku Gothic New',sans-serif; font-size:0.9rem; margin-bottom:12px; outline:none; text-align:center; letter-spacing:3px; transition:border-color 0.2s; }
-.modal-input:focus { border-color:var(--green-light); }
-.modal-input.error { border-color:var(--red); }
-.error-msg { font-size:0.78rem; color:var(--red); margin-bottom:10px; display:none; }
-.error-msg.show { display:block; }
-.modal-btn { width:100%; background:var(--green-deep); color:white; border:none; padding:13px; border-radius:14px; font-family:'Zen Kaku Gothic New',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all 0.2s; margin-bottom:10px; }
-.modal-btn:hover { background:var(--green-mid); }
-.modal-btn.gold { background:var(--gold); color:var(--green-deep); }
-.modal-close { font-size:0.8rem; color:var(--text-light); cursor:pointer; text-decoration:underline; }
+  .input-area {
+    position: relative; z-index: 10; padding: 14px 16px;
+    background: rgba(18,32,24,0.97); border-top: 1px solid var(--border); flex-shrink: 0;
+  }
+  .input-wrap { max-width: 760px; margin: 0 auto; display: flex; gap: 10px; align-items: flex-end; }
+  textarea {
+    flex: 1; background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 11px 15px; color: var(--text);
+    font-family: 'Noto Sans TC', sans-serif; font-size: 14px;
+    resize: none; min-height: 46px; max-height: 130px; outline: none;
+    transition: border-color 0.2s; line-height: 1.5;
+  }
+  textarea::placeholder { color: var(--text-dim); }
+  textarea:focus { border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(82,183,136,0.1); }
+  .send-btn {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+    border: none; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; font-size: 17px; transition: all 0.2s; flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(82,183,136,0.3);
+  }
+  .send-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(82,183,136,0.4); }
+  .send-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .highlight { color: var(--gold-light); font-weight: 500; }
+  @media(max-width:600px) {
+    header { padding: 10px 14px; }
+    #chat { padding: 14px 10px; }
+    .input-area { padding: 10px 12px; }
+  }
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div class="header-icon">🌿</div>
+<header>
+  <div class="logo">🌿</div>
   <div class="header-text">
-    <h1>綠佳利 AI 智慧助理</h1>
-    <p>NPPLUS · 健康諮詢 · 事業夥伴</p>
+    <h1>綠佳利 AI 助理</h1>
+    <p>再生醫學 · 事業諮詢 · 疑慮解答</p>
   </div>
-  <div class="header-right">
-    <div class="member-badge" id="memberBadge">⭐ 會員</div>
-    <div class="status-dot"><div class="dot"></div>線上</div>
-  </div>
-</div>
+  <div class="status">線上服務中</div>
+</header>
 
-<div class="usage-bar" id="usageBar">
-  <div class="usage-info" id="usageInfo">今日剩餘 <span id="remainCount">3</span> 個問題</div>
-  <div class="progress-wrap"><div class="progress-fill" id="progressFill" style="width:100%"></div></div>
-  <button class="unlock-btn" onclick="showUpgradeModal()">🔓 解鎖無限</button>
-</div>
-
-<div class="chat-wrapper">
-  <div class="quick-section">
-    <div class="quick-label">常見問題</div>
-    <div class="quick-btns">
-      <button class="quick-btn" onclick="askQuestion('請介紹識霸明力多')">🌿 識霸明力多</button>
-      <button class="quick-btn" onclick="askQuestion('喚活有什麼功效？')">⚡ 喚活</button>
-      <button class="quick-btn" onclick="askQuestion('活美水素水有什麼特別？')">💧 活美水素水</button>
-      <button class="quick-btn" onclick="askQuestion('加入綠佳利需要囤貨嗎？')">💼 加入方式</button>
-      <button class="quick-btn" onclick="askQuestion('我在吃葉黃素保健品，綠佳利有什麼不同？')">🔬 比較競品</button>
-    </div>
-  </div>
-  <div class="messages" id="messages">
-    <div class="msg ai">
-      <div class="avatar ai">🌿</div>
-      <div class="bubble">
-        您好！我是綠佳利 AI 智慧助理 🌿<br><br>
-        我的知識庫已連結 <strong>371 個市售競品</strong> 及 <strong>綠佳利全系列產品</strong>，可以回答：<br><br>
-        ・產品成分與功效分析<br>
-        ・競品比較與優勢說明<br>
-        ・加入方式與事業機會<br><br>
-        <strong>非會員</strong>每天 3 個免費問題，<strong>輸入會員碼</strong>解鎖無限使用 ✨
-      </div>
+<div id="chat">
+  <div class="welcome">
+    <h2>您好，我是綠佳利 AI 助理 ✨</h2>
+    <p>我可以協助了解產品知識、事業制度、疑慮解答，以及與其他品牌的比較分析。請直接輸入您的問題！</p>
+    <div class="chips">
+      <span class="chip" onclick="quickAsk('喚活產品有什麼特色？')">🌱 產品特色</span>
+      <span class="chip" onclick="quickAsk('綠佳利的獎金制度怎麼運作？')">💰 獎金制度</span>
+      <span class="chip" onclick="quickAsk('有人說這是老鼠會，怎麼回答？')">🛡️ 疑慮處理</span>
+      <span class="chip" onclick="quickAsk('跟安麗相比有什麼優勢？')">⚡ 競品比較</span>
+      <span class="chip" onclick="quickAsk('我沒有時間，可以兼職嗎？')">⏰ 時間疑慮</span>
+      <span class="chip" onclick="quickAsk('這家公司合法嗎？')">✅ 合法查詢</span>
     </div>
   </div>
 </div>
 
 <div class="input-area">
-  <div class="input-box">
-    <input type="text" id="userInput" placeholder="輸入您的問題，例如：我在吃XX品牌葉黃素..." onkeydown="if(event.key==='Enter')sendMessage()">
-    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
-      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
-    </button>
-  </div>
-  <div class="disclaimer">由 Claude AI × Supabase 驅動 · npplus.club · 知識庫含 378 筆資料</div>
-</div>
-
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <div class="modal-icon">🔒</div>
-    <h2>解鎖無限使用</h2>
-    <p>輸入您的會員碼，立即解鎖無限次 AI 助理使用權限</p>
-    <div class="limit-info">
-      <div class="limit-row"><span>📝 每天問題限制</span><span>3 個問題</span></div>
-      <div class="limit-row"><span>⭐ 會員無限使用</span><span>輸入會員碼即可</span></div>
-    </div>
-    <input type="text" class="modal-input" id="memberCodeInput" placeholder="請輸入會員碼" maxlength="20">
-    <div class="error-msg" id="errorMsg">會員碼不正確，請確認後重試</div>
-    <button class="modal-btn" onclick="verifyCode()">✓ 驗證會員碼</button>
-    <button class="modal-btn gold" onclick="contactUs()">💬 聯絡取得會員碼</button>
-    <div class="modal-close" onclick="closeModal()">稍後再說</div>
+  <div class="input-wrap">
+    <textarea id="input" placeholder="輸入您的問題..." rows="1"
+      onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    <button class="send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
   </div>
 </div>
 
 <script>
-const SUPABASE_URL = 'https://mkjtqzufohzrnbvebbfb.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_8xSo16Tzy_oAijL-Fsbpsw_JNum8ShS';
-const FREE_Q = 3;
+const WORKER = "https://npplus-proxy.randoph520.workers.dev";
+let busy = false;
 
-let isMember = false;
-let history = [];
-
-// 使用量
-function getTodayKey(){ return 'q_'+new Date().toDateString(); }
-function getUsed(){ return parseInt(sessionStorage.getItem(getTodayKey())||'0'); }
-function addUsed(){ sessionStorage.setItem(getTodayKey(), getUsed()+1); }
-function getRemain(){ return Math.max(0, FREE_Q - getUsed()); }
-
-function updateUsageBar(){
-  if(isMember){ document.getElementById('usageBar').style.display='none'; document.getElementById('memberBadge').classList.add('show'); return; }
-  const r = getRemain();
-  document.getElementById('remainCount').textContent = r;
-  document.getElementById('progressFill').style.width = (r/FREE_Q*100)+'%';
-  const info = document.getElementById('usageInfo');
-  if(r<=1) info.classList.add('warn'); else info.classList.remove('warn');
-  if(r===0){ document.getElementById('userInput').disabled=true; document.getElementById('sendBtn').disabled=true; }
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 130) + 'px';
+}
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+function quickAsk(q) {
+  document.getElementById('input').value = q;
+  sendMessage();
+}
+function addMsg(role, html) {
+  const chat = document.getElementById('chat');
+  const d = document.createElement('div');
+  d.className = 'msg ' + role;
+  d.innerHTML = `<div class="avatar">${role==='ai'?'🌿':'👤'}</div><div class="bubble">${html}</div>`;
+  chat.appendChild(d);
+  chat.scrollTop = chat.scrollHeight;
+}
+function showThinking() {
+  const chat = document.getElementById('chat');
+  const d = document.createElement('div');
+  d.className = 'msg ai'; d.id = 'thinking';
+  d.innerHTML = `<div class="avatar">🌿</div><div class="bubble"><div class="thinking"><span></span><span></span><span></span></div></div>`;
+  chat.appendChild(d);
+  chat.scrollTop = chat.scrollHeight;
+}
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+}
+function fmt(s) {
+  return s
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/【(.+?)】/g,'<span class="highlight">【$1】</span>')
+    .replace(/\n/g,'<br>');
 }
 
-// Supabase 搜尋知識庫（用關鍵字搜尋）
-async function searchKnowledge(question){
+async function fetchKB(query) {
+  const kw = encodeURIComponent(query.slice(0,12));
   try {
-    // 搜尋綠佳利產品
-    const r1 = await fetch(`${SUPABASE_URL}/rest/v1/knowledge_base?category=eq.綠佳利產品&select=question,answer`, {
-      headers:{ 'apikey':SUPABASE_KEY, 'Authorization':`Bearer ${SUPABASE_KEY}` }
-    });
-    const products = await r1.json();
-
-    // 搜尋競品（用問題關鍵字）
-    const keywords = question.match(/[\u4e00-\u9fff]{2,}/g) || [];
-    let competitors = [];
-    for(const kw of keywords.slice(0,3)){
-      const r2 = await fetch(`${SUPABASE_URL}/rest/v1/knowledge_base?category=eq.競品分析&question=ilike.*${encodeURIComponent(kw)}*&select=question,answer&limit=3`, {
-        headers:{ 'apikey':SUPABASE_KEY, 'Authorization':`Bearer ${SUPABASE_KEY}` }
-      });
-      const data = await r2.json();
-      if(Array.isArray(data)) competitors.push(...data);
-    }
-
-    // 搜尋其他分類
-    const r3 = await fetch(`${SUPABASE_URL}/rest/v1/knowledge_base?category=neq.競品分析&category=neq.綠佳利產品&select=question,answer&limit=3`, {
-      headers:{ 'apikey':SUPABASE_KEY, 'Authorization':`Bearer ${SUPABASE_KEY}` }
-    });
-    const others = await r3.json();
-
-    let context = '';
-    if(products.length) context += '【綠佳利產品資料】\n' + products.map(d=>`Q:${d.question}\nA:${d.answer}`).join('\n\n') + '\n\n';
-    if(competitors.length) context += '【競品資料】\n' + [...new Map(competitors.map(d=>[d.question,d])).values()].slice(0,3).map(d=>`Q:${d.question}\nA:${d.answer}`).join('\n\n') + '\n\n';
-    if(others.length) context += '【其他資料】\n' + others.map(d=>`Q:${d.question}\nA:${d.answer}`).join('\n\n');
-
-    return context;
-  } catch(e){ return ''; }
+    const [r1, r2] = await Promise.all([
+      fetch(`${WORKER}/rest/v1/knowledge_base?question=ilike.*${kw}*&limit=4&select=question,answer`),
+      fetch(`${WORKER}/rest/v1/knowledge_base?answer=ilike.*${kw}*&limit=4&select=question,answer`)
+    ]);
+    const [d1, d2] = await Promise.all([r1.json(), r2.json()]);
+    const all = [...(d1||[]), ...(d2||[])];
+    const seen = new Set();
+    return all.filter(r => { if(seen.has(r.question)) return false; seen.add(r.question); return true; }).slice(0,5);
+  } catch(e) { return []; }
 }
 
-// 會員驗證（本地備用碼 + Supabase 雙重驗證）
-const LOCAL_CODES = ["GREEN2024","NPPLUS888","VIP0001"];
-async function verifyMemberCode(code){
-  if(LOCAL_CODES.includes(code)) return {id:"local", name:"會員"};
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/members?member_code=eq.${code}&is_active=eq.true&select=id,name`, {
-      headers:{ "apikey":SUPABASE_KEY, "Authorization":`Bearer ${SUPABASE_KEY}` }
-    });
-    const data = await res.json();
-    return data && data.length > 0 ? data[0] : null;
-  } catch(e){ return null; }
-}
+async function sendMessage() {
+  if (busy) return;
+  const inp = document.getElementById('input');
+  const q = inp.value.trim();
+  if (!q) return;
+  inp.value = ''; inp.style.height = 'auto';
+  busy = true;
+  document.getElementById('sendBtn').disabled = true;
 
-async function verifyCode(){
-  const code = document.getElementById('memberCodeInput').value.trim().toUpperCase();
-  const btn = document.querySelector('.modal-btn');
-  btn.textContent='驗證中...'; btn.disabled=true;
-  const member = await verifyMemberCode(code);
-  if(member){
-    isMember=true;
-    sessionStorage.setItem('member_code', code);
-    closeModal(); updateUsageBar();
-    document.getElementById('userInput').disabled=false;
-    document.getElementById('sendBtn').disabled=false;
-    addMessage('ai','🎉 會員碼驗證成功！您現在可以無限使用 AI 助理，有任何問題都歡迎詢問！');
-  } else {
-    document.getElementById('memberCodeInput').classList.add('error');
-    document.getElementById('errorMsg').classList.add('show');
-    setTimeout(()=>{ document.getElementById('memberCodeInput').classList.remove('error'); document.getElementById('errorMsg').classList.remove('show'); },3000);
-  }
-  btn.textContent='✓ 驗證會員碼'; btn.disabled=false;
-}
+  addMsg('user', esc(q));
+  showThinking();
 
-function showUpgradeModal(){ document.getElementById('modalOverlay').classList.add('show'); }
-function closeModal(){ document.getElementById('modalOverlay').classList.remove('show'); }
-function contactUs(){ alert('請聯絡您的推薦人或官方 Line OA 取得會員碼 📱'); }
+  const kb = await fetchKB(q);
 
-// 聊天
-const messagesEl = document.getElementById('messages');
+  let system = `你是綠佳利（環貫綠佳利股份有限公司）的 AI 業務助理，協助業務夥伴回答問題。
 
-function addMessage(role, text){
-  const div = document.createElement('div');
-  div.className = `msg ${role==='user'?'user':'ai'}`;
-  div.innerHTML = `
-    <div class="avatar ${role==='user'?'user-av':'ai'}">${role==='user'?'👤':'🌿'}</div>
-    <div class="bubble">${text.replace(/\n/g,'<br>').replace(/【(.+?)】/g,'<strong>【$1】</strong>')}</div>`;
-  messagesEl.appendChild(div);
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-}
+風格：溫暖有力、理性感性兼具、繁體中文、簡潔有力不冗長。
 
-function addTyping(){
-  const div = document.createElement('div');
-  div.className='msg ai'; div.id='typing';
-  div.innerHTML=`<div class="avatar ai">🌿</div><div class="bubble typing"><span></span><span></span><span></span></div>`;
-  messagesEl.appendChild(div);
-  messagesEl.scrollTop=messagesEl.scrollHeight;
-}
-function removeTyping(){ const t=document.getElementById('typing'); if(t)t.remove(); }
+核心優勢：
+- 1999年日本成立，台灣2002年合法報備（統編80538622）
+- 再生醫學賽道，全球獨家喚活（幹細胞活化技術）
+- 黃金三角：識霸（護衛）＋ 活美水（清道夫）＋ 喚活（建設）
+- 20年從不延誤獎金，撥發率透明公開
+- 零囤貨訂閱制，下線可超越上線，公平競爭
+- 合法查詢：https://fair.ftc.gov.tw`;
 
-const SYSTEM = `你是綠佳利的 AI 智慧助理，專門協助解答產品、健康、事業機會相關問題。
-
-【回應原則】
-1. 用親切、專業的繁體中文回答，200字以內
-2. 如果有人說他在吃某品牌產品，先確認知識庫有無該競品資料
-3. 有競品資料時：指出成分中的添加物或劣勢，再介紹對應的綠佳利產品優勢
-4. 沒有競品資料時：詢問產品名稱，說明可以為他分析
-5. 優先使用知識庫中的官方資料，不捏造數字
-6. 回答結尾可適當引導：「想了解更多可以聯繫您的夥伴」`;
-
-async function sendMessage(){
-  const text = document.getElementById('userInput').value.trim();
-  if(!text) return;
-
-  if(!isMember && getRemain()<=0){
-    addMessage('ai','您今天的免費問題已用完 🔒\n\n輸入會員碼即可無限使用！');
-    showUpgradeModal();
-    return;
+  if (kb.length > 0) {
+    system += '\n\n【知識庫參考資料】\n' + kb.map(k => `Q:${k.question}\nA:${k.answer}`).join('\n\n');
+    system += '\n\n請參考以上資料，用自己的方式自然表達。';
   }
 
-  document.getElementById('userInput').value='';
-  addMessage('user', text);
-  history.push({role:'user', content:text});
-  if(!isMember) addUsed();
-  updateUsageBar();
-  addTyping();
-
-  const knowledge = await searchKnowledge(text);
-  const systemWithKnowledge = SYSTEM + (knowledge ? `\n\n【知識庫資料】\n${knowledge}` : '');
-
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system:systemWithKnowledge,
-        messages:history
+    // 透過 Cloudflare Worker 呼叫 Claude
+    const res = await fetch(`${WORKER}/claude`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 800,
+        system,
+        messages: [{ role: 'user', content: q }]
       })
     });
-    const data = await res.json();
-    const reply = data.content?.[0]?.text || '抱歉，請稍後再試。';
-    removeTyping();
-    addMessage('ai', reply);
-    history.push({role:'assistant', content:reply});
 
-    // 記錄使用
-    const mc = sessionStorage.getItem('member_code') || 'guest';
-    fetch(`${SUPABASE_URL}/rest/v1/usage_logs`,{
-      method:'POST',
-      headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json'},
-      body:JSON.stringify({member_code:mc, question:text})
-    }).catch(()=>{});
+    document.getElementById('thinking')?.remove();
 
-  } catch(e){
-    removeTyping();
-    addMessage('ai','連線發生問題，請稍後再試。');
+    if (res.ok) {
+      const data = await res.json();
+      const answer = data.content?.[0]?.text;
+      if (answer) {
+        addMsg('ai', fmt(answer));
+      } else {
+        throw new Error('no content');
+      }
+    } else {
+      throw new Error('api error');
+    }
+  } catch(e) {
+    document.getElementById('thinking')?.remove();
+    if (kb.length > 0) {
+      addMsg('ai', fmt(kb[0].answer));
+    } else {
+      addMsg('ai', '抱歉，暫時無法回應。請直接聯繫您的業務夥伴！');
+    }
   }
+
+  busy = false;
+  document.getElementById('sendBtn').disabled = false;
+  document.getElementById('input').focus();
 }
-
-function askQuestion(q){ document.getElementById('userInput').value=q; sendMessage(); }
-
-updateUsageBar();
 </script>
 </body>
 </html>
