@@ -3,143 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>綠佳利 AI 助理</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<title>魷魚大師 AI 助理</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green-mid: #2d6a4f;
-    --green-light: #52b788;
-    --green-pale: #b7e4c7;
-    --gold: #d4a942;
-    --gold-light: #f0c96e;
-    --bg: #0d1f17;
-    --surface: #1c3326;
-    --surface2: #234030;
-    --text: #e8f5ee;
-    --text-dim: #8ab89a;
-    --border: #2d5040;
-    --radius: 14px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Noto Sans TC', sans-serif;
-    background: var(--bg); color: var(--text);
-    height: 100vh; display: flex; flex-direction: column; overflow: hidden;
-  }
-  body::before {
-    content: ''; position: fixed; inset: 0;
-    background: radial-gradient(ellipse at 20% 20%, rgba(82,183,136,0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(212,169,66,0.06) 0%, transparent 50%);
-    pointer-events: none; z-index: 0;
-  }
-  header {
-    position: relative; z-index: 10; padding: 14px 20px;
-    display: flex; align-items: center; gap: 12px;
-    background: rgba(18,32,24,0.97); border-bottom: 1px solid var(--border); flex-shrink: 0;
-  }
-  .logo {
-    width: 40px; height: 40px;
-    background: linear-gradient(135deg, var(--green-mid), var(--green-light));
-    border-radius: 10px; display: flex; align-items: center; justify-content: center;
-    font-size: 20px; flex-shrink: 0; box-shadow: 0 4px 16px rgba(82,183,136,0.3);
-  }
-  .header-text h1 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--green-pale); }
-  .header-text p { font-size: 11px; color: var(--text-dim); margin-top: 1px; }
-  .status { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-dim); }
-  .status::before {
-    content: ''; width: 7px; height: 7px; border-radius: 50%;
-    background: var(--green-light); box-shadow: 0 0 8px var(--green-light);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+:root {
+  --bg1: #0e0a06;
+  --bg2: #160f07;
+  --bg3: #1e1409;
+  --bg4: #28190b;
+  --s1: #3a2410;
+  --s2: #4e3218;
+  --s3: #6b4520;
+  --gold1: #8a6420;
+  --gold2: #c49a3a;
+  --gold3: #e8c46a;
+  --gold4: #f5dfa0;
+  --text1: #f0e4cc;
+  --text2: #c8ad88;
+  --text3: #8a7258;
+  --border: rgba(196,154,58,0.12);
+  --border2: rgba(196,154,58,0.22);
+  --shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg1);
+  color: var(--text1);
+  display: flex; flex-direction: column;
+  height: 100vh; overflow: hidden;
+}
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 10%, rgba(138,100,32,0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 60% at 80% 90%, rgba(196,154,58,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
 
-  #chat { flex: 1; overflow-y: auto; padding: 20px 16px; position: relative; z-index: 1; scroll-behavior: smooth; }
-  #chat::-webkit-scrollbar { width: 4px; }
-  #chat::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+/* HEADER */
+header {
+  position: relative; z-index: 20;
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 24px;
+  background: linear-gradient(180deg, rgba(22,15,7,0.99) 0%, rgba(14,10,6,0.97) 100%);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(196,154,58,0.06), var(--shadow);
+  flex-shrink: 0;
+}
+.logo-wrap { position: relative; flex-shrink: 0; }
+.logo {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--s1) 0%, var(--s2) 50%, var(--gold1) 100%);
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+  box-shadow: 0 4px 16px rgba(138,100,32,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+  border: 1px solid rgba(196,154,58,0.2);
+}
+.logo-glow {
+  position: absolute; inset: -5px; border-radius: 17px;
+  background: radial-gradient(circle, rgba(196,154,58,0.25) 0%, transparent 70%);
+  animation: glow 3s ease-in-out infinite;
+}
+@keyframes glow { 0%,100%{opacity:0.4;transform:scale(0.98)} 50%{opacity:1;transform:scale(1.03)} }
+.header-info h1 {
+  font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 600;
+  background: linear-gradient(135deg, var(--gold3), var(--gold4));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+.header-info p { font-size: 11px; color: var(--text3); margin-top: 2px; letter-spacing: 0.5px; }
+.online {
+  margin-left: auto; display: flex; align-items: center; gap: 7px;
+  padding: 5px 12px; border-radius: 20px;
+  background: rgba(196,154,58,0.08); border: 1px solid var(--border);
+  font-size: 11px; color: var(--gold3);
+}
+.online-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold2); box-shadow: 0 0 6px var(--gold2);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  .welcome {
-    max-width: 760px; margin: 0 auto 20px; padding: 18px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); border-left: 3px solid var(--gold);
-  }
-  .welcome h2 { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--gold-light); margin-bottom: 7px; }
-  .welcome p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
-  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
-  .chip {
-    padding: 5px 12px; background: rgba(212,169,66,0.1);
-    border: 1px solid rgba(212,169,66,0.25); border-radius: 20px;
-    font-size: 12px; color: var(--gold-light); cursor: pointer;
-    font-family: 'Noto Sans TC', sans-serif; transition: all 0.2s;
-  }
-  .chip:hover { background: rgba(212,169,66,0.2); transform: translateY(-1px); }
+/* CHAT */
+#chat {
+  flex: 1; overflow-y: auto; padding: 28px 20px;
+  position: relative; z-index: 1; scroll-behavior: smooth;
+}
+#chat::-webkit-scrollbar { width: 3px; }
+#chat::-webkit-scrollbar-thumb { background: var(--s2); border-radius: 3px; }
 
-  .msg { display: flex; gap: 10px; margin-bottom: 16px; animation: fadeUp 0.3s ease; max-width: 760px; margin-left: auto; margin-right: auto; }
-  .msg.user { flex-direction: row-reverse; }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-  .avatar {
-    width: 32px; height: 32px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; flex-shrink: 0; margin-top: 2px;
-  }
-  .msg.ai .avatar { background: linear-gradient(135deg, var(--green-mid), var(--green-light)); box-shadow: 0 2px 10px rgba(82,183,136,0.25); }
-  .msg.user .avatar { background: var(--surface2); border: 1px solid var(--border); }
-  .bubble { padding: 12px 15px; border-radius: var(--radius); font-size: 14px; line-height: 1.75; max-width: calc(100% - 44px); }
-  .msg.ai .bubble { background: var(--surface); border: 1px solid var(--border); border-top-left-radius: 4px; }
-  .msg.user .bubble { background: linear-gradient(135deg, var(--green-mid), #3a8a63); border-top-right-radius: 4px; color: #fff; }
+.welcome {
+  max-width: 720px; margin: 0 auto 28px;
+  padding: 22px 24px;
+  background: linear-gradient(135deg, rgba(40,25,11,0.9) 0%, rgba(30,20,9,0.95) 100%);
+  border: 1px solid var(--border2);
+  border-top: 1px solid rgba(196,154,58,0.35);
+  border-radius: 20px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(196,154,58,0.08);
+  animation: fadeUp 0.5s ease;
+}
+.welcome-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.welcome h2 {
+  font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 600;
+  background: linear-gradient(135deg, var(--gold2), var(--gold4));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.welcome p { font-size: 13px; color: var(--text2); line-height: 1.8; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chip {
+  padding: 6px 14px;
+  background: rgba(138,100,32,0.1); border: 1px solid rgba(196,154,58,0.18);
+  border-radius: 20px; font-size: 12px; color: var(--gold3);
+  cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+  transition: all 0.25s; letter-spacing: 0.3px;
+}
+.chip:hover {
+  background: rgba(196,154,58,0.18); border-color: rgba(196,154,58,0.45);
+  transform: translateY(-2px); box-shadow: 0 4px 16px rgba(196,154,58,0.15);
+}
 
-  .thinking { display: flex; gap: 5px; align-items: center; padding: 12px 15px; }
-  .thinking span { width: 7px; height: 7px; border-radius: 50%; background: var(--green-light); animation: bounce 1.2s infinite; }
-  .thinking span:nth-child(2) { animation-delay: 0.2s; }
-  .thinking span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes bounce { 0%,60%,100%{transform:translateY(0);opacity:0.4} 30%{transform:translateY(-6px);opacity:1} }
+.msg {
+  display: flex; gap: 12px; margin-bottom: 20px;
+  max-width: 720px; margin-left: auto; margin-right: auto;
+  width: 100%; animation: fadeUp 0.35s ease;
+}
+.msg.user { flex-direction: row-reverse; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 
-  .input-area {
-    position: relative; z-index: 10; padding: 14px 16px;
-    background: rgba(18,32,24,0.97); border-top: 1px solid var(--border); flex-shrink: 0;
-  }
-  .input-wrap { max-width: 760px; margin: 0 auto; display: flex; gap: 10px; align-items: flex-end; }
-  textarea {
-    flex: 1; background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 11px 15px; color: var(--text);
-    font-family: 'Noto Sans TC', sans-serif; font-size: 14px;
-    resize: none; min-height: 46px; max-height: 130px; outline: none;
-    transition: border-color 0.2s; line-height: 1.5;
-  }
-  textarea::placeholder { color: var(--text-dim); }
-  textarea:focus { border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(82,183,136,0.1); }
-  .send-btn {
-    width: 46px; height: 46px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--green-mid), var(--green-light));
-    border: none; cursor: pointer; display: flex; align-items: center;
-    justify-content: center; font-size: 17px; transition: all 0.2s; flex-shrink: 0;
-    box-shadow: 0 4px 14px rgba(82,183,136,0.3);
-  }
-  .send-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(82,183,136,0.4); }
-  .send-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-  .highlight { color: var(--gold-light); font-weight: 500; }
-  @media(max-width:600px) {
-    header { padding: 10px 14px; }
-    #chat { padding: 14px 10px; }
-    .input-area { padding: 10px 12px; }
-  }
+.avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0; margin-top: 2px;
+}
+.msg.ai .avatar {
+  background: linear-gradient(135deg, var(--s2), var(--gold1));
+  border: 1px solid rgba(196,154,58,0.25);
+  box-shadow: 0 2px 12px rgba(138,100,32,0.35);
+}
+.msg.user .avatar {
+  background: var(--bg3); border: 1px solid var(--border);
+}
+
+.bubble {
+  padding: 14px 18px; font-size: 14px; line-height: 1.85;
+  max-width: calc(100% - 50px);
+}
+.msg.ai .bubble {
+  background: linear-gradient(135deg, rgba(40,25,11,0.8) 0%, rgba(30,20,9,0.9) 100%);
+  border: 1px solid var(--border2);
+  border-radius: 4px 18px 18px 18px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(196,154,58,0.06);
+  color: var(--text1);
+}
+.msg.user .bubble {
+  background: linear-gradient(135deg, var(--s2) 0%, var(--s3) 100%);
+  border: 1px solid rgba(196,154,58,0.25);
+  border-radius: 18px 4px 18px 18px;
+  box-shadow: 0 4px 20px rgba(78,50,24,0.4);
+  color: var(--gold4);
+}
+
+.thinking-dots { display: flex; gap: 6px; align-items: center; padding: 4px 0; }
+.thinking-dots span {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold2); animation: bounce 1.4s ease-in-out infinite;
+}
+.thinking-dots span:nth-child(2) { animation-delay: 0.2s; opacity: 0.7; }
+.thinking-dots span:nth-child(3) { animation-delay: 0.4s; opacity: 0.5; }
+@keyframes bounce { 0%,80%,100%{transform:scale(0.6);opacity:0.3} 40%{transform:scale(1.1);opacity:1} }
+
+.bubble h3 { font-family: 'Noto Serif TC', serif; font-size: 14px; color: var(--gold3); margin: 12px 0 6px; }
+.bubble h3:first-child { margin-top: 0; }
+.bubble strong { color: var(--gold4); font-weight: 500; }
+.bubble .hl { color: var(--gold3); font-weight: 500; }
+.bubble ul { padding-left: 18px; margin: 6px 0; }
+.bubble ul li { margin-bottom: 5px; color: var(--text2); }
+.bubble hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+
+/* INPUT */
+.input-area {
+  position: relative; z-index: 20;
+  padding: 16px 20px 20px;
+  background: linear-gradient(0deg, rgba(14,10,6,0.99) 0%, rgba(14,10,6,0.95) 100%);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.input-wrap {
+  max-width: 720px; margin: 0 auto;
+  display: flex; gap: 10px; align-items: flex-end;
+  background: rgba(30,20,9,0.9);
+  border: 1px solid var(--border2); border-radius: 16px;
+  padding: 8px 8px 8px 16px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(196,154,58,0.04);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-wrap:focus-within {
+  border-color: rgba(196,154,58,0.4);
+  box-shadow: var(--shadow), 0 0 0 3px rgba(196,154,58,0.07);
+}
+textarea {
+  flex: 1; background: transparent; border: none; outline: none;
+  color: var(--text1); font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px; resize: none; min-height: 24px; max-height: 120px;
+  line-height: 1.6; padding: 4px 0;
+}
+textarea::placeholder { color: var(--text3); }
+.send-btn {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--gold1), var(--gold2));
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: #1a1005;
+  box-shadow: 0 4px 14px rgba(196,154,58,0.35);
+  transition: all 0.2s;
+}
+.send-btn:hover { transform: scale(1.06); box-shadow: 0 6px 20px rgba(196,154,58,0.5); }
+.send-btn:active { transform: scale(0.97); }
+.send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.input-hint { max-width: 720px; margin: 8px auto 0; font-size: 11px; color: var(--text3); text-align: center; }
+
+@media(max-width:600px) {
+  header { padding: 10px 16px; }
+  #chat { padding: 16px 12px; }
+  .input-area { padding: 12px 12px 16px; }
+  .bubble { font-size: 13px; }
+}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="logo">🌿</div>
-  <div class="header-text">
-    <h1>綠佳利 AI 助理</h1>
-    <p>再生醫學 · 事業諮詢 · 疑慮解答</p>
+  <div class="logo-wrap">
+    <div class="logo-glow"></div>
+    <div class="logo">🌿</div>
   </div>
-  <div class="status">線上服務中</div>
+  <div class="header-info">
+    <h1>魷魚大師 AI 助理</h1>
+    <p>預防再生商機 · 事業諮詢 · 疑慮解答</p>
+  </div>
+  <div class="online"><div class="online-dot"></div>線上服務中</div>
 </header>
 
 <div id="chat">
   <div class="welcome">
-    <h2>您好，我是綠佳利 AI 助理 ✨</h2>
-    <p>我可以協助了解產品知識、事業制度、疑慮解答，以及與其他品牌的比較分析。請直接輸入您的問題！</p>
+    <div class="welcome-header">
+      <span style="font-size:20px">✨</span>
+      <h2>您好，我是魷魚大師 AI 助理</h2>
+    </div>
+    <p>我可以協助了解產品知識、事業制度、疑慮解答，以及競品比較分析。請直接輸入您的問題！</p>
     <div class="chips">
-      <span class="chip" onclick="quickAsk('喚活產品有什麼特色？')">🌱 產品特色</span>
+      <span class="chip" onclick="quickAsk('喚活產品有什麼特色？')">🌱 喚活特色</span>
       <span class="chip" onclick="quickAsk('綠佳利的獎金制度怎麼運作？')">💰 獎金制度</span>
       <span class="chip" onclick="quickAsk('有人說這是老鼠會，怎麼回答？')">🛡️ 疑慮處理</span>
       <span class="chip" onclick="quickAsk('跟安麗相比有什麼優勢？')">⚡ 競品比較</span>
@@ -151,10 +266,13 @@
 
 <div class="input-area">
   <div class="input-wrap">
-    <textarea id="input" placeholder="輸入您的問題..." rows="1"
+    <textarea id="input" placeholder="輸入您的問題，例如：喚活和市面保健品有什麼不同？" rows="1"
       onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
-    <button class="send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
+    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </button>
   </div>
+  <p class="input-hint">由 Claude AI × Supabase 驅動 · 知識庫含 421 筆資料</p>
 </div>
 
 <script>
@@ -163,13 +281,14 @@ let busy = false;
 
 function autoResize(el) {
   el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 130) + 'px';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
 }
 function handleKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
 }
 function quickAsk(q) {
   document.getElementById('input').value = q;
+  autoResize(document.getElementById('input'));
   sendMessage();
 }
 function addMsg(role, html) {
@@ -184,7 +303,7 @@ function showThinking() {
   const chat = document.getElementById('chat');
   const d = document.createElement('div');
   d.className = 'msg ai'; d.id = 'thinking';
-  d.innerHTML = `<div class="avatar">🌿</div><div class="bubble"><div class="thinking"><span></span><span></span><span></span></div></div>`;
+  d.innerHTML = `<div class="avatar">🌿</div><div class="bubble"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
   chat.appendChild(d);
   chat.scrollTop = chat.scrollHeight;
 }
@@ -194,25 +313,28 @@ function esc(s) {
 function fmt(s) {
   return s
     .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/^#{1,3}\s+(.+)$/gm,'<h3>$1</h3>')
     .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-    .replace(/【(.+?)】/g,'<span class="highlight">【$1】</span>')
-    .replace(/\n/g,'<br>');
+    .replace(/【(.+?)】/g,'<span class="hl">【$1】</span>')
+    .replace(/^---$/gm,'<hr>')
+    .replace(/^[-•]\s+(.+)$/gm,'<li>$1</li>')
+    .replace(/\n/g,'<br>')
+    .replace(/<br><h3>/g,'<h3>')
+    .replace(/<\/h3><br>/g,'</h3>');
 }
-
 async function fetchKB(query) {
   const kw = encodeURIComponent(query.slice(0,12));
   try {
-    const [r1, r2] = await Promise.all([
+    const [r1,r2] = await Promise.all([
       fetch(`${WORKER}/rest/v1/knowledge_base?question=ilike.*${kw}*&limit=4&select=question,answer`),
       fetch(`${WORKER}/rest/v1/knowledge_base?answer=ilike.*${kw}*&limit=4&select=question,answer`)
     ]);
-    const [d1, d2] = await Promise.all([r1.json(), r2.json()]);
-    const all = [...(d1||[]), ...(d2||[])];
+    const [d1,d2] = await Promise.all([r1.json(),r2.json()]);
+    const all = [...(d1||[]),...(d2||[])];
     const seen = new Set();
-    return all.filter(r => { if(seen.has(r.question)) return false; seen.add(r.question); return true; }).slice(0,5);
-  } catch(e) { return []; }
+    return all.filter(r=>{ if(seen.has(r.question)) return false; seen.add(r.question); return true; }).slice(0,5);
+  } catch(e){ return []; }
 }
-
 async function sendMessage() {
   if (busy) return;
   const inp = document.getElementById('input');
@@ -221,64 +343,37 @@ async function sendMessage() {
   inp.value = ''; inp.style.height = 'auto';
   busy = true;
   document.getElementById('sendBtn').disabled = true;
-
   addMsg('user', esc(q));
   showThinking();
-
   const kb = await fetchKB(q);
+  let system = `你是綠佳利（環貫綠佳利股份有限公司）的 AI 業務助理。
 
-  let system = `你是綠佳利（環貫綠佳利股份有限公司）的 AI 業務助理，協助業務夥伴回答問題。
-
-風格：溫暖有力、理性感性兼具、繁體中文、簡潔有力不冗長。
+風格：溫暖有力、理性感性兼具、繁體中文、簡潔不冗長、適當條列但少用標題。
 
 核心優勢：
 - 1999年日本成立，台灣2002年合法報備（統編80538622）
 - 再生醫學賽道，全球獨家喚活（幹細胞活化技術）
-- 黃金三角：識霸（護衛）＋ 活美水（清道夫）＋ 喚活（建設）
-- 20年從不延誤獎金，撥發率透明公開
-- 零囤貨訂閱制，下線可超越上線，公平競爭
+- 黃金三角：識霸（護衛）＋活美水（清道夫）＋喚活（建設）
+- 20年從不延誤獎金，零囤貨訂閱制，下線可超越上線
 - 合法查詢：https://fair.ftc.gov.tw`;
-
-  if (kb.length > 0) {
-    system += '\n\n【知識庫參考資料】\n' + kb.map(k => `Q:${k.question}\nA:${k.answer}`).join('\n\n');
-    system += '\n\n請參考以上資料，用自己的方式自然表達。';
-  }
-
+  if (kb.length > 0) system += '\n\n【知識庫參考】\n' + kb.map(k=>`Q:${k.question}\nA:${k.answer}`).join('\n\n');
   try {
-    // 透過 Cloudflare Worker 呼叫 Claude
     const res = await fetch(`${WORKER}/claude`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5',
-        max_tokens: 800,
-        system,
-        messages: [{ role: 'user', content: q }]
-      })
+      body: JSON.stringify({ model:'claude-haiku-4-5', max_tokens:800, system, messages:[{role:'user',content:q}] })
     });
-
     document.getElementById('thinking')?.remove();
-
     if (res.ok) {
       const data = await res.json();
       const answer = data.content?.[0]?.text;
-      if (answer) {
-        addMsg('ai', fmt(answer));
-      } else {
-        throw new Error('no content');
-      }
-    } else {
-      throw new Error('api error');
-    }
+      if (answer) { addMsg('ai', fmt(answer)); } else { throw new Error(); }
+    } else { throw new Error(); }
   } catch(e) {
     document.getElementById('thinking')?.remove();
-    if (kb.length > 0) {
-      addMsg('ai', fmt(kb[0].answer));
-    } else {
-      addMsg('ai', '抱歉，暫時無法回應。請直接聯繫您的業務夥伴！');
-    }
+    if (kb.length > 0) { addMsg('ai', fmt(kb[0].answer)); }
+    else { addMsg('ai', '抱歉，暫時無法回應。請直接聯繫您的業務夥伴！'); }
   }
-
   busy = false;
   document.getElementById('sendBtn').disabled = false;
   document.getElementById('input').focus();
