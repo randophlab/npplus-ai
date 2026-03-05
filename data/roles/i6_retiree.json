@@ -1,0 +1,2064 @@
+{
+  "id": "i6",
+  "name": "退休銀髮",
+  "icon": "👴",
+  "keywords": [
+    "醫療支出",
+    "投資詐騙",
+    "孤獨感",
+    "啃老族"
+  ],
+  "description": "退休人士，面對醫療支出、投資詐騙、孤獨感和子女啃老的困境。",
+  "questions": [
+    {
+      "id": "i6_q1",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #1",
+      "desc": "你在公園認識的「好朋友」介紹你買「生基位（靈骨塔）」，說轉手能賺 3 倍，還可以節稅。",
+      "choices": [
+        {
+          "text": "【買！】「棺材本拿來拚一把！」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "典型的靈骨塔詐騙。對方拿了錢就跑，你買了一堆賣不掉的塔位。退休金歸零。"
+        },
+        {
+          "text": "【拒絕】「我以後要海葬，不用塔位。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "朋友翻臉不理你。你保住了老本，也看清了人性。"
+        },
+        {
+          "text": "【介紹給兒女】「叫兒子來處理投資。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "兒子把你罵一頓：「爸/媽你老糊塗了嗎！」家庭氣氛變差。"
+        },
+        {
+          "text": "【反推銷】「我這裡有更好的保健品，你要不要？」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "詐騙集團遇到直銷魔人。對方嚇跑了。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q2",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #2",
+      "desc": "接到自稱「檢察官」的電話，說你的帳戶涉嫌洗錢，要監管你的存款，不然會被抓去關。",
+      "choices": [
+        {
+          "text": "【乖乖匯款】「我不想坐牢啊！」",
+          "type": "🔴 激進",
+          "money": -50,
+          "sanity": -20,
+          "reputation": -20,
+          "feedback": "老梗詐騙，但還是很多人上當。你的畢生積蓄沒了，子女氣到不理你。"
+        },
+        {
+          "text": "【掛電話】「詐騙集團去死！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "正確做法。防詐意識 100 分。"
+        },
+        {
+          "text": "【去警察局求證】親自跑一趟派出所",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "警察伯伯安撫你，還給你反詐騙宣導單。安全。"
+        },
+        {
+          "text": "【整詐騙集團】「我錢都燒給祖先了，你去跟他們拿。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "對方罵髒話掛電話。你覺得很舒壓。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q3",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #3",
+      "desc": "兒子創業失敗，回家哭著要你拿房子去抵押借錢給他周轉，不借就去死。",
+      "choices": [
+        {
+          "text": "【抵押借錢】「我就這一個兒子...」",
+          "type": "🔴 激進",
+          "money": -40,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "慈母多敗兒。兒子拿錢又賠光了，現在你們全家都要睡公園。"
+        },
+        {
+          "text": "【拒絕】「老本不能動，你自己負責。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "兒子大鬧一場後離家出走。很心痛，但至少你還有房子住。"
+        },
+        {
+          "text": "【給一點點】「只能給你 10 萬，省著點用。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "兒子嫌少，拿了錢還是不爽。無底洞。"
+        },
+        {
+          "text": "【斷絕關係】「我沒你這個兒子！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "兒子嚇到了。你保住了財產，但失去了親情（暫時）。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q4",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #4",
+      "desc": "你在 Line 群組看到「飆股老師」帶進帶出，群友都貼賺錢截圖，說這是老人的翻身機會。",
+      "choices": [
+        {
+          "text": "【加入會員】匯款加入 VIP 群組",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "前面讓你小賺，後面叫你梭哈然後割韭菜。典型的養套殺。"
+        },
+        {
+          "text": "【潛水觀察】只看不買",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "天天看別人賺錢心很癢。最後還是忍不住投了一點。"
+        },
+        {
+          "text": "【退出群組】「天下沒有白吃的午餐。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "遠離誘惑。把錢存在定存最實在。"
+        },
+        {
+          "text": "【發長輩圖洗版】每天發早安圖騷擾群組",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "詐騙集團受不了把你踢出群組。你用魔法打敗了魔法。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q5",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #5",
+      "desc": "地下電台賣的「神效固腎丸」，說吃了腰不酸腿不痛，一組 5000 元。",
+      "choices": [
+        {
+          "text": "【買！】「聽說隔壁老王吃了有效。」",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "吃了真的不痛（因為加了類固醇）。長期吃導致洗腎。"
+        },
+        {
+          "text": "【不買】「我有健保，看醫生就好。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "正確觀念。雖然醫生開的藥比較慢好，但安全。"
+        },
+        {
+          "text": "【買給老伴吃】「我不吃，給老伴補一下。」",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "老伴吃出問題住院。你很內疚（或假裝沒事）。"
+        },
+        {
+          "text": "【打電話去聊天】「主持人聲音很好聽...」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "純粹排遣寂寞。主持人一直推銷，你一直裝傻。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q6",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #6",
+      "desc": "媳婦說要上班，要把剛出生的孫子丟給你帶（無償保母），但你已經規劃好要去旅遊了。",
+      "choices": [
+        {
+          "text": "【犧牲自己】「好吧，阿公/阿嬤來帶。」",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -20,
+          "reputation": 5,
+          "feedback": "累到腰酸背痛，旅遊泡湯。還要被媳婦嫌帶得不好（育兒觀念衝突）。"
+        },
+        {
+          "text": "【堅決拒絕】「我老了帶不動，請保母吧。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "媳婦不高興，甚至不讓你見孫子。但你獲得了自由。"
+        },
+        {
+          "text": "【出錢請保母】「我贊助保母費，我不帶。」",
+          "type": "🔵 妥協",
+          "money": -15,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "花錢消災。皆大歡喜，除了你的荷包。"
+        },
+        {
+          "text": "【裝病】「哎唷我最近血壓高，怕摔到孫子。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "媳婦不敢冒險。你成功逃避責任，繼續去旅遊。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q7",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #7",
+      "desc": "你的老伴過世了，剩下你一個人住 50 坪的大房子，覺得很空虛寂寞冷。",
+      "choices": [
+        {
+          "text": "【出租房間】把空房間租給大學生",
+          "type": "🟢 保守",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "家裡有人氣，還有租金收。青銀共居，但也有些生活習慣摩擦。"
+        },
+        {
+          "text": "【賣房去養老院】「住高級養生村，有人照顧。」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "花光積蓄享受晚年。不用擔心孤獨死。兒女可能會抗議（遺產變少了）。"
+        },
+        {
+          "text": "【找黃昏之戀】「我要再找一個老伴！」",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "子女反對，怕你被騙錢。但你覺得人生苦短，快樂就好。"
+        },
+        {
+          "text": "【養寵物】養一隻狗陪自己",
+          "type": "🔵 妥協",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "有了寄託。但要處理寵物的大小便，身體負擔增加。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q8",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #8",
+      "desc": "在網路上認識一位「美國軍醫/戰地醫生」，說要寄一箱黃金給你，但卡在海關要手續費。",
+      "choices": [
+        {
+          "text": "【匯款】「親愛的，我馬上匯！」",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "愛情詐騙。錢沒了，軍醫消失了。你心碎了。"
+        },
+        {
+          "text": "【懷疑】「我們視訊我就匯。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "對方找理由拒絕，然後封鎖你。你躲過一劫。"
+        },
+        {
+          "text": "【封鎖】「這劇本太老了。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "理智的老人。"
+        },
+        {
+          "text": "【反騙】「我匯了，收據在這裡（P圖）。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "跟詐騙集團玩心理戰。對方氣急敗壞。你覺得很有趣。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q9",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #9",
+      "desc": "去銀行臨櫃匯款 300 萬，行員覺得可疑，找警察來關心你（阻詐）。",
+      "choices": [
+        {
+          "text": "【堅持匯款】「這是我家務事，你們管不著！」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": -10,
+          "reputation": -10,
+          "feedback": "警察勸不住。錢匯出去了，果然是詐騙。你哭著回警察局報案。"
+        },
+        {
+          "text": "【聽警察的】「好吧，那我先暫停。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "冷靜下來後發現真的是詐騙。保住了養老金。感謝行員和警察。"
+        },
+        {
+          "text": "【騙警察】「這是我兒子買房要用的。」（照詐騙集團劇本講）",
+          "type": "🟣 黑化",
+          "money": -30,
+          "sanity": -20,
+          "reputation": -20,
+          "feedback": "你配合騙子騙警察。最後錢沒了，沒人同情你。"
+        },
+        {
+          "text": "【猶豫】在銀行坐了一下午",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "最後銀行關門了，沒匯成。運氣好。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q10",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #10",
+      "desc": "參加「免費一日遊」進香團，結果被載到工廠關起來推銷「遠紅外線床墊」，一張 10 萬。",
+      "choices": [
+        {
+          "text": "【腦波弱買了】「聽說能治百病...」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "回家被子女罵翻。床墊根本沒用，還佔位子。"
+        },
+        {
+          "text": "【堅決不買】「我沒帶錢！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "被業務員圍攻洗腦兩小時。最後還是沒買，平安回家。"
+        },
+        {
+          "text": "【吃光試吃品】「不買，但我肚子餓。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "臉皮超厚。業務員看你沒救了，放棄推銷。"
+        },
+        {
+          "text": "【假裝打電話】「喂？兒子啊？你要來接我？」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "業務員怕惹麻煩，放你一馬。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q11",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #11",
+      "desc": "你的 LINE 群組每天都有人傳幾百張「早安圖」、「認同請分享」，手機容量爆了。",
+      "choices": [
+        {
+          "text": "【天天清理】每天手動刪除圖片",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "很累，但維持了手機運作。這是老人的數位勞動。"
+        },
+        {
+          "text": "【退群】「太吵了！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "朋友覺得你孤僻。錯過了里長發米的訊息。"
+        },
+        {
+          "text": "【買新手機】「容量大一點的！」叫兒子買",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "兒子花錢消災。你可以存更多早安圖了。"
+        },
+        {
+          "text": "【回傳更多】「我也轉發！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "你成為了早安圖的傳播者。互相傷害。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q12",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #12",
+      "desc": "去超市買東西，不會用自助結帳機，後面年輕人排隊排得很不耐煩。",
+      "choices": [
+        {
+          "text": "【求救】「年輕人，幫幫阿姨/阿伯...」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "年輕人雖然不耐煩，但還是幫了你。社會還是有溫暖的。"
+        },
+        {
+          "text": "【去人工櫃台】「我排隊就好。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "人工櫃台大排長龍。你站得腳很酸。"
+        },
+        {
+          "text": "【慢慢摸索】「我就不信我學不會！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "搞了很久，後面的人翻白眼。最後還是店員來救你。"
+        },
+        {
+          "text": "【不買了】「這麼麻煩，不買了！」丟下籃子走人",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "奧客行為。造成店員困擾。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q13",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #13",
+      "desc": "你的老花眼越來越嚴重，連藥袋上的字都看不清楚，吃錯藥。",
+      "choices": [
+        {
+          "text": "【配老花眼鏡】花錢配一副好的",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "看清楚了。生活品質改善。"
+        },
+        {
+          "text": "【叫子女幫忙】把藥分裝好，寫大字",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "子女覺得麻煩，但為了你的安全還是做了。"
+        },
+        {
+          "text": "【憑感覺吃】「這顆應該是降血壓的...」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "吃到安眠藥，睡了一整天。危險動作。"
+        },
+        {
+          "text": "【拿放大鏡】隨身攜帶放大鏡",
+          "type": "🟣 黑化",
+          "money": -1,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "像個偵探一樣。雖然有點怪，但有效。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q14",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #14",
+      "desc": "孫子回來了，一直玩手機不理你，你想跟他聊天。",
+      "choices": [
+        {
+          "text": "【給零用錢】「叫一聲阿公/阿嬤給 1000！」",
+          "type": "🟣 黑化",
+          "money": -1,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "孫子馬上放下手機黏著你。金錢萬能。但建立了錯誤的價值觀。"
+        },
+        {
+          "text": "【默默煮飯】煮一桌好菜吸引他",
+          "type": "🟢 保守",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "孫子吃得很開心。用食物抓住他的胃。"
+        },
+        {
+          "text": "【唸他】「整天玩手機，眼睛會瞎掉！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "孫子嫌你煩，躲進房間。關係更差。"
+        },
+        {
+          "text": "【學玩手機】「教阿公/阿嬤玩這個遊戲。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "跟孫子有共同話題。雖然你學很慢，但孫子覺得你很酷。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q15",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #15",
+      "desc": "在公園下棋/跳舞，跟別的老人為了佔位子吵架。",
+      "choices": [
+        {
+          "text": "【大聲吵架】「這是我先來的！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "兩個老人在公園互罵。路人看笑話。血壓飆高。"
+        },
+        {
+          "text": "【讓位】「沒關係，我去旁邊。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "以和為貴。對方覺得不好意思，下次換他讓你。"
+        },
+        {
+          "text": "【找同伴助陣】烙人來佔位",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "公園變成幫派地盤。氣氛緊張。"
+        },
+        {
+          "text": "【早起佔位】凌晨 4 點就去放東西",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "睡眠不足。但位子是你的了。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q16",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "退休銀髮危機 #16",
+      "desc": "通貨膨脹，物價飛漲，你的退休金（定存利息）越來越不夠用。",
+      "choices": [
+        {
+          "text": "【省吃儉用】少吃一餐，不開冷氣",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "生活品質下降，身體變差。苦行僧生活。"
+        },
+        {
+          "text": "【投資股票】「要把錢變大！」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "如果是買 ETF 還好，如果是買飆股...老本可能賠光。"
+        },
+        {
+          "text": "【以房養老】把房子抵押給銀行換生活費",
+          "type": "🔵 妥協",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "每個月有錢領了。但房子以後不是兒女的，兒女可能會反對。"
+        },
+        {
+          "text": "【跟子女要錢】「孝親費該漲了吧？」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "子女壓力大，臉色不好看。變成討債關係。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q17",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "退休銀髮危機 #17",
+      "desc": "你的房子太老舊，漏水壁癌嚴重，維修要花一大筆錢，但不修不能住。",
+      "choices": [
+        {
+          "text": "【花錢修】動用養老金修繕",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "住得舒服了，但存款少了。心痛。"
+        },
+        {
+          "text": "【賣掉換屋】「大屋換小屋，舊屋換新屋。」",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "搬到有電梯的小公寓。雖然空間變小，但生活方便多了。"
+        },
+        {
+          "text": "【住子女家】「我去跟兒子住！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -10,
+          "feedback": "婆媳問題/代溝產生。每天看臉色。寄人籬下的感覺不好受。"
+        },
+        {
+          "text": "【不修了】「將就住，反正快死了（誤）。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "住在黴菌屋裡，呼吸道出問題。生活品質極差。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q18",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "退休銀髮危機 #18",
+      "desc": "子女要買房/創業，回來求你贊助頭期款/創業金，那是你的棺材本。",
+      "choices": [
+        {
+          "text": "【給！】「為了孩子，我願意！」",
+          "type": "🟢 保守",
+          "money": -30,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "子女很感激。但你身上沒錢了，以後生病怎麼辦？"
+        },
+        {
+          "text": "【不給】「我也要生活，你們自己努力。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "子女怨恨你。親情疏遠。但你保障了自己的晚年。"
+        },
+        {
+          "text": "【借給他】「要寫借據，要算利息。」",
+          "type": "🔵 妥協",
+          "money": -30,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "子女通常不會還。變相的贈與。"
+        },
+        {
+          "text": "【裝窮】「我也沒錢啊，都被套牢了。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "成功守住錢。但要一直演戲。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q19",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "退休銀髮危機 #19",
+      "desc": "保險業務員推銷你「投資型保單」，說比定存好，身故還有保障。",
+      "choices": [
+        {
+          "text": "【買！】「簽下去！」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "高齡投保費用很高，而且投資有風險。本金被吃掉一大半。"
+        },
+        {
+          "text": "【拒絕】「我只存定存。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "安全。保險業務員失望離開。"
+        },
+        {
+          "text": "【問子女意見】「我回去問我有在銀行的兒子。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "兒子一看就知道是坑，幫你擋掉了。家有一老如有一寶（還是要有年輕人把關）。"
+        },
+        {
+          "text": "【只要贈品】「送我米我就聽你講。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "拿了贈品不買。貪小便宜。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q20",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "退休銀髮危機 #20",
+      "desc": "你的老車一直壞，修車費很貴，但又不捨得報廢，也不想花大錢買新車。",
+      "choices": [
+        {
+          "text": "【繼續修】「有感情了...」",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "無底洞。半路拋錨很危險。"
+        },
+        {
+          "text": "【報廢】改搭公車/計程車",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "行動受限，但省錢又安全。這是老化的過程。"
+        },
+        {
+          "text": "【買新車】「最後一台車，買好一點！」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "花了大錢，但開得很爽。享受人生。"
+        },
+        {
+          "text": "【開兒子的車】「你的車借我開。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "兒子不方便，但也敢怒不敢言。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q21",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "退休銀髮危機 #21",
+      "desc": "媳婦煮的菜不合你胃口（太淡/太鹹），你要怎麼辦？",
+      "choices": [
+        {
+          "text": "【直說】「這太難吃了，我教妳煮！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "媳婦受傷，以後不煮了。「爸，那你自己煮。」"
+        },
+        {
+          "text": "【默默吃】「有得吃就好。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "好公婆。但委屈了自己。"
+        },
+        {
+          "text": "【偷偷加料】自己加醬油/水",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "和平解決。但媳婦可能會發現。"
+        },
+        {
+          "text": "【出去吃】「我約了朋友吃飯（其實是去吃麵）。」",
+          "type": "🟣 黑化",
+          "money": -2,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "媳婦覺得你難搞。但你吃得很開心。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q22",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "退休銀髮危機 #22",
+      "desc": "鄰居的狗一直叫，吵得你睡不著，你神經衰弱。",
+      "choices": [
+        {
+          "text": "【跟鄰居吵架】「管好你的狗！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "鄰居不理你，反而叫得更大聲。惡鄰居無解。"
+        },
+        {
+          "text": "【忍耐】戴耳塞睡覺",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "還是聽得到。精神狀況變差。"
+        },
+        {
+          "text": "【報警/環保局】檢舉噪音",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "警察來勸導。安靜了兩天，然後又開始。"
+        },
+        {
+          "text": "【餵狗吃安眠藥】（違法）",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -50,
+          "feedback": "被發現。被告虐待動物。晚節不保。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q23",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "退休銀髮危機 #23",
+      "desc": "過年親戚聚會，大家都在炫耀子女成就，你的子女工作普通/單身。",
+      "choices": [
+        {
+          "text": "【吹牛】「我兒子在做大生意（其實是外送）。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "被拆穿就丟臉了。虛榮心作祟。"
+        },
+        {
+          "text": "【轉移話題】「健康最重要啦，來吃菜。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "有智慧的長者。不隨波逐流。"
+        },
+        {
+          "text": "【沉默】微笑聽大家吹牛",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "心裡酸酸的。回家唸子女：「你看表哥多厲害...」"
+        },
+        {
+          "text": "【酸回去】「賺那麼多有什麼用，都不回家看父母。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -20,
+          "feedback": "全場尷尬。你贏了面子，輸了人和。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q24",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "退休銀髮危機 #24",
+      "desc": "在公車/捷運上，年輕人沒讓座，你腳很痠。",
+      "choices": [
+        {
+          "text": "【直接叫他起來】「年輕人，這是博愛座！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "年輕人可能不舒服/不爽，跟你吵架。被錄影上傳「老人倚老賣老」。"
+        },
+        {
+          "text": "【硬撐】站著",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "腳很痛，回家要貼貼布。但展現了長者風範。"
+        },
+        {
+          "text": "【大聲嘆氣】「唉～現在年輕人都沒禮貌...」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "情緒勒索。有人會讓座，但全車都在看你。"
+        },
+        {
+          "text": "【客氣詢問】「不好意思，我腳不太方便，可以讓位嗎？」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "通常年輕人都會讓。禮貌溝通最有效。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q25",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "退休銀髮危機 #25",
+      "desc": "你的老伴迷上了跳土風舞/唱歌，每天往外跑，跟別的異性互動親密，你吃醋。",
+      "choices": [
+        {
+          "text": "【跟著去】「我也要去跳/唱！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "宣示主權。而且運動對身體好。夫妻感情增溫。"
+        },
+        {
+          "text": "【禁止他去】「不准去！在家陪我！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "老伴覺得你控制狂，吵架。他會偷偷去。"
+        },
+        {
+          "text": "【生悶氣】在家擺臭臉",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "老伴覺得莫名其妙。家庭氣氛低氣壓。"
+        },
+        {
+          "text": "【我也去找樂子】「你玩你的，我玩我的。」",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 10,
+          "reputation": -5,
+          "feedback": "各自精彩（或各自外遇）。開放式關係？"
+        }
+      ]
+    },
+    {
+      "id": "i6_q26",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "退休銀髮危機 #26",
+      "desc": "牙齒掉光了，假牙不合嘴，吃東西很痛苦，植牙要花 100 萬。",
+      "choices": [
+        {
+          "text": "【植牙】「把養老金拿出來！」",
+          "type": "🟢 保守",
+          "money": -30,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "恢復了咀嚼能力，能吃是福。雖然貴，但值得。"
+        },
+        {
+          "text": "【做活動假牙】便宜很多",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "容易鬆動，硬的東西不能吃。生活品質打折。"
+        },
+        {
+          "text": "【吃流質食物】「喝粥就好。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "營養不良，身體變差。人生少了樂趣。"
+        },
+        {
+          "text": "【叫子女出】「你們一人出 20 萬。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "子女壓力大。可能會推託。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q27",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "退休銀髮危機 #27",
+      "desc": "膝蓋退化，走路會痛，醫生建議換人工關節，你怕開刀。",
+      "choices": [
+        {
+          "text": "【開刀】長痛不如短痛",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "復健很痛，但之後能走了。可以去旅遊了。"
+        },
+        {
+          "text": "【打玻尿酸/PRP】",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "每半年要打一次，也是一筆開銷。效果遞減。"
+        },
+        {
+          "text": "【坐輪椅】放棄走路",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "肌肉萎縮，身體機能下降更快。變成被照顧者。"
+        },
+        {
+          "text": "【吃保健品】",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "沒用。延誤治療。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q28",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "退休銀髮危機 #28",
+      "desc": "記性越來越差，出門忘記帶鑰匙，煮飯忘記關火，懷疑自己失智。",
+      "choices": [
+        {
+          "text": "【看神經內科】做檢查",
+          "type": "🟢 保守",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "早期發現早期治療。吃藥延緩退化。"
+        },
+        {
+          "text": "【不承認】「我只是累了，老了都這樣。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "錯過黃金治療期。某天走失了回不來。"
+        },
+        {
+          "text": "【貼便利貼】到處貼提醒",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "有幫助。但還是會忘記看便利貼。"
+        },
+        {
+          "text": "【買防走失手環】",
+          "type": "🟣 黑化",
+          "money": -2,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "未雨綢繆。但心裡覺得自己像犯人。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q29",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "退休銀髮危機 #29",
+      "desc": "晚上頻尿，一晚起來 5 次，睡眠品質極差，白天精神恍惚。",
+      "choices": [
+        {
+          "text": "【看泌尿科】吃藥控制",
+          "type": "🟢 保守",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "改善很多。終於能睡好覺了。"
+        },
+        {
+          "text": "【穿尿布】",
+          "type": "🟣 黑化",
+          "money": -2,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "自尊心受創。但不用起床了。"
+        },
+        {
+          "text": "【少喝水】晚上不喝水",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "口渴難耐。而且尿還是很多（因為攝護腺問題）。"
+        },
+        {
+          "text": "【忍耐】",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "在馬桶和床之間折返跑。跌倒風險高。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q30",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "退休銀髮危機 #30",
+      "desc": "老伴走了，剩下你一個人，孤獨感襲來，覺得人生沒意義。",
+      "choices": [
+        {
+          "text": "【參加社團】去老人大學/社區中心",
+          "type": "🟢 保守",
+          "money": -2,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "交了新朋友，生活有重心。第二春（？）"
+        },
+        {
+          "text": "【整天看電視】對著電視講話",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "大腦退化。憂鬱症。"
+        },
+        {
+          "text": "【養寵物】",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "有陪伴。但要擔心如果自己先走了，寵物怎麼辦。"
+        },
+        {
+          "text": "【去子女家輪流住】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "子女有壓力。像皮球一樣被踢來踢去。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q31",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "退休銀髮危機 #31",
+      "desc": "科技進步太快，去餐廳要掃 QR Code 點餐，去醫院要用機器掛號，你都不會用。",
+      "choices": [
+        {
+          "text": "【學習】去上「長輩手機班」",
+          "type": "🟢 保守",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "學會了！覺得自己很潮。可以用 Line 發長輩圖了。"
+        },
+        {
+          "text": "【依賴子女】「幫我弄！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "子女覺得煩。如果子女不在身邊就完了。"
+        },
+        {
+          "text": "【請店員幫忙】「我不會，你幫我。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "店員如果不忙會幫，忙的話會白眼。倚老賣老。"
+        },
+        {
+          "text": "【不去那些店】「只去傳統市場/診所。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "生活圈越來越小。與社會脫節。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q32",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "退休銀髮危機 #32",
+      "desc": "房價大漲，你想把老房子賣了去住養老院，但子女反對（想繼承房子）。",
+      "choices": [
+        {
+          "text": "【堅持賣】「我的錢我作主！」",
+          "type": "🟢 保守",
+          "money": 30,
+          "sanity": 10,
+          "reputation": -5,
+          "feedback": "住進了高級養生村，生活品質好。子女氣在心裡。"
+        },
+        {
+          "text": "【妥協】「好吧，留給你們。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "你繼續住在沒電梯的老公寓，爬樓梯爬到死。子女等繼承。"
+        },
+        {
+          "text": "【以房養老】抵押給銀行換生活費",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "房子還是你的，但死後房子歸銀行（除非子女贖回）。折衷方案。"
+        },
+        {
+          "text": "【提早過戶】「現在就給你們，但要養我。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "房子過戶後，子女就不理你了。這叫「棄養」。千萬別太早過戶。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q33",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "退休銀髮危機 #33",
+      "desc": "年金改革，退休金被砍了 30%，生活費不夠了。",
+      "choices": [
+        {
+          "text": "【縮衣節食】減少開銷",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "生活過得去，但沒品質。不敢旅遊、不敢吃大餐。"
+        },
+        {
+          "text": "【重回職場】去當保全/清潔工",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "高齡就業。很累，但有錢。退而不休。"
+        },
+        {
+          "text": "【抗議】去立法院舉牌",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "發洩怒氣。但改變不了政策。"
+        },
+        {
+          "text": "【跟子女要】「政府砍我，我找你們補。」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "子女壓力大。世代對立。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q34",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "退休銀髮危機 #34",
+      "desc": "你的看護（外籍移工）逃跑了，你自己無法照顧失能的老伴。",
+      "choices": [
+        {
+          "text": "【自己顧】「夫妻本是同林鳥。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 5,
+          "feedback": "老老照顧。你也累垮了，兩個人一起住院。長照悲歌。"
+        },
+        {
+          "text": "【送機構】送去安養院",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "花錢買專業照顧。雖然親戚會說閒話，但這是最理性的選擇。"
+        },
+        {
+          "text": "【叫子女回來顧】「輪流請假回來！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "子女工作受影響，甚至辭職。全家陷入困境。"
+        },
+        {
+          "text": "【請非法移工】（黑工）",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "被抓到罰很重。而且黑工沒保障，可能會虐待老人。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q35",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "退休銀髮危機 #35",
+      "desc": "你想立遺囑，分配財產，但怕子女知道後會吵架或不孝順。",
+      "choices": [
+        {
+          "text": "【找律師公證】立得清清楚楚，暫不公佈",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "最保險。死後按遺囑執行。避免紛爭。"
+        },
+        {
+          "text": "【不立遺囑】「讓他們自己去分（去搶）。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "死後子女告上法院，兄弟鬩牆。留下了爛攤子。"
+        },
+        {
+          "text": "【公平分配】大家都有份",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "大家都沒話說（表面上）。"
+        },
+        {
+          "text": "【全給最孝順的那個】",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "特留份問題可能會被告。但你爽。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q36",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #36",
+      "desc": "你的孫子出生了，子女叫你幫忙帶，不給保母費，還規定一堆育兒準則（不准餵糖、不准看電視）。",
+      "choices": [
+        {
+          "text": "【含飴弄孫】「孫子可愛，忍了。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "累但快樂。偷偷餵糖果被媳婦發現，吵架。"
+        },
+        {
+          "text": "【拒絕】「我要去旅遊，沒空。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -5,
+          "feedback": "享受自由。子女雖然不高興，但也只能自己想辦法。"
+        },
+        {
+          "text": "【收費】「照市場行情算。」",
+          "type": "🔵 妥協",
+          "money": 10,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "子女覺得你愛錢。但這是勞動所得，合理。"
+        },
+        {
+          "text": "【亂帶】「以前你們也是這樣長大的！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "小孩生病/受傷。子女不敢再給你帶了。解脫。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q37",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #37",
+      "desc": "公車上沒博愛座了，你站得很累，年輕人都在滑手機沒讓座。",
+      "choices": [
+        {
+          "text": "【請人讓座】「不好意思，我腰不好...」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "通常會有人讓。溫和溝通。"
+        },
+        {
+          "text": "【硬撐】",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "回家腳腫起來。"
+        },
+        {
+          "text": "【罵人】「現在年輕人都沒教養！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "被錄影 PO 上網。成為「博愛座糾察隊」網紅。"
+        },
+        {
+          "text": "【坐地板】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "大家嚇到，趕快讓位給你。苦肉計。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q38",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #38",
+      "desc": "你的老朋友一個個走了，參加葬禮的次數比婚禮還多，心情很低落。",
+      "choices": [
+        {
+          "text": "【看開】「人生必經之路，活在當下。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "珍惜每一天。去完成遺願清單。"
+        },
+        {
+          "text": "【鬱悶】躲在家裡哭",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "憂鬱症。身體也跟著變差。"
+        },
+        {
+          "text": "【交年輕朋友】去公園跟年輕人打球",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "感染活力。忘記年齡。"
+        },
+        {
+          "text": "【準備後事】開始看塔位、寫遺囑",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "未雨綢繆。雖然悲觀，但很實際。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q39",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #39",
+      "desc": "社區大學開了「手機攝影課」，你想去學，但怕學不會被笑。",
+      "choices": [
+        {
+          "text": "【報名】「活到老學到老！」",
+          "type": "🟢 保守",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "認識了很多同學。拍出了很多長輩圖（誤）。生活變有趣。"
+        },
+        {
+          "text": "【不敢去】「算了，我這把年紀...」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "原地踏步。跟不上時代。"
+        },
+        {
+          "text": "【叫孫子教】",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "孫子沒耐心，教兩次就發脾氣。你也生氣。"
+        },
+        {
+          "text": "【亂拍】「我有我的風格（手震風）。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "開心就好。藝術是主觀的。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q40",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #40",
+      "desc": "你的房子漏水了，找水電工來修，師傅看你是老人，亂報價（敲竹槓）。",
+      "choices": [
+        {
+          "text": "【找子女回來】「兒子，你回來跟師傅講。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "師傅看到年輕人就不敢亂來了。報價恢復正常。"
+        },
+        {
+          "text": "【付錢】「修好就好，不想計較。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "被當肥羊。師傅下次還會坑你。"
+        },
+        {
+          "text": "【罵師傅】「你當我不懂行情喔！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "師傅不爽不修了。你要重新找人。"
+        },
+        {
+          "text": "【貨比三家】多找幾個師傅來看",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "花時間，但省錢。精明的老人。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q41",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #41",
+      "desc": "你每天在家看電視購物，買了一堆用不到的東西（鍋子、寶石、保健品），家裡堆滿了。",
+      "choices": [
+        {
+          "text": "【退貨】「鑑賞期內退回去！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "要付運費，或手續麻煩。但拿回了錢。"
+        },
+        {
+          "text": "【送人】送給子女或鄰居",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "大家收到垃圾很困擾。被說是「散財童子」。"
+        },
+        {
+          "text": "【剪掉第四台】斷絕誘惑",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "釜底抽薪。存下了錢。"
+        },
+        {
+          "text": "【繼續買】「這是我的樂趣！」",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "購物狂。家裡變成倉庫。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q42",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #42",
+      "desc": "鄰居在樓梯間堆滿雜物，你走路差點跌倒，講了他也不聽。",
+      "choices": [
+        {
+          "text": "【檢舉】打 1999",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "建管處來貼單清空。鄰居恨你。但安全了。"
+        },
+        {
+          "text": "【幫他丟】偷偷把雜物丟掉",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -20,
+          "feedback": "鄰居跟你吵架，甚至告你。鄰里大戰。"
+        },
+        {
+          "text": "【繞路走】小心一點就好",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "每天都要忍受。哪天真的跌倒就完了。"
+        },
+        {
+          "text": "【你也堆】「大家來堆啊！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "樓梯間塞爆，火災時大家一起死。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q43",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #43",
+      "desc": "你的子女在國外工作，很久沒回來了，你生病住院只有看護陪。",
+      "choices": [
+        {
+          "text": "【視訊】用手機看孫子",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "解思鄉之苦。但摸不到人。"
+        },
+        {
+          "text": "【騙他們回來】「我快死了，快回來分遺產。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "子女回來發現被騙，生氣走了。下次真的病危他們也不信了（放羊的孩子）。"
+        },
+        {
+          "text": "【習慣孤獨】「他們有自己的人生。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "豁達。但心裡還是酸酸的。"
+        },
+        {
+          "text": "【依賴看護】把看護當女兒",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "對看護很好，甚至想收養她。子女擔心遺產被騙走。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q44",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #44",
+      "desc": "你在公園遇到「氣功大師」，說可以發功幫你治病，一次 2000。",
+      "choices": [
+        {
+          "text": "【試試看】「死馬當活馬醫。」",
+          "type": "🔵 妥協",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "心理作用覺得好一點。但錢包瘦了。"
+        },
+        {
+          "text": "【拆穿】「你是騙子！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "大師落跑。你救了其他老人。"
+        },
+        {
+          "text": "【不理他】繼續做你的體操",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "沒事發生。"
+        },
+        {
+          "text": "【叫警察】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "大師被帶走調查。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q45",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #45",
+      "desc": "你的 Line 帳號被盜了，詐騙集團用你的名義跟親友借錢。",
+      "choices": [
+        {
+          "text": "【打電話通知大家】「那個不是我！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "大家都知道了。沒人被騙。但你要重新申請帳號，貼圖都沒了。"
+        },
+        {
+          "text": "【不管它】「反正沒人會借我錢。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "真的有人被騙了！親友怪你沒保管好帳號。"
+        },
+        {
+          "text": "【報警】",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "備案。免責。"
+        },
+        {
+          "text": "【假裝不知道】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "親友被騙，你裝傻。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q46",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #46",
+      "desc": "你走路跌倒骨折，需要請看護，但外籍看護要等很久，台籍看護一天 3000。",
+      "choices": [
+        {
+          "text": "【請台籍】「花錢買品質。」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "照顧得很好，但存款急速下降。"
+        },
+        {
+          "text": "【叫子女顧】「請假回來顧我！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "子女工作受影響，怨聲載道。久病床前無孝子。"
+        },
+        {
+          "text": "【自己撐】「我能動！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "再次跌倒，傷勢加重。省小錢花大錢。"
+        },
+        {
+          "text": "【請黑工】",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": 0,
+          "reputation": -20,
+          "feedback": "便宜，但隨時會跑，還可能偷東西。被抓到罰錢。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q47",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #47",
+      "desc": "你的老家祖厝要都更，建商來談條件，但兄弟姊妹意見不合，吵翻天。",
+      "choices": [
+        {
+          "text": "【當釘子戶】「祖產不能賣！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "擋人財路。兄弟姊妹恨你。"
+        },
+        {
+          "text": "【賣掉分錢】「拿錢最實在。」",
+          "type": "🟢 保守",
+          "money": 20,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "大家分了錢，各自過生活。祖厝沒了。"
+        },
+        {
+          "text": "【讓步】「聽大哥的。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "維持了家庭和諧（表面上）。但你可能分比較少。"
+        },
+        {
+          "text": "【告上法院】強制分割",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": -10,
+          "reputation": -20,
+          "feedback": "撕破臉。法院拍賣，價格通常不好。親情沒了，錢也少了。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q48",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #48",
+      "desc": "你去參加「老人遊覽車」，被推銷買了一堆 3000 元的鹿茸/靈芝，回家後後悔了。",
+      "choices": [
+        {
+          "text": "【退貨】打電話去罵",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "對方不給退，或者只退一半。買了個教訓。"
+        },
+        {
+          "text": "【吃掉】「吃了補身體。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "不知道成分是什麼，吃了沒事算好運。"
+        },
+        {
+          "text": "【送人】送給親戚",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "親戚覺得你送垃圾。轉送給別人。"
+        },
+        {
+          "text": "【不敢跟家人說】藏起來",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "變成了囤積物。浪費錢。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q49",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "退休銀髮危機 #49",
+      "desc": "你的孫子教你用 ChatGPT，你問它「如何長生不老」，它給了你一堆廢話。",
+      "choices": [
+        {
+          "text": "【覺得好玩】繼續問它",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "跟 AI 聊天解悶。跟上時代。"
+        },
+        {
+          "text": "【生氣】「這機器笨笨的！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "拒絕新科技。老頑固。"
+        },
+        {
+          "text": "【相信它】照著它的建議做運動",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "身體變好了。AI 是好老師。"
+        },
+        {
+          "text": "【叫孫子幫你問】「問它樂透號碼！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "孫子覺得你很貪財。當然沒中。"
+        }
+      ]
+    },
+    {
+      "id": "i6_q50",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "退休銀髮危機 #50",
+      "desc": "活到了 80 歲，身體還很健康，但錢快花光了（長壽風險），怎麼辦？",
+      "choices": [
+        {
+          "text": "【賣房養老】",
+          "type": "🟢 保守",
+          "money": 20,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "不用擔心錢了。享受最後的時光。"
+        },
+        {
+          "text": "【依靠子女】「養兒防老，輪到你們了。」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "子女壓力大。看臉色過日子。"
+        },
+        {
+          "text": "【省吃儉用】",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "生活品質極差。活著受罪。"
+        },
+        {
+          "text": "【去打工】「高年級實習生！」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "去麥當勞擦桌子。有事做，有錢拿，還能跟人互動。最棒的結局。"
+        }
+      ]
+    }
+  ]
+}

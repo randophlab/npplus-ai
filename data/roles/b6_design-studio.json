@@ -1,0 +1,2064 @@
+{
+  "id": "b6",
+  "name": "設計工作室",
+  "icon": "🎨",
+  "keywords": [
+    "AI 取代",
+    "惡性削價",
+    "客戶流失",
+    "創意枯竭"
+  ],
+  "description": "設計工作室老闆，面對 AI 取代、惡性削價、客戶流失和創意枯竭的困境。",
+  "questions": [
+    {
+      "id": "b6_q1",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #1",
+      "desc": "客戶說：「我要一種『五彩斑斕的黑』，大氣一點，Logo 要大但留白要多。」",
+      "choices": [
+        {
+          "text": "【嘗試解釋】「黑色就是黑色，沒有五彩斑斕。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "客戶覺得你不專業、沒創意。最後你還是做了 10 個版本給他選。"
+        },
+        {
+          "text": "【亂做一通】隨便拉個漸層黑交差",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "客戶居然說：「對！就是這個感覺！」你覺得設計已死。"
+        },
+        {
+          "text": "【拒接】「這種需求是物理學的挑戰，我不接。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "客戶去別家做了。你守住了身為設計師的尊嚴，但餓了肚子。"
+        },
+        {
+          "text": "【用 AI 生成】叫 Midjourney 畫「Colorful Black」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "AI 畫出了詭異的顏色。客戶很滿意。你發現 AI 比你還懂客戶的瘋狂。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q2",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #2",
+      "desc": "客戶說預算只有 5000，要做整套 VI（視覺識別），還說：「我姪子做都不用錢。」",
+      "choices": [
+        {
+          "text": "【叫他找姪子】「那你請姪子做，慢走不送。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "客戶氣噗噗走了。一個月後他回來找你，因為姪子做出來像小畫家。"
+        },
+        {
+          "text": "【接了】「最近缺錢，加減賺。」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -15,
+          "reputation": -5,
+          "feedback": "客戶要求超多，改了 20 次。時薪算下來只有 30 元。廉價勞工。"
+        },
+        {
+          "text": "【套模板】用免費素材庫拼一拼給他",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "快速交件。但之後客戶發現跟別家店撞衫，回來罵你。"
+        },
+        {
+          "text": "【教育客戶】「專業是有價的，我可以算你便宜一點...」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "講了半天，客戶加了 2000 元。心很累。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q3",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #3",
+      "desc": "客戶要求交出「原始檔（AI/PSD）」，但合約沒寫要給，也沒付買斷費。",
+      "choices": [
+        {
+          "text": "【堅持不給】「原始檔是我的智慧財產，要給加錢。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "客戶很不爽，最後付了錢。但以後不會再找你了。"
+        },
+        {
+          "text": "【給他】「算了，給他方便。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "客戶拿了檔案就去找便宜的工讀生修改。你把自己的飯碗送人了。"
+        },
+        {
+          "text": "【給全平合層圖】把所有圖層合併再給他",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "客戶打不開圖層，氣死。你說：「這就是原始檔啊。」"
+        },
+        {
+          "text": "【開天價】「買斷費 100 萬。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -15,
+          "feedback": "故意刁難。客戶知道你在整他，雙方決裂。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q4",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #4",
+      "desc": "Adobe 全套軟體要續費了，一年要好幾萬，但最近案子很少。",
+      "choices": [
+        {
+          "text": "【乖乖續費】「這是生財工具，不能省。」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "荷包大失血。你覺得自己在幫 Adobe 打工。"
+        },
+        {
+          "text": "【用盜版】「去網路上找破解版。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -30,
+          "feedback": "電腦中毒，檔案被勒索病毒鎖住。損失慘重。千萬別用盜版。"
+        },
+        {
+          "text": "【跳槽】「改用 Affinity 或免費軟體。」",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "省了訂閱費，但軟體不相容，跟印刷廠對接出問題。重新適應很痛苦。"
+        },
+        {
+          "text": "【跟朋友共用】「我們一人出一半。」",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "違反授權條款，而且同時登入會被踢下線。有點麻煩。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q5",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #5",
+      "desc": "印刷廠打來說你送印的檔案「字體沒轉外框」，出來全是亂碼，幾千份傳單報廢。",
+      "choices": [
+        {
+          "text": "【自己賠】「是我的疏忽...」",
+          "type": "🟢 保守",
+          "money": -15,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "低級錯誤。你賠了印刷費，還被客戶罵延誤。設計師的惡夢。"
+        },
+        {
+          "text": "【怪印刷廠】「你們怎麼沒幫我檢查？」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "印刷廠拿出免責聲明。以後印刷廠會故意刁難你的檔案。"
+        },
+        {
+          "text": "【騙客戶】「是印刷機故障，要重印。」",
+          "type": "🟣 黑化",
+          "money": -15,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "客戶信了，但還是很不爽延誤。你自己吞下重印費。"
+        },
+        {
+          "text": "【硬凹是設計】「這是解構主義藝術字！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "客戶：「你當我白痴嗎？」直接解約求償。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q6",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #6",
+      "desc": "客戶拿了一張很有名的海報說：「我要抄這個，改一點點就好，不要被告。」",
+      "choices": [
+        {
+          "text": "【拒絕抄襲】「我有職業道德。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "客戶找別家做了。你少賺一筆，但保住了靈魂。"
+        },
+        {
+          "text": "【照做】「客戶最大。」",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": -5,
+          "reputation": -30,
+          "feedback": "被網友抓包抄襲，設計師（你）被肉搜公審。客戶切割說是你想的。"
+        },
+        {
+          "text": "【致敬】「我們做『類似風格』...」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "遊走在法律邊緣。做出來不倫不類，四不像。"
+        },
+        {
+          "text": "【說服原創】「抄這個太 Low 了，我們做更好的！」",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": -15,
+          "reputation": 5,
+          "feedback": "說服了客戶！但你要花更多腦力去想新點子。累死。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q7",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #7",
+      "desc": "收到字體公司的律師函，說你幾年前的案子用了未授權的字體（華康/文鼎），要求賠償 10 萬。",
+      "choices": [
+        {
+          "text": "【付錢和解】「花錢消災，以後小心。」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "大失血。字體版權蟑螂真的很可怕。以後只敢用思源黑體。"
+        },
+        {
+          "text": "【推給前員工】「那是離職設計師用的，不關我事。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "公司還是要負責。而且前員工會回來爆料你慣老闆。"
+        },
+        {
+          "text": "【談判殺價】「我是小工作室，沒那麼多錢...」",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "殺到 3 萬。還是要賠，但少一點。"
+        },
+        {
+          "text": "【裝死不理】「詐騙集團吧？」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "直接被告上法院，賠更多，還有訴訟費。不要挑戰法務部。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q8",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #8",
+      "desc": "為了趕稿，你已經三天沒睡，看著螢幕上的色塊開始產生幻覺。",
+      "choices": [
+        {
+          "text": "【去睡覺】「再不睡會死人。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -5,
+          "feedback": "交稿延遲被罵。但你活下來了。設計是用命換的。"
+        },
+        {
+          "text": "【喝能量飲】紅牛 + 咖啡，繼續拚",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 5,
+          "feedback": "交稿了，但做出來的東西像大便。客戶不滿意要求重做。"
+        },
+        {
+          "text": "【叫工讀生頂】「剩下的你來弄。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "工讀生亂做。最後你還是要自己收尾。"
+        },
+        {
+          "text": "【亂做交差】「藝術是很主觀的...」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "客戶拒收。你的招牌砸了。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q9",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #9",
+      "desc": "你請了一個很有才華但很有個性的 Z 世代設計師，他因為「心情不好」不想上班。",
+      "choices": [
+        {
+          "text": "【開除】「職場不是讓你耍個性的地方。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "少了一個戰力，你要自己加班。但不用受氣了。"
+        },
+        {
+          "text": "【哄他】「買飲料請他，拜託他上班。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "你是老闆還是保母？他爬到你頭上了。"
+        },
+        {
+          "text": "【扣薪水】「不上班就扣錢。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "他更不爽，工作擺爛。最後還是離職了。"
+        },
+        {
+          "text": "【情緒勒索】「整個團隊都靠你了...」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "年輕人不吃這套。直接封鎖你。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q10",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #10",
+      "desc": "客戶說：「先隨便做個草稿給我看，喜歡再簽約付款。」（比稿陷阱）。",
+      "choices": [
+        {
+          "text": "【拒絕】「不付訂金不動工。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "客戶跑了。但你避開了白做工的風險。堅持原則是對的。"
+        },
+        {
+          "text": "【隨便畫】畫個火柴人給他",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "客戶覺得你羞辱他。但你也沒損失。"
+        },
+        {
+          "text": "【認真做】「用實力征服他！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -15,
+          "reputation": 0,
+          "feedback": "客戶拿著你的圖去找便宜的工讀生執行。你的點子被偷了。"
+        },
+        {
+          "text": "【給浮水印圖】圖上壓滿超大浮水印",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "客戶看不清楚，還是不買單。浪費時間。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q11",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #11",
+      "desc": "MAC 電腦太貴，你想換成 Windows PC，但所有的快捷鍵和色彩管理都要重來。",
+      "choices": [
+        {
+          "text": "【換 PC】「CP 值高！省錢！」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "每天按錯快捷鍵，色差搞不定。你花了一個月適應，效率低落。"
+        },
+        {
+          "text": "【貸款買 MAC】「設計師就是要用蘋果！」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "工作順手，拿出去開會也有面子。雖然貴，但值得。"
+        },
+        {
+          "text": "【買二手 MAC】",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "買到泡水機。三天兩頭當機，修到哭。"
+        },
+        {
+          "text": "【黑蘋果】在 PC 上灌 macOS（違法/不穩）",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "系統極不穩定，檔案做到一半崩潰。省小錢花大時間。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q12",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #12",
+      "desc": "客戶是親戚，說「幫忙設計一下 LOGO，很簡單吧」，不想付錢。",
+      "choices": [
+        {
+          "text": "【免費做】「當作送禮。」",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "親戚嫌東嫌西，改了 8 次。免費的最貴。"
+        },
+        {
+          "text": "【報價單伺候】「親兄弟明算帳。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "親戚到處說你死要錢、不念舊情。家族聚會尷尬。"
+        },
+        {
+          "text": "【用 AI 生成】秒出圖給他",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "親戚很滿意。你沒花時間，也沒收錢。雙贏。"
+        },
+        {
+          "text": "【拖延戰術】「我最近很忙，下個月再說。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "一直拖一直拖，最後親戚找別人了。成功閃避。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q13",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #13",
+      "desc": "你的作品被放在 Behance 上，被外國大神轉發讚賞，流量暴增。",
+      "choices": [
+        {
+          "text": "【趁機宣傳】「開放接案，價格翻倍！」",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "接到了國際案件！工作室升級。但也更忙了。"
+        },
+        {
+          "text": "【謙虛低調】「謝謝大家厚愛。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "錯過了變現的好機會。流量來得快去得也快。"
+        },
+        {
+          "text": "【賣課程】「大師教你設計！」",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "割了一波韭菜。學員發現你只會這招，評價兩極。"
+        },
+        {
+          "text": "【沒反應】太忙了沒看到通知",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "你還在趕那個 5000 元的奧客 Logo。悲哀。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q14",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #14",
+      "desc": "客戶傳來一個 Word 檔，裡面是他用小畫家畫的草圖，叫你「美化一下就好」。",
+      "choices": [
+        {
+          "text": "【重做】完全不理他的草圖，重新設計",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "客戶說：「這不是我要的感覺。」他就是要那個醜醜的樣子。"
+        },
+        {
+          "text": "【照描】把他的醜圖向量化",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "做出來超醜，但客戶很滿意。你不敢把這作品放進作品集。"
+        },
+        {
+          "text": "【加錢】「這算重新設計，不是美化。」",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "客戶不願意付。案子告吹。"
+        },
+        {
+          "text": "【用 AI 修圖】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "快速搞定。客戶覺得你效率高。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q15",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #15",
+      "desc": "長期用滑鼠，你的手得了腕隧道症候群（滑鼠手），痛到無法握筆。",
+      "choices": [
+        {
+          "text": "【換垂直滑鼠/軌跡球】",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "需要適應期，動作變慢。但手比較不痛了。"
+        },
+        {
+          "text": "【左手操作】練就左右開弓",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "大腦打結。效率極低。"
+        },
+        {
+          "text": "【請助理代工】你在旁邊指揮",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "成本增加。而且助理做不出你要的感覺。"
+        },
+        {
+          "text": "【硬撐】吃止痛藥繼續畫",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -15,
+          "reputation": 0,
+          "feedback": "手廢了。最後要去開刀，休息三個月。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q16",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "設計工作室危機 #16",
+      "desc": "房租漲價、軟體漲價、電費漲價，但你的設計費 10 年沒漲了。",
+      "choices": [
+        {
+          "text": "【漲價】發公告「全面調漲 20%」",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "老客戶跑了一半。但留下來的客戶利潤變高了。陣痛期。"
+        },
+        {
+          "text": "【接更多案子】薄利多銷，累死自己",
+          "type": "🟢 保守",
+          "money": 5,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "每天工作 16 小時。身體垮了，賺的錢看醫生。"
+        },
+        {
+          "text": "【偷工減料】減少提案數量、縮短工時",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "品質下降，客戶慢慢流失。溫水煮青蛙。"
+        },
+        {
+          "text": "【搬到鄉下】搬回老家接案，省房租",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "開銷變少，但跟客戶開會不方便。逐漸邊緣化。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q17",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "設計工作室危機 #17",
+      "desc": "客戶倒閉了，還有 20 萬尾款沒付，那是你半年的生活費。",
+      "choices": [
+        {
+          "text": "【去搬東西】去客戶公司搬電腦抵債",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "可能有法律風險。但至少拿回了一點殘值。"
+        },
+        {
+          "text": "【認賠】「只能怪自己沒先收錢。」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "心痛。接下來半年要吃土。"
+        },
+        {
+          "text": "【申請債權】走法律途徑",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "排隊等分配。最後拿到一張債權憑證（壁紙）。"
+        },
+        {
+          "text": "【網路上罵】公開客戶惡行",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "爽！但錢還是拿不回來。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q18",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "設計工作室危機 #18",
+      "desc": "想要更新電腦設備（顯卡漲價），但手上現金不夠。",
+      "choices": [
+        {
+          "text": "【分期付款】背債升級",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "工作效率變快了，算圖不用等。值得投資。"
+        },
+        {
+          "text": "【繼續用舊的】忍受龜速",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -15,
+          "reputation": 0,
+          "feedback": "每次存檔都要祈禱。浪費生命在等待。"
+        },
+        {
+          "text": "【買二手礦卡】賭運氣",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "買回來一個月就壞了。省小錢花大錢。"
+        },
+        {
+          "text": "【用雲端算圖】租用雲端算力",
+          "type": "🟣 黑化",
+          "money": -2,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "按次計費。適合偶爾有大案子的人。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q19",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "設計工作室危機 #19",
+      "desc": "接案平台（如 Tasker）都要收年費和抽成，你覺得被剝削。",
+      "choices": [
+        {
+          "text": "【經營個人品牌】架網站、經營社群",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -10,
+          "reputation": 10,
+          "feedback": "前期很辛苦，沒案子。但長期累積了自己的流量，不用看平台臉色。"
+        },
+        {
+          "text": "【私下交易】「加 Line 聊，避開平台。」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "被平台抓到封號。失去了主要案源。"
+        },
+        {
+          "text": "【乖乖繳費】「當作廣告費。」",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "利潤被壓縮。只能多接一點案子來補。"
+        },
+        {
+          "text": "【去 FB 社團搶單】免費的案源",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "競爭超激烈，價格爛到爆。遇到很多騙子。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q20",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "設計工作室危機 #20",
+      "desc": "你接了一個政府標案，但核銷流程超繁瑣，發票、收據、報告搞死你，錢還卡住。",
+      "choices": [
+        {
+          "text": "【請行政助理】花錢請人專門處理",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "終於可以專心設計了。但利潤被薪水吃掉。"
+        },
+        {
+          "text": "【自己搞】半夜在貼發票",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "設計師變會計。你恨死公家機關了。"
+        },
+        {
+          "text": "【找槍手】找專門做標案的公司掛名",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "給人抽成。省事但賺得少。"
+        },
+        {
+          "text": "【不接政府案】「太麻煩了，拒絕往來。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "少了一個大案源。但身心健康多了。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q21",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "設計工作室危機 #21",
+      "desc": "你的設計師朋友（同行）低價搶了你的客戶，還說：「生意歸生意。」",
+      "choices": [
+        {
+          "text": "【絕交】「我看錯你了！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "失去了一個朋友（損友）。心情不爽。"
+        },
+        {
+          "text": "【祝福】「那客戶很雷，送你剛好。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "後來朋友真的被那個客戶搞瘋了。你在旁邊笑。"
+        },
+        {
+          "text": "【搶回來】用更低價搶回來",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "惡性競爭。大家都沒賺錢。愚蠢。"
+        },
+        {
+          "text": "【合作】「既然你接了，分我一點工做？」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "卑微地分一杯羹。朋友變成了你的上包。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q22",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "設計工作室危機 #22",
+      "desc": "客戶在半夜兩點打電話來叫你改稿，不接就奪命連環 Call。",
+      "choices": [
+        {
+          "text": "【關機】睡覺皇帝大",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -5,
+          "feedback": "早上起來看到 50 通未接來電。客戶氣炸解約。"
+        },
+        {
+          "text": "【接起來罵】「現在幾點了！有沒有禮貌！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -20,
+          "feedback": "客戶嚇到。但你少了一個客戶，多了一個惡名。"
+        },
+        {
+          "text": "【接起來做】奴性堅強",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 5,
+          "feedback": "客戶覺得你很好用。以後都在半夜找你。爆肝預備。"
+        },
+        {
+          "text": "【設勿擾模式】假裝沒聽到",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "隔天說「睡死了沒聽到」。合理的藉口。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q23",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "設計工作室危機 #23",
+      "desc": "你的員工私下接案（用公司的資源和時間），被你發現了。",
+      "choices": [
+        {
+          "text": "【開除】「背信！滾！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "少了一個員工，工作量變大。但殺雞儆猴。"
+        },
+        {
+          "text": "【抽成】「要接可以，公司抽 30%。」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "員工變成了合作夥伴。公司多了一筆收入。高招。"
+        },
+        {
+          "text": "【裝沒看到】怕員工離職，不敢講",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -10,
+          "feedback": "員工越來越誇張，甚至把公司客戶撬走。養虎為患。"
+        },
+        {
+          "text": "【勸導】「下班時間再做，不要用公司電腦。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "員工收斂了一點。維持表面和平。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q24",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "設計工作室危機 #24",
+      "desc": "客戶覺得你的設計「沒有靈魂」，叫他的國小兒子畫了一張圖叫你照著做。",
+      "choices": [
+        {
+          "text": "【照做】「客戶開心就好。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -15,
+          "reputation": -10,
+          "feedback": "做出來超醜。客戶很滿意。你不敢承認這是你做的。"
+        },
+        {
+          "text": "【拒絕】「這太醜了，我做不下去。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "客戶找別人做了。你保住了審美底線。"
+        },
+        {
+          "text": "【美化】把兒子的圖修得專業一點",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "客戶說：「這不是我兒子的風格！」改回來。白忙一場。"
+        },
+        {
+          "text": "【嘲笑】「令郎很有天份，去當畢卡索吧。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "客戶聽出你的諷刺，生氣了。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q25",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "設計工作室危機 #25",
+      "desc": "家人覺得你「在家玩電腦」不是正經工作，一直叫你去考公務員。",
+      "choices": [
+        {
+          "text": "【秀存款】把存摺丟在桌上",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "家人閉嘴了。但開始跟你要錢。"
+        },
+        {
+          "text": "【耐心解釋】「我是設計師，這是我的工作室。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "家人聽不懂。「喔，所以沒勞保？」溝通無效。"
+        },
+        {
+          "text": "【搬出去】租辦公室，假裝上班",
+          "type": "🔵 妥協",
+          "money": -15,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "家人覺得你有工作了。但多了房租開銷。"
+        },
+        {
+          "text": "【敷衍】「有在考了，差兩分。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "騙了十年還在考。耳根清靜。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q26",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "設計工作室危機 #26",
+      "desc": "趕稿趕到視網膜剝離，醫生說要馬上開刀，不然會瞎，但案子明天要交。",
+      "choices": [
+        {
+          "text": "【開刀】「眼睛只有一對，錢再賺就有。」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "開天窗了，賠償違約金。但保住了視力。休養一個月。"
+        },
+        {
+          "text": "【單眼趕稿】用另一隻眼睛撐著做",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 5,
+          "feedback": "交稿了。但另一隻眼睛也快瞎了。你是用生命在設計。"
+        },
+        {
+          "text": "【外包】花錢請人救火",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "雖然沒賺到錢，但信用保住了，眼睛也救了。"
+        },
+        {
+          "text": "【亂做】閉著眼睛隨便拉一拉",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -30,
+          "feedback": "交出垃圾。客戶以後不找你了。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q27",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "設計工作室危機 #27",
+      "desc": "長期坐姿不良，脊椎側彎嚴重，坐著就痛，只能站著或躺著。",
+      "choices": [
+        {
+          "text": "【買升降桌】站著工作",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "腳開始酸了（靜脈曲張）。但腰比較不痛了。"
+        },
+        {
+          "text": "【躺著設計】用平板在床上畫",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "效率變差，容易睡著。變成了廢人模式。"
+        },
+        {
+          "text": "【去整骨】花錢喬骨頭",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "舒服了幾天，又因為姿勢不良復發。無底洞。"
+        },
+        {
+          "text": "【吃止痛藥】不理它",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -15,
+          "reputation": 0,
+          "feedback": "神經壓迫，腳麻痺。最後可能癱瘓。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q28",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "設計工作室危機 #28",
+      "desc": "靈感枯竭，對設計失去熱情，看到 Photoshop 就想吐（職業倦怠）。",
+      "choices": [
+        {
+          "text": "【放長假】「我去流浪一個月。」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 20,
+          "reputation": 0,
+          "feedback": "回來後充滿電，但客戶跑光了。重新開始。"
+        },
+        {
+          "text": "【硬做】「為了生活，吐了也要做。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "做出來的東西沒有靈魂，像行屍走肉。變成美工。"
+        },
+        {
+          "text": "【轉型】改做管理，請人設計",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "你不用親自設計了，但要煩惱人事管理。另一種累。"
+        },
+        {
+          "text": "【抄襲】「天下文章一大抄。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -30,
+          "feedback": "輕鬆多了。但夜路走多遇到鬼，被告侵權。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q29",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "設計工作室危機 #29",
+      "desc": "日夜顛倒，肝指數過高，臉色蠟黃，黑眼圈掉到下巴。",
+      "choices": [
+        {
+          "text": "【調整作息】強迫自己早睡早起",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "早上沒靈感，晚上睡不著。效率低落，但身體好轉。"
+        },
+        {
+          "text": "【吃護肝藥】邊吃藥邊熬夜",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "心理安慰。肝還是繼續壞。"
+        },
+        {
+          "text": "【醫美】打雷射消黑眼圈",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "外表看起來健康了，內在還是爛的。治標不治本。"
+        },
+        {
+          "text": "【燃燒生命】「死掉就可以睡很久了。」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -20,
+          "reputation": 5,
+          "feedback": "做出神作，然後倒下。天妒英才。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q30",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "設計工作室危機 #30",
+      "desc": "因為都在室內工作，缺乏日曬，你得了憂鬱症，覺得人生沒意義。",
+      "choices": [
+        {
+          "text": "【強迫運動】每天出去跑步曬太陽",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "心情好多了。身體也變健康。"
+        },
+        {
+          "text": "【吃抗憂鬱藥】",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "情緒穩定了，但變得遲鈍，沒創意。"
+        },
+        {
+          "text": "【養貓】貓咪治癒一切",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": 15,
+          "reputation": 0,
+          "feedback": "貓毛弄壞電腦，貓踩鍵盤亂送出檔案。痛並快樂著。"
+        },
+        {
+          "text": "【喝酒】借酒澆愁",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": -15,
+          "reputation": -10,
+          "feedback": "變成酒鬼。工作一團糟。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q31",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "設計工作室危機 #31",
+      "desc": "AI 生成圖工具（Midjourney/Stable Diffusion）橫空出世，客戶說：「AI 幾秒鐘就畫好了，你為什麼要收這麼貴？」",
+      "choices": [
+        {
+          "text": "【轉型 AI 溝通師】「我會寫 Prompt，你不會。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "你開始賣「咒語」。雖然設計感少了，但效率高了。跟上時代。"
+        },
+        {
+          "text": "【抵制 AI】「那是拼貼屍塊，沒有版權！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "客戶不在乎版權，只在乎便宜。你失去了訂單。"
+        },
+        {
+          "text": "【偷用 AI】用 AI 生成再修圖，假裝手繪",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "被眼尖網友抓包手指有 6 根。信用破產。"
+        },
+        {
+          "text": "【降價競爭】「那我算你 AI 的價格...」",
+          "type": "🔵 妥協",
+          "money": -20,
+          "sanity": -10,
+          "reputation": -10,
+          "feedback": "餓死。人類不可能比機器便宜。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q32",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "設計工作室危機 #32",
+      "desc": "現在流行「短影音」，平面設計需求大減，你不會剪片。",
+      "choices": [
+        {
+          "text": "【學剪片】「老狗學新把戲！」",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -15,
+          "reputation": 5,
+          "feedback": "學得很痛苦，剪得很爛。但至少有了新業務。"
+        },
+        {
+          "text": "【找合作夥伴】跟剪輯師合作接案",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "分潤給別人，利潤變薄。但能接到大案子。"
+        },
+        {
+          "text": "【堅持平面】「平面不死！還有包裝設計！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "市場變小，變成夕陽產業。只能做頂尖或低端。"
+        },
+        {
+          "text": "【用 AI 生成影片】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "影片很詭異，人物會變形。客戶不買單。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q33",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "設計工作室危機 #33",
+      "desc": "罐頭設計網站（Canva）普及，小編自己就能做圖，不需要發包給你了。",
+      "choices": [
+        {
+          "text": "【做 Canva 模板賣】「打不過就加入，我賣模板！」",
+          "type": "🟢 保守",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "被動收入！雖然單價低，但量大。聰明的轉型。"
+        },
+        {
+          "text": "【做高端客製化】「Canva 做不出來的找我。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 10,
+          "feedback": "案子變少但單價變高。需要更強的實力。"
+        },
+        {
+          "text": "【去應徵美編】「我去公司上班算了。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "變成領薪水的社畜。穩定但沒自由。"
+        },
+        {
+          "text": "【罵客戶沒品味】「Canva 能看嗎？」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "傲慢。客戶覺得你難搞。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q34",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "設計工作室危機 #34",
+      "desc": "NFT 熱潮（或泡沫），客戶問你會不會做 NFT，想發一波財。",
+      "choices": [
+        {
+          "text": "【趕快學】「我會！我馬上出圖！」",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "賺了一波快錢。後來 NFT 崩盤，變成了數位垃圾。"
+        },
+        {
+          "text": "【發自己的 NFT】「我自己當藝術家！」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "沒人買，賠了上架費（Gas fee）。"
+        },
+        {
+          "text": "【勸退客戶】「那是詐騙，不要碰。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "客戶沒聽，找別人做了。後來賠錢回來感謝你。"
+        },
+        {
+          "text": "【隨便畫幾千張】用程式生成大量垃圾圖",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "割韭菜。賺翻了，但被視為騙子。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q35",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "設計工作室危機 #35",
+      "desc": "經濟不景氣，企業砍行銷預算，設計費是第一個被砍的。",
+      "choices": [
+        {
+          "text": "【共體時艱】主動降價求生存",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "勉強活著。但價格一旦降下去就回不來了。"
+        },
+        {
+          "text": "【開發新市場】「傳統產業需要轉型，我去幫傳產！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "傳產老闆很難溝通（字要大、要紅），但付錢爽快。"
+        },
+        {
+          "text": "【兼差】去跑外送貼補",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "設計師跑外送。心裡苦，但肚子飽了。"
+        },
+        {
+          "text": "【轉行賣雞排】「設計不能吃，雞排可以。」",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "雞排店生意很好，你用設計專長把招牌做得超美。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q36",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #36",
+      "desc": "你的電腦中了勒索病毒，所有檔案被加密，駭客要 10 萬比特幣。",
+      "choices": [
+        {
+          "text": "【付贖金】「檔案比錢重要！」",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "檔案救回來了。但你助長了駭客氣焰。而且荷包大傷。"
+        },
+        {
+          "text": "【重做】「不向恐怖份子妥協！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -30,
+          "reputation": 5,
+          "feedback": "爆肝一個月重做所有案子。你發誓以後每天備份。"
+        },
+        {
+          "text": "【跟客戶說檔案壞了】「天災人禍，沒辦法。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "客戶求償。信譽破產。"
+        },
+        {
+          "text": "【找資安專家】看能不能破解",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "解不開。最後還是要重做或付錢。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q37",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #37",
+      "desc": "客戶拖欠尾款半年，你快活不下去了，他還在 FB 曬旅遊照。",
+      "choices": [
+        {
+          "text": "【公開討債】在他的貼文下留言「還錢！」",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "他覺得丟臉，馬上匯款。但你也得罪了他，以後沒生意。"
+        },
+        {
+          "text": "【發存證信函】走法律程序",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "有效，但慢。正規手段。"
+        },
+        {
+          "text": "【鎖住檔案】遠端把網站關掉/圖檔撤下",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 15,
+          "reputation": -5,
+          "feedback": "客戶急了：「怎麼網站掛了？」你：「因為沒繳費。」"
+        },
+        {
+          "text": "【繼續求他】「拜託啦，我要繳房租...」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "他繼續敷衍你。人善被人欺。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q38",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #38",
+      "desc": "你接了一個急件，結果做到一半停電，檔案沒存。",
+      "choices": [
+        {
+          "text": "【崩潰尖叫】摔鍵盤",
+          "type": "🔴 激進",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "鍵盤壞了，檔案還是沒回來。發洩情緒要付代價。"
+        },
+        {
+          "text": "【憑記憶重做】邊哭邊畫",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 5,
+          "feedback": "做出來了，但好像跟原本的不太一樣。勉強交差。"
+        },
+        {
+          "text": "【騙客戶】「我生病了，延後交件。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "爭取到時間。但說謊是不好的。"
+        },
+        {
+          "text": "【買 UPS】「以後再也不怕停電！」（亡羊補牢）",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "這次來不及了，但下次有保障。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q39",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #39",
+      "desc": "客戶想要「俗擱大碗」，要你模仿大品牌的設計，但只給香蕉價。",
+      "choices": [
+        {
+          "text": "【隨便做】給猴子吃的香蕉就給猴子做的圖",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "客戶居然滿意了。你的審美觀崩壞。"
+        },
+        {
+          "text": "【拒接】「我做不出那種東西。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "有骨氣。但肚子餓。"
+        },
+        {
+          "text": "【教育客戶】「那種設計很貴，我們可以做簡化版...」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "花時間溝通。最後做出一個普通的設計。"
+        },
+        {
+          "text": "【用模板】套版比較快",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "CP 值高。符合客戶預算。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q40",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #40",
+      "desc": "你的眼睛度數加深，看螢幕會流淚，醫生說要減少用眼。",
+      "choices": [
+        {
+          "text": "【轉職】「眼睛是靈魂之窗，不做了。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "離開設計圈。身體健康了，但不知道要幹嘛。"
+        },
+        {
+          "text": "【請助理】讓助理操作，你在旁邊看（還是要用眼）",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "眼睛稍微休息，但成本增加。老闆不好當。"
+        },
+        {
+          "text": "【聽聲辨位】用念力設計（誤）",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -20,
+          "feedback": "亂做一通。客戶退件。"
+        },
+        {
+          "text": "【買好螢幕】買 E-ink 螢幕或抗藍光",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "色彩不準，修圖有色差。但眼睛舒服多了。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q41",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #41",
+      "desc": "你接了一個 logo 案，做了 20 款提案都被打槍，客戶最後選了你隨手畫的第一張草圖。",
+      "choices": [
+        {
+          "text": "【崩潰】「那我中間在忙什麼？」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "這就是設計人生。客戶的品味是個謎。"
+        },
+        {
+          "text": "【收錢】「謝謝老闆，這張最有設計感！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "雖然心裡在罵髒話，但錢拿到了。專業假笑。"
+        },
+        {
+          "text": "【把其他 19 款拿去賣】回收利用",
+          "type": "🟢 保守",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "放到圖庫網站賣。廢物利用。"
+        },
+        {
+          "text": "【以後只做一款】「反正多做也沒用。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "這叫「一稿流」。如果客戶不喜歡就沒了。賭很大。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q42",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #42",
+      "desc": "客戶要求「Logo 再大一點，再大一點」，大到破壞了版面平衡。",
+      "choices": [
+        {
+          "text": "【照做】「大到出血（超出邊界）給你看！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "客戶很滿意：「這樣才氣派！」你的美感已死。"
+        },
+        {
+          "text": "【堅持專業】「這樣不好看，我有我的堅持。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "客戶不爽，覺得你難搞。最後可能解約。"
+        },
+        {
+          "text": "【微調】偷偷只放大 1%",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "客戶：「有變大嗎？」你：「有有有，視覺效果更好。」唬弄過去。"
+        },
+        {
+          "text": "【出兩版】一版你的，一版客戶的（超大 Logo）",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "讓客戶選。通常客戶還是會選大的。你盡力了。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q43",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #43",
+      "desc": "你的作品集太舊了（都是 3 年前的），最近太忙沒時間整理，客戶覺得你過氣。",
+      "choices": [
+        {
+          "text": "【熬夜整理】花一週時間更新網站",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 10,
+          "feedback": "作品集煥然一新！接案率提升。但累死。"
+        },
+        {
+          "text": "【做假作品】做幾個沒客戶的「飛機稿」（練習稿）充數",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "看起來很厲害，因為沒有客戶的鳥意見干擾。成功騙到新客戶。"
+        },
+        {
+          "text": "【不管它】「靠口碑就好。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "新客戶以為你沒在做了。生意變少。"
+        },
+        {
+          "text": "【盜圖】放別人的作品（找死）",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -50,
+          "feedback": "被抓包，身敗名裂。千萬別做。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q44",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #44",
+      "desc": "房東不讓你掛招牌，你的工作室在隱密的大樓裡，客戶找不到路。",
+      "choices": [
+        {
+          "text": "【拍指引影片】傳給客戶看怎麼走",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "貼心服務。客戶覺得像在玩密室逃脫。"
+        },
+        {
+          "text": "【偷掛】掛一個小的，警察來再拆",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "被檢舉拆除。罰款。"
+        },
+        {
+          "text": "【搬家】找個一樓店面",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "房租貴三倍。但過路客變多了。"
+        },
+        {
+          "text": "【親自下樓接】",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "每天跑上跑下當運動。累。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q45",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #45",
+      "desc": "客戶要你幫忙「修一下照片」，結果是把胖子修成瘦子，還要看不出痕跡。",
+      "choices": [
+        {
+          "text": "【液化大神】展現 PS 神技",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "修到背景都歪了，還要補背景。客戶很滿意（詐騙成功）。"
+        },
+        {
+          "text": "【拒絕】「這太誇張了，我不是整形醫生。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "客戶不爽。去找別家修。"
+        },
+        {
+          "text": "【加錢】「這是精修，要加錢。」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "客戶付錢了。你邊修邊笑。"
+        },
+        {
+          "text": "【用 AI 修】一鍵瘦身",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "快速方便。但有時候會修出六根手指頭。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q46",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #46",
+      "desc": "你的滑鼠壞了，手邊只有 100 元的爛滑鼠，但你要做精細的貝茲曲線。",
+      "choices": [
+        {
+          "text": "【買繪圖板/高級滑鼠】",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "工欲善其事。手腕舒服多了。"
+        },
+        {
+          "text": "【硬用爛滑鼠】",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "手抽筋，線拉不直。效率極差。"
+        },
+        {
+          "text": "【用觸控板】用筆電觸控板畫",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -15,
+          "reputation": 0,
+          "feedback": "神人！但手指磨破皮。"
+        },
+        {
+          "text": "【偷公司的】（如果你是員工）",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "老闆發現滑鼠不見了。抓小偷。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q47",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #47",
+      "desc": "客戶傳來一個 Excel 檔，裡面貼滿了圖片，叫你「排版一下」，圖片解析度只有 72dpi。",
+      "choices": [
+        {
+          "text": "【要原圖】「請給我原始圖檔。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "客戶說：「這就是原圖啊！」溝通鬼打牆。"
+        },
+        {
+          "text": "【用 AI 放大】用工具修復圖片",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "變清晰了！客戶覺得你很厲害。科技拯救了你。"
+        },
+        {
+          "text": "【照用】「印出來模糊不關我的事。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "印出來全是馬賽克。客戶拒付尾款。"
+        },
+        {
+          "text": "【重畫/找圖】幫客戶找類似的高清圖",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "多做了很多事。客戶不加錢。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q48",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #48",
+      "desc": "快過年了，客戶都要在過年前拿到東西，你手上積了 10 個急件。",
+      "choices": [
+        {
+          "text": "【通宵趕工】不睡覺了！",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": -25,
+          "reputation": 10,
+          "feedback": "做完了，過年期間都在補眠生病。賺了醫藥費。"
+        },
+        {
+          "text": "【推掉部分】「做不完，退單。」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "少賺了錢，但保住了命。客戶可能會找別人。"
+        },
+        {
+          "text": "【外包】找工讀生幫忙",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "利潤變薄，但順利交差。大家都有紅包拿。"
+        },
+        {
+          "text": "【隨便做】品質下降求速度",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 0,
+          "reputation": -20,
+          "feedback": "年後收到一堆客訴和修改要求。惡夢延續到明年。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q49",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "設計工作室危機 #49",
+      "desc": "你的貓跳到鍵盤上，踩到了 Ctrl+W（關閉視窗），而且你沒存檔。",
+      "choices": [
+        {
+          "text": "【崩潰尖叫】嚇到貓",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "貓躲起來了。你對著黑螢幕發呆。人生重來。"
+        },
+        {
+          "text": "【冷靜重做】「這次會做得更好...」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "真的做得比較好（因為熟練了）。但浪費了三小時。"
+        },
+        {
+          "text": "【找救援軟體】試圖找回暫存檔",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "找回了一部分！不幸中的大幸。感謝自動備份功能。"
+        },
+        {
+          "text": "【把貓關籠】「你是罪人！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "貓很無辜。千錯萬錯都是沒按 Ctrl+S 的錯。"
+        }
+      ]
+    },
+    {
+      "id": "b6_q50",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "設計工作室危機 #50",
+      "desc": "做了 10 年設計，你發現眼睛壞了、腰壞了、熱情沒了，AI 也比你強了，未來在哪？",
+      "choices": [
+        {
+          "text": "【轉行賣雞排】「聽說那個比較好賺。」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "雖然油煙重，但不用改稿。看到客人吃得開心很有成就感。"
+        },
+        {
+          "text": "【轉做管理】開公司請人做，自己當業務",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": -5,
+          "reputation": 10,
+          "feedback": "升級成老闆。不用親自畫圖，但要煩惱錢和人。"
+        },
+        {
+          "text": "【當藝術家】「我做我想做的，不接客製化。」",
+          "type": "🔵 妥協",
+          "money": -20,
+          "sanity": 20,
+          "reputation": 10,
+          "feedback": "餓死邊緣。但心靈富足。或許哪天會成名。"
+        },
+        {
+          "text": "【教 AI 畫圖】「我去賣 Prompt 課程。」",
+          "type": "🟣 黑化",
+          "money": 15,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "變成知識變現者。收割時代的紅利。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "painMatrix": {
+    "E": [
+      { "id": "e_pain_1", "category": "💰 資金", "description": "死薪水追不上房價" },
+      { "id": "e_pain_2", "category": "❤️ 健康", "description": "加班過勞換醫藥費" },
+      { "id": "e_pain_3", "category": "🤝 人脈", "description": "生活圈封閉沒人脈" },
+      { "id": "e_pain_4", "category": "⏰ 時間", "description": "打卡鐘綁架不自由" },
+      { "id": "e_pain_5", "category": "🌍 市場", "description": "只能服務老闆沒市場" },
+      { "id": "e_pain_6", "category": "📈 收入", "description": "有做有錢沒做吃土" },
+      { "id": "e_pain_7", "category": "🚀 專業", "description": "擔心被AI取代" },
+      { "id": "e_pain_8", "category": "🛡️ 風險", "description": "裁員無薪假" }
+    ],
+    "S": [
+      { "id": "s_pain_1", "category": "💰 資金", "description": "成本折舊自己吞" },
+      { "id": "s_pain_2", "category": "❤️ 健康", "description": "校長兼撞鐘不敢病" },
+      { "id": "s_pain_3", "category": "🤝 人脈", "description": "削價競爭遇奧客" },
+      { "id": "s_pain_4", "category": "⏰ 時間", "description": "24H待命更不自由" },
+      { "id": "s_pain_5", "category": "🌍 市場", "description": "產能受限無法規模化" },
+      { "id": "s_pain_6", "category": "📈 收入", "description": "手停口停收入不穩" },
+      { "id": "s_pain_7", "category": "🚀 專業", "description": "技術焦慮需進修" },
+      { "id": "s_pain_8", "category": "🛡️ 風險", "description": "平台演算法改變" }
+    ],
+    "B": [
+      { "id": "b_pain_1", "category": "💰 資金", "description": "高額加盟囤貨壓力" },
+      { "id": "b_pain_2", "category": "❤️ 健康", "description": "應酬管理高壓身心疲" },
+      { "id": "b_pain_3", "category": "🤝 人脈", "description": "利益導向無真情" },
+      { "id": "b_pain_4", "category": "⏰ 時間", "description": "被店務綁死" },
+      { "id": "b_pain_5", "category": "🌍 市場", "description": "受限店面展店難" },
+      { "id": "b_pain_6", "category": "📈 收入", "description": "回本期長利潤低" },
+      { "id": "b_pain_7", "category": "🚀 專業", "description": "法規稅務門檻高" },
+      { "id": "b_pain_8", "category": "🛡️ 風險", "description": "總部倒閉連累" }
+    ],
+    "I": [
+      { "id": "i_pain_1", "category": "💰 資金", "description": "本金門檻高玩不起" },
+      { "id": "i_pain_2", "category": "❤️ 健康", "description": "盯盤焦慮失眠" },
+      { "id": "i_pain_3", "category": "🤝 人脈", "description": "聽信明牌被割" },
+      { "id": "i_pain_4", "category": "⏰ 時間", "description": "被行情綁架" },
+      { "id": "i_pain_5", "category": "🌍 市場", "description": "受全球局勢影響" },
+      { "id": "i_pain_6", "category": "📈 收入", "description": "大起大落風險高" },
+      { "id": "i_pain_7", "category": "🚀 專業", "description": "學習曲線極陡峭" },
+      { "id": "i_pain_8", "category": "🛡️ 風險", "description": "黑天鵝資產歸零" }
+    ]
+  }
+}

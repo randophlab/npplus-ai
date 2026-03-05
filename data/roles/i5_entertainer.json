@@ -1,0 +1,2064 @@
+{
+  "id": "i5",
+  "name": "演藝人員",
+  "icon": "🎤",
+  "keywords": [
+    "潛規則",
+    "狗仔偷拍",
+    "過氣焦慮",
+    "合約糾紛"
+  ],
+  "description": "演藝人員，面對潛規則、狗仔偷拍、過氣焦慮和合約糾紛的困境。",
+  "questions": [
+    {
+      "id": "i5_q1",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #1",
+      "desc": "知名導演暗示你：「今晚來我房間對劇本，這部戲主角就是你的。」（潛規則）。",
+      "choices": [
+        {
+          "text": "【接受】「為了紅，我豁出去了！」",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": -20,
+          "reputation": -10,
+          "feedback": "拿到了主角，但你覺得自己很髒。而且導演可能還同時睡了配角。"
+        },
+        {
+          "text": "【拒絕】「導演，我們約在咖啡廳談吧。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "導演翻臉，主角換人了。你守住了底線，但錯失了機會。"
+        },
+        {
+          "text": "【錄音蒐證】帶著錄音筆去赴約",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "風險很高。如果爆料成功你是英雄，失敗你就被演藝圈封殺。"
+        },
+        {
+          "text": "【裝傻】「導演我帶經紀人一起去喔！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "導演說：「那不用了。」你安全下莊，但也沒戲演了。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q2",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #2",
+      "desc": "被狗仔拍到你跟素人約會，經紀公司要求你「否認戀情」，但你們正在熱戀期。",
+      "choices": [
+        {
+          "text": "【聽公司的】發聲明：「我們只是好朋友。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "另一半很受傷，覺得你是渣男/渣女。粉絲信了，事業保住。"
+        },
+        {
+          "text": "【高調認愛】「對，我們在一起！」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "掉粉無數，廠商解約。但你獲得了愛情的自由。這是真愛。"
+        },
+        {
+          "text": "【買通狗仔】花錢把照片買回來",
+          "type": "🟣 黑化",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "荷包大失血。而且狗仔食髓知味，下次還會再來勒索。"
+        },
+        {
+          "text": "【冷處理】不回應、不解釋",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "大家猜來猜去。熱度過幾天就沒了。但另一半還是不爽。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q3",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #3",
+      "desc": "參加綜藝節目，主持人要你吃蟲/摸蛇/講黃色笑話，你不願意。",
+      "choices": [
+        {
+          "text": "【配合演出】硬著頭皮做，笑著流淚",
+          "type": "🟢 保守",
+          "money": 5,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "播出效果很好，通告變多了。但你覺得自己像個小丑。"
+        },
+        {
+          "text": "【當場拒絕】「我真的不行，我不錄了。」",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "主持人臉垮掉，製作人把你列入黑名單。以後沒通告了。"
+        },
+        {
+          "text": "【假裝暈倒】演技派，直接裝暈",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "雖然躲過了，但被傳言「身體虛/嬌氣」。"
+        },
+        {
+          "text": "【找人代打】推給旁邊的新人「他很想試！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "新人恨你，但為了鏡頭還是做了。你欺負新人。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q4",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #4",
+      "desc": "你代言的保養品被爆出含汞超標，消費者爛臉，還有人告你詐欺。",
+      "choices": [
+        {
+          "text": "【開記者會道歉】鞠躬道歉，承諾退費",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "雖然賠錢，但止血了。展現負責任的態度。"
+        },
+        {
+          "text": "【切割廠商】「我也是受害者，我不知情！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -20,
+          "feedback": "民眾覺得你只賺錢不把關。形象大傷。"
+        },
+        {
+          "text": "【神隱】關閉留言，躲出國",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -50,
+          "feedback": "被通緝（誤）。你的演藝生涯結束了。"
+        },
+        {
+          "text": "【反告廠商】「廠商騙我，我要告死他們！」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "打官司轉移焦點。但廠商可能已經跑路了。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q5",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #5",
+      "desc": "經紀公司要跟你簽「奴隸合約」，簽約 10 年，抽成 9:1（你拿 1），違約金 1 億。",
+      "choices": [
+        {
+          "text": "【簽下去】「為了紅，我忍！」",
+          "type": "🟢 保守",
+          "money": 5,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "公司給你很多資源，你紅了，但你是窮光蛋。你是在幫公司打工。"
+        },
+        {
+          "text": "【拒簽】「這種合約誰簽誰傻！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "你沒簽，公司把你冷凍。你只能去跑龍套。"
+        },
+        {
+          "text": "【找律師看】「我們修改一下條款...」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "公司不爽，覺得你毛很多。最後沒簽成。"
+        },
+        {
+          "text": "【簽了再違約】「紅了再說，到時候再打官司！」",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "後來真的紅了，但為了贖身花了幾千萬。這是一場豪賭。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q6",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #6",
+      "desc": "你在直播時忘記關鏡頭，不小心說了髒話或是換衣服（走光）。",
+      "choices": [
+        {
+          "text": "【大方承認】「我也是人，也會罵髒話。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "變成「真性情」人設。意外圈粉。"
+        },
+        {
+          "text": "【哭著道歉】「對不起做了不良示範...」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "標準 SOP。大家罵一罵就忘了。"
+        },
+        {
+          "text": "【說是為了節目效果】「那是設計好的橋段啦！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "沒人信。大家覺得你硬拗。"
+        },
+        {
+          "text": "【炒作流量】順勢推出寫真集（如果是走光）",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": 0,
+          "reputation": -30,
+          "feedback": "賺翻了，但被貼上「賣肉」標籤。格調變低。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q7",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #7",
+      "desc": "拍戲時對手演員（大牌）故意一直 NG，還藉機呼你巴掌（真打）。",
+      "choices": [
+        {
+          "text": "【忍耐】「為了戲好，我忍。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -15,
+          "reputation": 5,
+          "feedback": "臉腫了，但導演稱讚你敬業。大牌覺得你很識相。"
+        },
+        {
+          "text": "【打回去】「劇本沒寫要真打，我也來真的！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -20,
+          "feedback": "片場打架，新聞頭條。你被封殺，但全網都在討論你。"
+        },
+        {
+          "text": "【跟導演哭訴】「他公報私仇！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "導演不敢得罪大牌，叫你忍忍。沒用。"
+        },
+        {
+          "text": "【在便當裡吐口水】中午放飯時報復",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "大牌吃得很開心。你心裡平衡了。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q8",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #8",
+      "desc": "你的經紀人捲款潛逃，把你這兩年的演出費都拿走了，你現在身無分文。",
+      "choices": [
+        {
+          "text": "【報警提告】",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "人抓不到，錢也要不回來。要重新開始。"
+        },
+        {
+          "text": "【開記者會哭訴】「請大家幫幫我...」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "獲得同情，有些廠商願意先預付訂金給你。度過難關。"
+        },
+        {
+          "text": "【找黑道討債】",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": 5,
+          "reputation": -30,
+          "feedback": "黑道找到了人，但也把你剝了一層皮。形象受損。"
+        },
+        {
+          "text": "【自己接案】「以後我自己當經紀人。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "雖然累，但錢都是自己的。不會再被騙。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q9",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #9",
+      "desc": "為了上鏡頭好看，經紀公司逼你去整形（削骨/隆鼻），但你不想動刀。",
+      "choices": [
+        {
+          "text": "【拒絕】「我走實力派路線。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "公司冷凍你，不給你資源。你只能靠自己。"
+        },
+        {
+          "text": "【微整】「打打玻尿酸就好。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "妥協方案。臉變精緻了，也比較上鏡。"
+        },
+        {
+          "text": "【大整】「為了紅，換一顆頭也願意。」",
+          "type": "🟣 黑化",
+          "money": -20,
+          "sanity": -10,
+          "reputation": 10,
+          "feedback": "變美了，紅了。但臉僵硬，被網友笑「塑膠臉」。老了會有後遺症。"
+        },
+        {
+          "text": "【P圖】本人不整，照片修很大",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "本人跟照片差太多，見光死。只能當網紅，不能上電視。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q10",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #10",
+      "desc": "參加頒獎典禮，你沒得獎，鏡頭特寫你失落的表情，被做成表情包瘋傳。",
+      "choices": [
+        {
+          "text": "【自嘲】轉發表情包，「我當時真的餓了。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "高 EQ 回應！大家覺得你很可愛，反而圈粉。"
+        },
+        {
+          "text": "【生氣】「我就沒得獎還要笑嗎？」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "被說輸不起、沒風度。形象扣分。"
+        },
+        {
+          "text": "【假裝不在意】「能入圍就是肯定。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "官方回答。無聊但安全。"
+        },
+        {
+          "text": "【買網軍洗白】說那是「真性情」",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "帶風向成功。但花了錢。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q11",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #11",
+      "desc": "為了維持身材，你每天只吃水煮蛋和青菜，餓到快昏倒，看到路邊的雞排好想吃。",
+      "choices": [
+        {
+          "text": "【偷吃】「吃一塊就好...」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "吃了一塊就停不下來，整塊吃完。罪惡感爆棚，明天要多跑 5 公里。"
+        },
+        {
+          "text": "【忍住】「我是仙女，我喝露水。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "身材維持住了，但脾氣變很差。厭食症前兆。"
+        },
+        {
+          "text": "【催吐】吃完再去吐出來",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -20,
+          "reputation": -10,
+          "feedback": "得了暴食症。身體壞了，牙齒也壞了。"
+        },
+        {
+          "text": "【吃播】「我是為了拍片才吃的！」",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "吃了，也賺了流量。但經紀人會殺了你。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q12",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #12",
+      "desc": "粉絲（私生飯）跟蹤你回家，還在你家門口翻垃圾、偷內衣。",
+      "choices": [
+        {
+          "text": "【報警】申請保護令",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "警察來處理。但粉絲會覺得被背叛，由愛生恨。"
+        },
+        {
+          "text": "【搬家】躲到保全森嚴的豪宅",
+          "type": "🔵 妥協",
+          "money": -20,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "安全了，但開銷大增。沒錢的時候怎麼辦？"
+        },
+        {
+          "text": "【罵粉絲】「你們是變態嗎！滾！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "被拍下來上傳「明星罵粉絲」。形象受損。"
+        },
+        {
+          "text": "【賣原味內衣】「既然你要，就賣給你！」",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": -10,
+          "reputation": -50,
+          "feedback": "賺外快（？）。你瘋了。這會毀了你的演藝生涯。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q13",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #13",
+      "desc": "你要去中國發展，對岸要求你簽「政治表態承諾書」，不然封殺。",
+      "choices": [
+        {
+          "text": "【簽下去】「我是中國人！人民幣真香！」",
+          "type": "🟣 黑化",
+          "money": 30,
+          "sanity": -10,
+          "reputation": -30,
+          "feedback": "在台灣被罵翻，但在中國賺翻。你選擇了市場。"
+        },
+        {
+          "text": "【拒簽】「我是台灣人！不賺人民幣！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 20,
+          "feedback": "失去了中國市場，但在台灣被封為「愛國藝人」。錢少了很多，但有骨氣。"
+        },
+        {
+          "text": "【打模糊仗】發一張風景照寫「和平」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "兩邊都不討好。小粉紅逼你表態，台灣網友酸你騎牆派。"
+        },
+        {
+          "text": "【轉戰其他市場】去東南亞/歐美發展",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "路比較難走，但不用跪。開拓新藍海。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q14",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #14",
+      "desc": "你的黑歷史（未成年抽菸/霸凌同學）被挖出來，網路上罵聲一片。",
+      "choices": [
+        {
+          "text": "【誠懇道歉】「那時候不懂事，對不起。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "有些人原諒，有些人不原諒。需要時間洗白。"
+        },
+        {
+          "text": "【否認到底】「那是造謠！P圖！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -30,
+          "feedback": "更多證據被挖出來。被打臉。誠信破產。"
+        },
+        {
+          "text": "【告爆料者】「我要告你誹謗！」",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "法院認證的黑歷史。更慘。"
+        },
+        {
+          "text": "【神隱】暫停所有活動，躲起來",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "冷處理。等大家忘了再復出。演藝圈很健忘。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q15",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #15",
+      "desc": "參加實境秀，被剪輯成「心機重/懶惰」的形象（惡魔剪輯），觀眾罵翻。",
+      "choices": [
+        {
+          "text": "【發文澄清】公布原始錄音/對話",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "跟製作單位撕破臉。以後沒節目敢發你。但證明了清白。"
+        },
+        {
+          "text": "【吞下去】「配合節目效果...」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "雖然被罵，但知名度大增。黑紅也是紅。"
+        },
+        {
+          "text": "【自嘲】「我就是懶～」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "把負面標籤變成梗。心理素質強大。"
+        },
+        {
+          "text": "【哭訴】直播哭給大家看",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "有人同情，有人覺得你在演戲。綠茶味很重。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q16",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "演藝人員危機 #16",
+      "desc": "你過氣了，半年沒通告，存款快見底，但每個月還要繳 10 萬房貸（豪宅）。",
+      "choices": [
+        {
+          "text": "【賣豪宅】換小房子住，減輕壓力",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "被媒體報導「落魄藝人賣房求生」。面子沒了，但裡子有了。"
+        },
+        {
+          "text": "【去直播帶貨】「老鐵們刷起來！」",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "放下身段賺錢。雖然被笑 Low，但現金流回來了。"
+        },
+        {
+          "text": "【借高利貸】「我下個月就會紅回來！」",
+          "type": "🟣 黑化",
+          "money": -20,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "死要面子。最後房子被法拍，還欠一屁股債。"
+        },
+        {
+          "text": "【接爛通告】什麼整人節目、工地秀都接",
+          "type": "🔵 妥協",
+          "money": 2,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "辛苦錢。維持生計。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q17",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "演藝人員危機 #17",
+      "desc": "為了出席金鐘獎/金曲獎，你需要一套高級禮服，但品牌不借你（覺得你不夠紅）。",
+      "choices": [
+        {
+          "text": "【自己買】刷卡買 20 萬的禮服",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "紅毯最美！但穿一次就沒用了。回家吃泡麵。"
+        },
+        {
+          "text": "【穿平價品牌】用氣質撐起來",
+          "type": "🟢 保守",
+          "money": -2,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "被媒體稱讚「親民、有自信」。省錢又贏得好評。"
+        },
+        {
+          "text": "【穿山寨版】淘寶買的高仿",
+          "type": "🟣 黑化",
+          "money": -1,
+          "sanity": 0,
+          "reputation": -30,
+          "feedback": "被時尚部落客抓包。丟臉丟到國外。"
+        },
+        {
+          "text": "【改舊衣服】把舊禮服改一改再穿",
+          "type": "🔵 妥協",
+          "money": -1,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "環保。但被說「寒酸」。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q18",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "演藝人員危機 #18",
+      "desc": "家人把你當提款機，弟弟賭博欠債 500 萬，黑道來你的記者會討債。",
+      "choices": [
+        {
+          "text": "【幫忙還債】「這是我弟弟...」",
+          "type": "🟢 保守",
+          "money": -50,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "你的積蓄沒了。弟弟下次還會再賭。無底洞。"
+        },
+        {
+          "text": "【斷絕關係】開記者會宣布「早已不相往來」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "雖然絕情，但保護了自己。輿論通常同情你。"
+        },
+        {
+          "text": "【報警】請警察保護",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "記者會毀了。黑道私下還是會騷擾你。"
+        },
+        {
+          "text": "【叫黑道找弟弟】「冤有頭債有主，別找我。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "弟弟被打斷腿。你狠心，但解決了麻煩。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q19",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "演藝人員危機 #19",
+      "desc": "投資副業（餐廳/飲料店）失敗，虧了 1000 萬，合夥人跑了。",
+      "choices": [
+        {
+          "text": "【復出拍戲】瘋狂接戲還債",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "你是演藝圈公務員。雖然累，但慢慢還清了。"
+        },
+        {
+          "text": "【宣告破產】",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -20,
+          "feedback": "信用破產。不能用名下的財產。人生歸零。"
+        },
+        {
+          "text": "【接博弈廣告】代言線上賭場賺快錢",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": 0,
+          "reputation": -30,
+          "feedback": "賺回來了，但形象毀了。警察可能會來找你。"
+        },
+        {
+          "text": "【賣慘募資】「請大家支持我的夢想...」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "消費粉絲的同情心。一次可以，兩次就沒用了。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q20",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "演藝人員危機 #20",
+      "desc": "經紀公司抽成太高，你想解約，但違約金是天價。",
+      "choices": [
+        {
+          "text": "【打官司】主張合約不合理（奴隸條款）",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "官司打三年，期間被冷凍不能工作。最後勝訴恢復自由身。"
+        },
+        {
+          "text": "【找金主贖身】找大老闆幫忙付違約金",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -20,
+          "feedback": "被包養的傳聞滿天飛。你從一個坑跳到另一個坑。"
+        },
+        {
+          "text": "【擺爛】故意遲到、表現差，讓公司主動解約",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "名聲臭了，別的公司也不敢簽你。自殺式攻擊。"
+        },
+        {
+          "text": "【忍耐到期滿】乖乖履行合約",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "浪費青春。約滿後你已經老了。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q21",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "演藝人員危機 #21",
+      "desc": "跟你同期的藝人現在比你紅 10 倍，在後台遇到時，他故意無視你。",
+      "choices": [
+        {
+          "text": "【主動打招呼】「嗨！好久不見！」裝熟",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "展現大氣。雖然心裡酸酸的，但沒失禮。"
+        },
+        {
+          "text": "【翻白眼】「跩什麼跩？」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "被記者拍到「不合」。上了新聞版面（蹭熱度？）。"
+        },
+        {
+          "text": "【爆料】跟記者說他整型/以前的醜事",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -20,
+          "feedback": "兩敗俱傷。你被說是嫉妒心重的小人。"
+        },
+        {
+          "text": "【默默離開】躲在角落畫圈圈",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "心裡受創。回家更努力練習（或放棄）。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q22",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "演藝人員危機 #22",
+      "desc": "你的助理（宣傳）很雷，常發錯文、得罪記者，但他是老闆的親戚。",
+      "choices": [
+        {
+          "text": "【忍耐】自己收爛攤子",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "累死。形象被他搞壞。老闆覺得你沒能力帶人。"
+        },
+        {
+          "text": "【教育他】嚴厲指正錯誤",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "他跑去跟老闆告狀說你兇他。你被老闆罵。"
+        },
+        {
+          "text": "【設局陷害】讓他犯大錯被開除",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "借刀殺人。雖然陰險，但解決了問題。"
+        },
+        {
+          "text": "【拒絕合作】「不換助理我就不工作！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "跟公司鬧翻。被冷凍。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q23",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "演藝人員危機 #23",
+      "desc": "拍吻戲時，對手演員吃了大蒜，還故意伸舌頭（性騷擾）。",
+      "choices": [
+        {
+          "text": "【喊卡】「導演，他伸舌頭！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "場面尷尬。對方說是不小心的。被說難搞。"
+        },
+        {
+          "text": "【忍耐拍完】回家刷牙刷十次",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "敬業。但心裡有陰影。"
+        },
+        {
+          "text": "【咬他】咬他的舌頭",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "對方痛得大叫。你說是太投入了。爽！"
+        },
+        {
+          "text": "【借位】技巧性避開",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "需要高超的演技和導演配合。如果導演堅持要真親就沒轍。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q24",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "演藝人員危機 #24",
+      "desc": "上綜藝節目，主持人一直開你身材/隱私的玩笑，讓你很不舒服。",
+      "choices": [
+        {
+          "text": "【笑著配合】「哈哈對啊我就是胖。」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "很有綜藝感。但回家會哭。為了賺錢沒尊嚴。"
+        },
+        {
+          "text": "【變臉】當場臭臉不講話",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "被說是「收視率黑洞、開不起玩笑」。以後沒通告。"
+        },
+        {
+          "text": "【反擊】開主持人的玩笑",
+          "type": "🟢 保守",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "反應快！全場爆笑。這才是綜藝咖的實力。"
+        },
+        {
+          "text": "【錄完後提告】告性騷擾/公然侮辱",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "跟演藝圈大哥大姐為敵。雖然贏了官司，但輸了工作。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q25",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "演藝人員危機 #25",
+      "desc": "粉絲（私生飯）半夜打電話給你，說：「我知道你在家，我看到燈亮了。」",
+      "choices": [
+        {
+          "text": "【報警】",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "警察來了人跑了。每天活在恐懼中。"
+        },
+        {
+          "text": "【搬家】",
+          "type": "🔵 妥協",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "花大錢搬到保全好的豪宅。安全了。"
+        },
+        {
+          "text": "【罵回去】「變態！滾！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "激怒了瘋狂粉絲，可能會有更激進的行為（潑漆、跟蹤）。"
+        },
+        {
+          "text": "【邀請進來】（誤）...好言相勸",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "試圖感化他？太天真了。這是在玩火。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q26",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "演藝人員危機 #26",
+      "desc": "為了演唱會，你進行地獄減肥，每天只吃一顆蘋果，在台上暈倒了。",
+      "choices": [
+        {
+          "text": "【送醫休養】取消演唱會",
+          "type": "🟢 保守",
+          "money": -50,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "賠償觀眾損失。但粉絲心疼你，叫你好好休息。"
+        },
+        {
+          "text": "【打針硬撐】打營養針繼續唱",
+          "type": "🔴 激進",
+          "money": 20,
+          "sanity": -20,
+          "reputation": 10,
+          "feedback": "敬業精神感人！但唱完後倒下，身體壞了。"
+        },
+        {
+          "text": "【假唱】對嘴",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -30,
+          "feedback": "被抓包假唱。售票演唱會假唱是大忌。被罵翻。"
+        },
+        {
+          "text": "【改成坐著唱】「今天我們走溫馨路線。」",
+          "type": "🔵 妥協",
+          "money": 10,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "粉絲接受。雖然沒勁歌熱舞，但至少看到了人。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q27",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "演藝人員危機 #27",
+      "desc": "長期濃妝豔抹，皮膚爛掉，長滿痘痘，無法上鏡。",
+      "choices": [
+        {
+          "text": "【停工養膚】消失一個月",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "皮膚好了。但熱度降了。"
+        },
+        {
+          "text": "【化更濃的妝】蓋過去",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "惡性循環，臉爛得更嚴重。鏡頭近拍很嚇人。"
+        },
+        {
+          "text": "【修圖】只發精修照，不上節目",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "變成「照騙」網紅。大家都在問你怎麼消失了。"
+        },
+        {
+          "text": "【戴口罩】說過敏",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "只能接廣播或不需要露臉的工作。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q28",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "演藝人員危機 #28",
+      "desc": "網路霸凌讓你得了憂鬱症，每天晚上都要吃安眠藥才能睡。",
+      "choices": [
+        {
+          "text": "【關閉社群】遠離網路",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "心情平靜了。但在这个流量時代，沒社群等於沒工作。"
+        },
+        {
+          "text": "【看心理醫生】",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "積極治療。但如果被媒體拍到看精神科，會被亂寫「發瘋」。"
+        },
+        {
+          "text": "【發負面文】在 IG 發全黑圖、割腕照（誤）",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -10,
+          "feedback": "討拍？情緒勒索？粉絲擔心，但廠商不敢用不穩定的藝人。"
+        },
+        {
+          "text": "【酗酒/吸毒】",
+          "type": "🟣 黑化",
+          "money": -20,
+          "sanity": -30,
+          "reputation": -50,
+          "feedback": "自毀前程。被抓到就完了。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q29",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "演藝人員危機 #29",
+      "desc": "你整型整上癮了，覺得鼻子還不夠高、眼睛不夠大，醫生勸你不要再整了。",
+      "choices": [
+        {
+          "text": "【聽醫生的】停止整型",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "雖然不滿意，但至少沒變怪物。"
+        },
+        {
+          "text": "【換醫生整】「這個醫生技術爛，我找別的。」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -10,
+          "reputation": -20,
+          "feedback": "整壞了。臉崩了。變成塑膠臉、蛇精男/女。"
+        },
+        {
+          "text": "【心理諮商】治療容貌焦慮",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "找到自信。接受自己的不完美。"
+        },
+        {
+          "text": "【P圖就好】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "照片跟本人差十萬八千里。見光死。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q30",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "演藝人員危機 #30",
+      "desc": "拍戲受傷（墜馬/爆破），脊椎受損，可能終身癱瘓。",
+      "choices": [
+        {
+          "text": "【積極復健】",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 10,
+          "reputation": 10,
+          "feedback": "奇蹟康復（或坐輪椅復出）。勵志故事，全民偶像。"
+        },
+        {
+          "text": "【告劇組】求償",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "拿到了賠償金。但以後沒劇組敢用你（怕麻煩）。"
+        },
+        {
+          "text": "【自暴自棄】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -20,
+          "reputation": -10,
+          "feedback": "消失在螢光幕前。悲劇收場。"
+        },
+        {
+          "text": "【轉幕後/編劇】",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "用腦袋賺錢。開啟第二人生。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q31",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "演藝人員危機 #31",
+      "desc": "網紅/YouTuber 崛起，搶走了你的代言和通告，你的身價不如一個抖音妹。",
+      "choices": [
+        {
+          "text": "【轉戰網路】「我也來拍 YouTube/抖音！」",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "藝人降維打擊？不一定，網路生態不同。需要適應期。"
+        },
+        {
+          "text": "【瞧不起網紅】「我是明星，跟他們不一樣。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "被時代淘汰。活在過去的榮光裡。"
+        },
+        {
+          "text": "【跟網紅合作】「互相導流（蹭流量）。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "雙贏。你有名氣，他有流量。"
+        },
+        {
+          "text": "【買流量】買假粉充場面",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "被抓包數據造假。廠商不再合作。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q32",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "演藝人員危機 #32",
+      "desc": "AI 換臉（Deepfake）技術氾濫，你的臉被合成到謎片上流傳。",
+      "choices": [
+        {
+          "text": "【報警提告】",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "抓不到源頭（伺服器在國外）。但表明了立場。"
+        },
+        {
+          "text": "【自嘲】「身材有那麼好就好啦！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "高 EQ 化解尷尬。大家知道那是假的。"
+        },
+        {
+          "text": "【崩潰】",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "深受打擊，不敢出門。成為受害者。"
+        },
+        {
+          "text": "【趁機出寫真】「想看真的來買寫真集！」",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "大賺一筆。但形象變得很肉慾。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q33",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "演藝人員危機 #33",
+      "desc": "電視台倒閉，戲劇減產，你已經一年沒戲拍了。",
+      "choices": [
+        {
+          "text": "【去演鄉土劇/八點檔】",
+          "type": "🔵 妥協",
+          "money": 10,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "雖然劇情狗血、沒日沒夜，但錢很多且穩定。"
+        },
+        {
+          "text": "【去中國發展】",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "競爭激烈，可能淪為配角。還要政治表態。"
+        },
+        {
+          "text": "【進修】去國外學表演",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "充實自己。回來後實力提升（如果還有舞台的話）。"
+        },
+        {
+          "text": "【直播帶貨】「快下單！321！」",
+          "type": "🟣 黑化",
+          "money": 15,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "賺得比拍戲多。但被視為墮落。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q34",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "演藝人員危機 #34",
+      "desc": "你變老了（35歲+），以前演主角，現在只能演主角的爸媽（或阿姨）。",
+      "choices": [
+        {
+          "text": "【接受轉型】「我是實力派演員。」",
+          "type": "🟢 保守",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "戲路變寬了。演爸媽也能拿影帝影后。"
+        },
+        {
+          "text": "【拒絕】「我還是少女/鮮肉！不演老的！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "沒戲演。只能在家孤芳自賞。"
+        },
+        {
+          "text": "【打針回春】醫美維持青春",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "臉僵硬，演戲沒表情。觀眾出戲。"
+        },
+        {
+          "text": "【裝嫩】硬演大學生",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -20,
+          "feedback": "被觀眾罵翻「老黃瓜刷綠漆」。尷尬。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q35",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "演藝人員危機 #35",
+      "desc": "#MeToo 運動延燒，你以前的合作對象被爆料，記者一直來問你「知不知情？有沒有被騷擾？」。",
+      "choices": [
+        {
+          "text": "【說實話】「有，我也遇過。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "勇敢發聲。成為焦點，但也可能被指責「蹭熱度/落井下石」。"
+        },
+        {
+          "text": "【裝傻】「我不知道，他對我不錯。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "被懷疑是既得利益者，或是瞎了眼。"
+        },
+        {
+          "text": "【拒絕受訪】「不予置評。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "安全。不想捲入風暴。"
+        },
+        {
+          "text": "【護航】「他人很好，一定是誤會！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -30,
+          "feedback": "被網友出征。你完了。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q36",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #36",
+      "desc": "你在演唱會上破音/走音（車禍現場），影片被瘋傳。",
+      "choices": [
+        {
+          "text": "【自嘲】「今天喉嚨去旅行了～」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "幽默化解。大家笑笑就過了。"
+        },
+        {
+          "text": "【怪設備】「耳機壞了！麥克風沒聲音！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "推卸責任。工作人員出來打臉你。"
+        },
+        {
+          "text": "【假裝沒事】繼續唱",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "專業素養。只要你不尷尬，尷尬的就是別人。"
+        },
+        {
+          "text": "【以後都對嘴】",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "歌手的恥辱。被抓包更慘。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q37",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #37",
+      "desc": "你的名字被拿去當「擋泥板女神/男神」，或者被印在奇怪的商品上（如情趣用品），沒付版權費。",
+      "choices": [
+        {
+          "text": "【提告侵權】",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "維護權益。但廠商可能是地下工廠，找不到人。"
+        },
+        {
+          "text": "【當作免費宣傳】「代表我很紅！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "阿Q 精神。國民度提升（？）"
+        },
+        {
+          "text": "【收代言費】聯絡廠商「補錢就讓你用」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "你代言了情趣用品...形象轉變。"
+        },
+        {
+          "text": "【崩潰】覺得被羞辱",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "心情不好。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q38",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #38",
+      "desc": "你要去偏鄉義演（沒錢），但同時有一個高價商演找你。",
+      "choices": [
+        {
+          "text": "【去義演】「承諾就是承諾。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "好名聲。心靈富足。錢再賺就有。"
+        },
+        {
+          "text": "【去商演】「我要養家啊，推掉義演。」",
+          "type": "🔴 激進",
+          "money": 20,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "被罵勢利眼。但荷包滿滿。"
+        },
+        {
+          "text": "【趕場】兩個都去，搭直升機（誤）",
+          "type": "🔵 妥協",
+          "money": 10,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "累死。遲到風險高。可能兩邊都沒表現好。"
+        },
+        {
+          "text": "【找替身】叫長得像的人去義演（太扯了）",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": 5,
+          "reputation": -50,
+          "feedback": "被抓包。詐欺。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q39",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #39",
+      "desc": "你在路上跟人發生行車糾紛，對方下車拿球棒，並認出你是藝人，拿手機狂拍。",
+      "choices": [
+        {
+          "text": "【道歉】「對不起是我不對。」（就算不是你的錯）",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "為了形象忍氣吞聲。公眾人物的悲哀。"
+        },
+        {
+          "text": "【報警】躲在車上不下來",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "安全做法。但會上新聞「藝人與路人糾紛」。"
+        },
+        {
+          "text": "【跟他打】「藝人也是人！我練過拳擊！」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "打架鬧事，形象全毀。代言被撤。"
+        },
+        {
+          "text": "【給錢封口】「這 1 萬給你，影片刪掉。」",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "對方拿錢後照樣PO網：「藝人用錢砸人！」"
+        }
+      ]
+    },
+    {
+      "id": "i5_q40",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #40",
+      "desc": "你的父母欠下鉅額賭債，黑道放話要你「父債子還」，不還就去你記者會鬧。",
+      "choices": [
+        {
+          "text": "【幫忙還】拼命接工作還債",
+          "type": "🟢 保守",
+          "money": -50,
+          "sanity": -20,
+          "reputation": 5,
+          "feedback": "你是孝子/女。但這是無底洞，父母會繼續賭。"
+        },
+        {
+          "text": "【切割】「我早就沒跟他們聯絡了。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "被罵不孝。但保護了自己。"
+        },
+        {
+          "text": "【開記者會哭訴】「請大家不要借錢給我爸媽。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "家醜外揚。獲得同情。黑道暫時收斂。"
+        },
+        {
+          "text": "【退出演藝圈】「沒錢你們就拿不到。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "為了躲債放棄事業。可惜。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q41",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #41",
+      "desc": "你的團體（如男團/女團）有人要單飛，粉絲分裂互罵，你是隊長。",
+      "choices": [
+        {
+          "text": "【極力挽留】「我們是一體的！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "維持了團體。但貌合神離，心很累。"
+        },
+        {
+          "text": "【祝福】「尊重他的選擇。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "團體解散或重組。各自發展。"
+        },
+        {
+          "text": "【我也單飛】「誰怕誰？我也走！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "團體徹底瓦解。粉絲心碎。"
+        },
+        {
+          "text": "【爆隊友黑料】「是他太難搞，我們才不想跟他一組！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "互撕。形象全毀。團魂是假的。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q42",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #42",
+      "desc": "你入圍了金馬/金鐘/金曲獎，需要準備得獎感言，但你覺得自己不會得。",
+      "choices": [
+        {
+          "text": "【認真準備】寫了 500 字感言",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "有備無患。如果真的得了，講得很好。"
+        },
+        {
+          "text": "【不準備】「反正只是陪榜。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "結果真的得了！上台語無倫次，只會說「謝謝大家」。"
+        },
+        {
+          "text": "【準備酸言酸語】「感謝評審終於看到我...」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "得罪人。但有話題性。"
+        },
+        {
+          "text": "【在台上宣傳新戲】「請大家支持我的新作品！」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "很商業。但賺到了廣告機會。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q43",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #43",
+      "desc": "你被拍到抽菸/刺青（如果是清純人設），形象崩壞。",
+      "choices": [
+        {
+          "text": "【道歉】「我做了不良示範。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "粉絲失望。但誠實。"
+        },
+        {
+          "text": "【做自己】「這就是我，不喜歡就滾。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "人設轉型（叛逆）。掉粉但也吸新粉。"
+        },
+        {
+          "text": "【說是為了拍戲】「我在揣摩角色。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "理由很爛，但粉絲會買單（自我催眠）。"
+        },
+        {
+          "text": "【戒菸/雷射刺青】「我會改過自新。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "痛苦。為了工作犧牲喜好。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q44",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #44",
+      "desc": "你的名字出現在政黨的不分區立委名單（被吃豆腐），你不想從政。",
+      "choices": [
+        {
+          "text": "【發聲明澄清】「我沒有要從政，請勿揣測。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "保持中立。安全。"
+        },
+        {
+          "text": "【真的去選】「為民服務！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "演藝生涯結束，政治生涯開始。那是另一個地獄。"
+        },
+        {
+          "text": "【罵政黨】「不要蹭我熱度！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "得罪該政黨支持者。被網軍攻擊。"
+        },
+        {
+          "text": "【神隱】不回應",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "大家猜測你是默認。被貼標籤。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q45",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #45",
+      "desc": "你的助理偷了你的私密照（素顏/床照）賣給媒體，明天就要刊出了。",
+      "choices": [
+        {
+          "text": "【花錢買回】給媒體封口費",
+          "type": "🟢 保守",
+          "money": -30,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "大失血。而且難保不會有下次。"
+        },
+        {
+          "text": "【先發制人】自己先 PO 出來「我素顏也沒差！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "媒體沒獨家了。粉絲讚你勇敢。危機化轉機。"
+        },
+        {
+          "text": "【告助理】抓去關",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "照片還是流出了。大家都在看。"
+        },
+        {
+          "text": "【說是P圖】「那是AI合成的！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "信者恆信。現在 AI 這麼發達，搞不好真的有人信。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q46",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #46",
+      "desc": "拍戲時馬受驚/鋼絲斷裂，你摔下來受傷，劇組沒保險。",
+      "choices": [
+        {
+          "text": "【自費治療】「算了，劇組也沒錢。」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "你是好人。但身體是自己的。"
+        },
+        {
+          "text": "【提告求償】",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "跟劇組撕破臉。以後沒人敢用你（怕麻煩）。"
+        },
+        {
+          "text": "【罷演】「不賠償就不拍！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "戲拍不下去，大家失業。你被怪罪。"
+        },
+        {
+          "text": "【賣慘】坐輪椅出席活動博版面",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "炒作話題。有人同情，有人覺得你在演。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q47",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #47",
+      "desc": "你被邀請去當選秀節目評審，但參賽者都是有後台的（內定），你不能給低分。",
+      "choices": [
+        {
+          "text": "【配合演出】「哇！唱得太好了！」（其實很爛）",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": -10,
+          "reputation": -20,
+          "feedback": "觀眾罵你聾了。專業形象受損。但賺到了通告費。"
+        },
+        {
+          "text": "【毒舌講評】「你唱得像殺豬。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 10,
+          "feedback": "觀眾愛死你了！但製作單位和後台老闆恨死你。下季不用來了。"
+        },
+        {
+          "text": "【請辭】「我身體不適，不錄了。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "愛惜羽毛。不賺髒錢。"
+        },
+        {
+          "text": "【講場面話】「很有潛力，但還有進步空間。」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "中庸之道。誰都不得罪。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q48",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #48",
+      "desc": "你太久沒作品，被稱為「通告藝人/綜藝咖」，你想轉型回演員/歌手。",
+      "choices": [
+        {
+          "text": "【推掉通告】閉關修練，等待好劇本",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": -10,
+          "reputation": 5,
+          "feedback": "沒收入的日子很苦。可能等不到好劇本就被遺忘了。"
+        },
+        {
+          "text": "【自己出資】自己拍片/發片",
+          "type": "🔴 激進",
+          "money": -50,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "傾家蕩產圓夢。如果失敗就破產。如果成功就翻身。"
+        },
+        {
+          "text": "【繼續當通告咖】「能賺錢就好，管他什麼咖。」",
+          "type": "🔵 妥協",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "放棄了夢想，擁抱了現實。快樂的賺錢機器。"
+        },
+        {
+          "text": "【炒新聞】製造緋聞來宣傳",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "大家只關心你的緋聞，不關心你的作品。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q49",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "演藝人員危機 #49",
+      "desc": "你的粉絲團被駭客盜走，發了一堆詐騙連結，粉絲被騙錢。",
+      "choices": [
+        {
+          "text": "【報警並公告】盡力補救",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "還是有粉絲怪你沒保護好帳號。你需要重建信任。"
+        },
+        {
+          "text": "【賠償粉絲】自掏腰包賠給受害者",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 10,
+          "feedback": "你是大善人！形象大加分。但荷包大失血。"
+        },
+        {
+          "text": "【開新帳號】舊的不要了",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "粉絲流失。要重新經營。"
+        },
+        {
+          "text": "【裝死】「那是駭客做的，不關我的事。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "冷漠的態度讓人寒心。"
+        }
+      ]
+    },
+    {
+      "id": "i5_q50",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "演藝人員危機 #50",
+      "desc": "演藝生涯 20 年，你賺夠了（或沒賺夠），但身心俱疲，要退休嗎？",
+      "choices": [
+        {
+          "text": "【急流勇退】「在最美的時候離開。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 20,
+          "reputation": 10,
+          "feedback": "成為傳奇。大家會懷念你。過著平靜的退休生活。"
+        },
+        {
+          "text": "【永不退休】「我要演到死在舞台上！」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "敬業的藝人。但晚年可能很淒涼（沒人看/被嫌老）。"
+        },
+        {
+          "text": "【轉幕後】當製作人/經紀人/導演",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "傳承經驗。延續演藝生命。"
+        },
+        {
+          "text": "【經商】利用名氣開店",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "變成商人。如果店倒了會賠上老本。"
+        }
+      ]
+    }
+  ]
+}

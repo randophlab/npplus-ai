@@ -1,0 +1,2064 @@
+{
+  "id": "i2",
+  "name": "幣圈賭徒",
+  "icon": "📈",
+  "keywords": [
+    "合約爆倉",
+    "交易所倒閉",
+    "詐騙風險",
+    "暴漲暴跌"
+  ],
+  "description": "加密貨幣投資者，面對合約爆倉、交易所倒閉、詐騙風險和暴漲暴跌的困境。",
+  "questions": [
+    {
+      "id": "i2_q1",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #1",
+      "desc": "半夜 3 點，比特幣突然瀑布式暴跌 20%，你的手機狂響「保證金不足」的警報。",
+      "choices": [
+        {
+          "text": "【補保證金】「信仰！梭哈！把生活費都轉進去！」",
+          "type": "🔴 激進",
+          "money": -25,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "你守住了倉位，但下個月要吃土了。這就是幣圈人的浪漫，餓死也要守住幣。"
+        },
+        {
+          "text": "【直接平倉】「留得青山在，不怕沒柴燒。」",
+          "type": "🟢 保守",
+          "money": -15,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "你止損了。剛賣掉它就反彈了。你氣到摔手機，但至少還剩一點錢。"
+        },
+        {
+          "text": "【刪除 APP】「我什麼都沒看到，這是幻覺。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "早上醒來發現被強制平倉（爆倉）。資產歸零。鴕鳥心態的代價。"
+        },
+        {
+          "text": "【開空對沖】「跌是吧？我也來空！」",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "多空雙巴！你一空它就漲，你一多它就跌。市場專門跟你作對。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q2",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #2",
+      "desc": "馬斯克 (Elon Musk) 突然把推特頭像換成一隻奇怪的狗，該幣種在一分鐘內暴漲 500%。",
+      "choices": [
+        {
+          "text": "【市價追高】「To The Moon！現在上車還來得及！」",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "你買在山頂。馬斯克一小時後換回頭像，幣價崩盤。你成了接盤俠。"
+        },
+        {
+          "text": "【冷靜觀望】「這只是炒作，沒有基本面。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "你躲過了割韭菜。雖然沒賺到，但也沒賠。眾人皆醉你獨醒。"
+        },
+        {
+          "text": "【開 100 倍空】「這絕對是泡沫，空死它！」",
+          "type": "🟣 黑化",
+          "money": 30,
+          "sanity": 10,
+          "reputation": 10,
+          "feedback": "賭對了！泡沫破裂，你賺翻了。你是做空大師。"
+        },
+        {
+          "text": "【只買一點點】「買個 100 U 參與一下。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "賺了便當錢。有參與感就好，不求暴富。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q3",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #3",
+      "desc": "你常用的交易所突然宣布「系統維護，暫停提幣」，網路上謠傳老闆已經捲款跑路。",
+      "choices": [
+        {
+          "text": "【恐慌提領】瘋狂刷新頁面，試圖把錢轉走",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "網頁轉圈圈。你焦慮到拔頭髮。這就是中心化交易所的風險。"
+        },
+        {
+          "text": "【信仰充值】「我相信老闆！這是 FUD（恐慌言論）！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "三天後交易所倒閉。你的信仰變成了笑話，資產歸零。"
+        },
+        {
+          "text": "【低價賣帳號】「誰要？我帳號裡有 1 萬 U，賣 3000 U。」",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "找到了替死鬼接手。雖然虧了，但拿回了現金。你逃出生天。"
+        },
+        {
+          "text": "【早就在冷錢包】「Not your keys, not your coins.」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 10,
+          "feedback": "你大部份資產都在冷錢包，交易所倒閉跟你無關。這是老韭菜的智慧。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q4",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #4",
+      "desc": "朋友推薦你一個「智能搬磚套利」項目，號稱月息 30%，穩賺不賠。",
+      "choices": [
+        {
+          "text": "【梭哈投入】「這麼好康？我要財富自由了！」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": 10,
+          "reputation": -10,
+          "feedback": "典型的龐氏騙局。第一個月領到錢，第二個月項目方跑路。你血本無歸。"
+        },
+        {
+          "text": "【拉下線】「我沒錢，但我拉人來賺佣金。」",
+          "type": "🟣 黑化",
+          "money": 15,
+          "sanity": 0,
+          "reputation": -50,
+          "feedback": "你賺了朋友的錢。項目倒了之後，朋友聯合起來告你詐欺。眾叛親離。"
+        },
+        {
+          "text": "【質疑】「這不合邏輯，一定是詐騙。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "你拒絕了。朋友笑你傻。兩個月後朋友哭著來找你。"
+        },
+        {
+          "text": "【小額嘗試】「投一點閒錢玩玩看。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "本金拿回來了，賺了一點點。這種火中取栗的行為很危險。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q5",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #5",
+      "desc": "你的合約單正在大賺 500%，但各種指標顯示行情即將反轉，你要平倉嗎？",
+      "choices": [
+        {
+          "text": "【貪婪續抱】「我要賺到 1000%！還會漲！」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "一根針插下來，爆倉歸零。曾經的富貴如夢一場。貪心不足蛇吞象。"
+        },
+        {
+          "text": "【獲利了結】「落袋為安，有賺就好。」",
+          "type": "🟢 保守",
+          "money": 20,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "賣飛了（後來漲更多），但你確實賺到了錢。這是最難的修煉。"
+        },
+        {
+          "text": "【平一半】「出一半本金，剩下的讓利潤奔跑。」",
+          "type": "🔵 妥協",
+          "money": 10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "最穩健的做法。立於不敗之地。"
+        },
+        {
+          "text": "【截圖炫耀】先發 IG 限動再說",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "忙著修圖忘記平倉，結果回調。大家以為你賺翻了，其實你倒賠。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q6",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #6",
+      "desc": "為了看盤，你已經三天沒睡覺，精神恍惚，手指不自覺地想按「開多」。",
+      "choices": [
+        {
+          "text": "【去睡覺】「身體垮了有錢也沒用。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "睡醒發現錯過了大行情，少賺幾百萬。但你活著。"
+        },
+        {
+          "text": "【喝紅牛硬撐】「這波行情不能錯過！」",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "手抖下錯單，把「賣出」按成「買入」。幸好行情配合，誤打誤撞賺了。"
+        },
+        {
+          "text": "【寫交易機器人】「讓程式幫我盯盤。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "花時間寫 Code。程式邏輯有漏洞，半夜幫你賠了一點錢，但至少你能睡覺。"
+        },
+        {
+          "text": "【找人代操】把帳號給朋友幫忙看",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "朋友手癢亂下單，賠光你的錢。友情破裂。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q7",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #7",
+      "desc": "參加幣圈線下聚會，大家都說自己「身價上億」，問你賺多少。",
+      "choices": [
+        {
+          "text": "【吹牛】「我早就財富自由了，來交朋友的。」",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "大家都要你請客。你為了面子刷卡請大家喝酒，回家吃泡麵。"
+        },
+        {
+          "text": "【誠實】「我最近虧慘了，來求帶飛。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "大家對你露出憐憫的眼神，然後不理你。這圈子很現實。"
+        },
+        {
+          "text": "【裝神秘】「不好說，稅務問題。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "大家覺得你是隱形富豪。保持了尊嚴。"
+        },
+        {
+          "text": "【反問】「那你錢包秀出來看看啊？」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 10,
+          "reputation": -20,
+          "feedback": "氣氛尷尬。其實大家都在吹牛，沒人敢秀。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q8",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #8",
+      "desc": "你的私鑰（助記詞）寫在紙上，被家裡的狗咬爛了，還有幾個字看不清楚。",
+      "choices": [
+        {
+          "text": "【拼命猜】排列組合慢慢試",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "試了三天三夜，終於試出來了！你這輩子不會再讓狗靠近那張紙。"
+        },
+        {
+          "text": "【放棄】「裡面只有幾百 U，算了。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "瀟灑。但幾年後那幾百 U 漲成幾百萬時，你會想殺了那隻狗。"
+        },
+        {
+          "text": "【找駭客幫忙】網路上找「錢包救援服務」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "遇到詐騙，剩下的錢也被轉走了。二次傷害。"
+        },
+        {
+          "text": "【怪罪家人】「誰叫你們沒把狗管好！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "家庭失和。狗被送走了。你的錢還是沒回來。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q9",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #9",
+      "desc": "你發現一個「土狗盤」（Meme Coin）剛開盤，名字叫「魷魚幣」，看起來像是會跑路的樣子。",
+      "choices": [
+        {
+          "text": "【衝進去】「跑得比莊家快就是賺！」",
+          "type": "🔴 激進",
+          "money": 20,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "你翻了 10 倍！在最高點賣出。莊家隨後撤池（Rug Pull），後面的人全死。你在刀口舔血。"
+        },
+        {
+          "text": "【不碰】「這是詐騙，我有原則。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "看著別人賺錢心癢癢。但最後看到崩盤，慶幸自己沒進場。"
+        },
+        {
+          "text": "【只投 10 U】「當作買樂透。」",
+          "type": "🔵 妥協",
+          "money": 2,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "賺了 100 U。吃了一頓好的。小賭怡情。"
+        },
+        {
+          "text": "【發行自己的幣】「我也來發一個騙錢！」",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -50,
+          "feedback": "你當了莊家，收割了一波韭菜。但你的地址被標記為詐騙，以後混不下去。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q10",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #10",
+      "desc": "DeFi 項目被駭客攻擊，你的質押資產可能歸零，項目方說正在談判。",
+      "choices": [
+        {
+          "text": "【趕快贖回】如果不行的話就一直按",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -15,
+          "reputation": 0,
+          "feedback": "合約暫停，提不出來。你只能眼睜睜看著錢消失。"
+        },
+        {
+          "text": "【等待補償】「項目方會賠償的...吧？」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "項目方發了毫無價值的「補償代幣」。你拿到了一堆空氣。"
+        },
+        {
+          "text": "【去推特罵】「還我錢！垃圾項目！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "發洩了情緒。駭客看到後嘲笑你們。錢回不來了。"
+        },
+        {
+          "text": "【買駭客保險】之前有買保險（如果有的話）",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "獲得了理賠。這就是風險管理的價值。雖然手續很麻煩。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q11",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #11",
+      "desc": "你在 Discord 收到正妹私訊，說她舅舅有內線消息，要帶你做合約。",
+      "choices": [
+        {
+          "text": "【相信愛情】「她叫我寶貝耶...匯錢！」",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "典型的殺豬盤。錢匯過去就被封鎖了。你失去了錢，也失去了愛情。"
+        },
+        {
+          "text": "【調戲詐騙】「舅舅是誰？我也想認識舅舅。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "跟詐騙集團聊了三天，浪費他們時間。最後對方發現你在耍他，罵髒話。"
+        },
+        {
+          "text": "【封鎖】「這是詐騙，不用看。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "安全。這是幣圈的基本常識。"
+        },
+        {
+          "text": "【反向推銷】「我也有項目，妳要不要投？」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "詐騙集團不想理你。互相傷害。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q12",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #12",
+      "desc": "你的電腦中毒，剪貼簿被綁架，轉帳時貼上的地址變成了駭客的地址。",
+      "choices": [
+        {
+          "text": "【沒檢查就按】「複製貼上最快！」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "錢轉給駭客了，無法追回。這是幣圈最痛的教訓。一瞬間破產。"
+        },
+        {
+          "text": "【仔細核對】「前四後四都要對！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "發現地址不一樣！嚇出一身冷汗。重灌電腦保平安。"
+        },
+        {
+          "text": "【先轉小額】先轉 1 U 測試",
+          "type": "🔵 妥協",
+          "money": -1,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "1 U 沒收到，發現中毒。損失極小。聰明的做法。"
+        },
+        {
+          "text": "【用手機轉】改用手機操作",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "手機比較安全（通常）。躲過一劫。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q13",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #13",
+      "desc": "政府宣布要嚴格監管加密貨幣，甚至可能禁止出金，市場恐慌。",
+      "choices": [
+        {
+          "text": "【全部出金】換回法幣，落袋為安",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "雖然手續費很貴，但錢回到銀行最安心。後來幣價大跌，你躲過了。"
+        },
+        {
+          "text": "【轉去冷錢包】「誰也拿不走我的幣！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "你是真正的信仰者。雖然暫時無法變現，但資產還在。"
+        },
+        {
+          "text": "【抄底】「恐慌就是買點！」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "政策後來反轉，幣價回升。你賭對了，資產翻倍。"
+        },
+        {
+          "text": "【找地下換匯】找幣商私下換現金",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": -5,
+          "reputation": -20,
+          "feedback": "換到了錢，但可能收到贓款，帳戶被凍結。風險很高。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q14",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #14",
+      "desc": "你的朋友看你賺錢，拿著退休金 200 萬叫你幫他操盤，說「賺了分你，賠了算我的」。",
+      "choices": [
+        {
+          "text": "【拒絕】「親兄弟明算帳，賠錢你會殺了我。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "朋友覺得你不夠意思。但你避開了最大的麻煩。人性經不起考驗。"
+        },
+        {
+          "text": "【接下】「沒問題，我是股神！」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "遇到熊市，賠了 50%。朋友翻臉不認帳，天天來討債。你賠了自己的錢還他。"
+        },
+        {
+          "text": "【教他買】「我教你怎麼買，你自己操作。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "他賠錢了還是怪你：「都是你教我的！」好人難做。"
+        },
+        {
+          "text": "【拿去定存】偷偷幫他存定存，利息給他",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "雖然沒賺大錢，但保住了本金。朋友嫌賺太少，把錢拿回去。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q15",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #15",
+      "desc": "你發現一個套利機會（搬磚），每次可以賺 1%，但要手動操作很累。",
+      "choices": [
+        {
+          "text": "【瘋狂搬磚】不睡覺一直按",
+          "type": "🟢 保守",
+          "money": 15,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "賺到了穩定的利潤。但手指肌腱炎，眼睛快瞎了。這是體力活。"
+        },
+        {
+          "text": "【寫腳本】寫程式自動跑",
+          "type": "🔵 妥協",
+          "money": 20,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "如果你會寫 Code，這是最棒的。躺著賺錢。"
+        },
+        {
+          "text": "【懶得弄】「才 1%，浪費時間。」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "錯過了無風險套利的機會。你去玩合約，結果賠了 20%。"
+        },
+        {
+          "text": "【找人代工】請工讀生來按",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "工讀生按錯轉錯帳，或者把錢捲款潛逃。風險在人心。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q16",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "幣圈賭徒危機 #16",
+      "desc": "信用卡帳單來了，你為了買幣刷爆了卡，現在沒錢繳最低應繳。",
+      "choices": [
+        {
+          "text": "【賣幣還債】忍痛賣掉還在虧損的幣",
+          "type": "🟢 保守",
+          "money": -15,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "實現虧損。但保住了信用。留得青山在。"
+        },
+        {
+          "text": "【以卡養卡】辦新卡來還舊卡",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -10,
+          "feedback": "債務雪球越滾越大。最後信用破產。"
+        },
+        {
+          "text": "【跟爸媽借】「我下個月就還...」",
+          "type": "🔵 妥協",
+          "money": 10,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "被罵了一頓，但解決了燃眉之急。你是啃老族。"
+        },
+        {
+          "text": "【不繳】「爛命一條，隨便你。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -50,
+          "feedback": "銀行催收，信用破產。以後不能辦貸款、出國受限。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q17",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "幣圈賭徒危機 #17",
+      "desc": "你的穩定幣（Stablecoin）脫鉤了！原本 1:1 美金，現在跌到 0.8，市場恐慌。",
+      "choices": [
+        {
+          "text": "【恐慌拋售】「0.8 也要賣！歸零就完了！」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "賣在低點。後來掛鉤回去了，你現虧 20%。但如果歸零你就神了。"
+        },
+        {
+          "text": "【抄底】「別人恐慌我貪婪！買爆！」",
+          "type": "🔴 激進",
+          "money": 20,
+          "sanity": -5,
+          "reputation": 10,
+          "feedback": "賭對了！漲回 1 元，現賺 25%。你是套利之神。"
+        },
+        {
+          "text": "【觀望】「應該會回來吧...」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "煎熬的等待。最後回去了，你沒賠錢，但嚇掉了半條命。"
+        },
+        {
+          "text": "【放空】開合約空它",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "如果它真的歸零，你賺翻。如果漲回去，你爆倉。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q18",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "幣圈賭徒危機 #18",
+      "desc": "交易所為了慶祝週年，推出「存幣生息」年化 100%，你要存嗎？",
+      "choices": [
+        {
+          "text": "【存爆】「高利息！不存是傻子！」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "你看中他的利息，他看中你的本金。交易所跑路了，全部歸零。"
+        },
+        {
+          "text": "【不存】「太高了，一定是詐騙。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "躲過一劫。天上不會掉餡餅。"
+        },
+        {
+          "text": "【存一點點】「試試看，隨時跑。」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "賺了一點利息，但本金卡在裡面拿不出來（因為跑路了）。"
+        },
+        {
+          "text": "【拉人頭賺佣金】推薦別人去存",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -30,
+          "feedback": "你賺了佣金，朋友賠了本金。朋友找黑道來打你。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q19",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "幣圈賭徒危機 #19",
+      "desc": "你玩合約賺了 100 萬，現在想買一台特斯拉，還是繼續複利滾存？",
+      "choices": [
+        {
+          "text": "【出金買車】「享受人生！香車美人！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 20,
+          "reputation": 10,
+          "feedback": "雖然錢沒了，但你擁有了一台車。後來幣圈崩盤，你慶幸自己買了車。"
+        },
+        {
+          "text": "【繼續滾】「我要變 1000 萬！」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "遇到黑天鵝事件，100 萬歸零。你什麼都沒留下，只剩後悔。"
+        },
+        {
+          "text": "【出一半】「買個勞力士就好，剩下繼續賭。」",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "折衷方案。至少留了一支錶當紀念。"
+        },
+        {
+          "text": "【借錢加碼】「有本金了，再借一點衝更快！」",
+          "type": "🟣 黑化",
+          "money": -50,
+          "sanity": -20,
+          "reputation": -10,
+          "feedback": "負債累累。從天堂掉到地獄。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q20",
+      "type": "ROLE",
+      "category": "財務危機",
+      "title": "幣圈賭徒危機 #20",
+      "desc": "你的冷錢包（硬體錢包）壞了，插電腦沒反應，裡面有 10 顆比特幣。",
+      "choices": [
+        {
+          "text": "【用助記詞恢復】買新錢包匯入助記詞",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "成功找回資產！幸好你有好好抄寫助記詞。虛驚一場。"
+        },
+        {
+          "text": "【找不到助記詞】「我忘記抄在哪了...」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": -25,
+          "reputation": 0,
+          "feedback": "資產永久遺失。你擁有 10 顆比特幣，但你花不到。比悲傷更悲傷的故事。"
+        },
+        {
+          "text": "【暴力破解】找駭客幫忙破解",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "被騙了一筆錢，還是解不開。冷錢包安全性很高的。"
+        },
+        {
+          "text": "【敲打維修】用吹風機吹、用手拍",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "奇蹟般地讀到了！趕快轉出來。運氣也是實力。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q21",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "幣圈賭徒危機 #21",
+      "desc": "過年回家，親戚知道你有玩幣，叫你教他兒子（大學生）怎麼投資。",
+      "choices": [
+        {
+          "text": "【勸退】「這是賭博，好好讀書比較重要。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "親戚覺得你藏私。但你保護了大學生免於成為韭菜。"
+        },
+        {
+          "text": "【亂教】「合約開 100 倍就對了！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "大學生賠光學費。親戚來找你算帳。"
+        },
+        {
+          "text": "【推薦定投】「每個月買一點比特幣就好。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "中規中矩。但大學生嫌賺太慢，自己跑去玩合約賠光了。"
+        },
+        {
+          "text": "【收學費】「叫聲師父，我收費教學。」",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "賺了學費。但之後他賠錢會怪你教不好。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q22",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "幣圈賭徒危機 #22",
+      "desc": "你的另一半覺得你整天盯著線圖不理他，威脅要分手。",
+      "choices": [
+        {
+          "text": "【放下手機】「寶貝對不起，我陪你。」",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "錯過了一波大行情，少賺很多。但保住了愛情。"
+        },
+        {
+          "text": "【設警報】「等一下，我設個止損就好。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "心不在焉。另一半還是生氣。"
+        },
+        {
+          "text": "【分手】「女人/男人只會影響我拔刀的速度！」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "你單身了，專職炒幣。賺了錢沒人分享，賠了錢沒人安慰。"
+        },
+        {
+          "text": "【拉他入坑】「我們一起看盤！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "變成幣圈情侶。話題只有幣，沒有愛。最後一起賠光。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q23",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "幣圈賭徒危機 #23",
+      "desc": "你在聚會上說自己有比特幣，結果被朋友嘲笑是「龐氏騙局、鬱金香泡沫」。",
+      "choices": [
+        {
+          "text": "【爭辯】「區塊鏈是未來！你們不懂！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -5,
+          "feedback": "吵得面紅耳赤。大家覺得你被洗腦了。"
+        },
+        {
+          "text": "【微笑不語】拿出手機秀出資產餘額（如果是賺的）",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "大家閉嘴了，開始巴結你。實力打臉。"
+        },
+        {
+          "text": "【附和】「對啊，我就是玩玩而已。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "避開衝突。心裡笑他們無知。"
+        },
+        {
+          "text": "【離席】「話不投機半句多。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "提早回家盯盤。道不同不相為謀。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q24",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "幣圈賭徒危機 #24",
+      "desc": "你的下線（朋友）因為你的推薦買幣賠錢了，天天傳訊息罵你。",
+      "choices": [
+        {
+          "text": "【封鎖】「投資自負盈虧！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "朋友到處說你壞話。你失去了這個朋友圈。"
+        },
+        {
+          "text": "【賠錢給他】「算我對不起你...」",
+          "type": "🟢 保守",
+          "money": -10,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "花錢消災。但他可能會覺得你好欺負，下次又來。"
+        },
+        {
+          "text": "【安撫】「長期持有會回來的，HODL！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "持續給他心靈雞湯。如果漲回來就沒事，跌更多你就完了。"
+        },
+        {
+          "text": "【介紹新項目】「這支新幣能讓你翻本！」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 0,
+          "reputation": -30,
+          "feedback": "帶他去賭更大的。如果贏了是神，輸了就同歸於盡。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q25",
+      "type": "ROLE",
+      "category": "人際衝突",
+      "title": "幣圈賭徒危機 #25",
+      "desc": "你在網路上發文分析行情，結果預測錯誤，被酸民圍剿「反指標」、「冥燈」。",
+      "choices": [
+        {
+          "text": "【刪文】假裝沒發生過",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": -5,
+          "feedback": "被截圖備份。大家笑你輸不起。"
+        },
+        {
+          "text": "【硬拗】「這是技術性調整，大方向沒錯！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "死不認錯。信徒會繼續信，清醒的人會退追。"
+        },
+        {
+          "text": "【自嘲】「我是反指標，大家跟我反著做就會賺！」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "變成迷因。流量反而變高了，接到業配。"
+        },
+        {
+          "text": "【道歉】「這次看錯了，對不起。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "誠實面對。大家覺得你很負責。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q26",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "幣圈賭徒危機 #26",
+      "desc": "幣圈 24 小時不打烊，你已經一個月沒睡好覺，隨時都在看手機，神經衰弱。",
+      "choices": [
+        {
+          "text": "【強制休息】週末不看盤，去爬山",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "錯過了一次暴漲（或暴跌）。但身心舒暢。留得青山在。"
+        },
+        {
+          "text": "【吃安眠藥】強迫自己登出",
+          "type": "🔵 妥協",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "睡著了。醒來發現倉位被平掉了（止損或爆倉）。"
+        },
+        {
+          "text": "【繼續熬夜】「睡覺就輸了！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "心悸、手抖、幻聽。身體崩潰。"
+        },
+        {
+          "text": "【寫程式交易】讓機器人幫你顧",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "如果你會寫 Code，這是正解。如果你是買別人的機器人，可能會被騙。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q27",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "幣圈賭徒危機 #27",
+      "desc": "因為長期久坐盯盤，你得了痔瘡和乾眼症，醫生叫你不要再看螢幕了。",
+      "choices": [
+        {
+          "text": "【聽醫生的】減少交易頻率，改長線",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "身體好轉。長線投資績效其實不比短線差。"
+        },
+        {
+          "text": "【換設備】買升降桌和護眼螢幕",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "舒服一點，但還是要看。治標不治本。"
+        },
+        {
+          "text": "【站著看手機】痔瘡痛就站著",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "腳開始靜脈曲張。全身壞光光。"
+        },
+        {
+          "text": "【聽 Podcast】改用聽的了解行情",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "資訊有落差。聽說漲了，打開 APP 已經跌回來了。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q28",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "幣圈賭徒危機 #28",
+      "desc": "行情波動太大，你的心情像洗三溫暖，暴躁易怒，對家人發脾氣。",
+      "choices": [
+        {
+          "text": "【獨處】把自己關在房間，不接觸人",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "家人覺得你怪怪的。你與世隔絕。"
+        },
+        {
+          "text": "【道歉】跟家人坦承壓力大",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "家人體諒你（或勸你戒賭）。家庭關係修復。"
+        },
+        {
+          "text": "【發洩】摔東西、大吼大叫",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "摔壞了手機或螢幕。家人嚇跑了。"
+        },
+        {
+          "text": "【去按摩】花錢放鬆",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "身體鬆了，心還是緊的。按摩時還在偷看手機。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q29",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "幣圈賭徒危機 #29",
+      "desc": "賺錢時覺得自己是神，賠錢時覺得自己是垃圾，嚴重的躁鬱傾向。",
+      "choices": [
+        {
+          "text": "【看心理醫生】",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "醫生開了情緒穩定劑。你發現平靜比賺錢重要。"
+        },
+        {
+          "text": "【不看損益】把金額隱藏起來",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "鴕鳥心態。但心情平穩多了。"
+        },
+        {
+          "text": "【尋求刺激】去飆車、高空彈跳",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "用更大的刺激來麻痺自己。危險。"
+        },
+        {
+          "text": "【轉移注意力】沉迷於其他事物（如追劇、遊戲）",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "逃避現實。倉位爆了都不知道。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q30",
+      "type": "ROLE",
+      "category": "身心健康",
+      "title": "幣圈賭徒危機 #30",
+      "desc": "因為長期坐著不動，你胖了 20 公斤，體檢全是紅字。",
+      "choices": [
+        {
+          "text": "【請教練健身】花幣圈賺的錢買健康",
+          "type": "🟢 保守",
+          "money": -15,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "身材變好了。健身時不能看盤，強迫休息。"
+        },
+        {
+          "text": "【節食】不吃東西省時間",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "血糖低，判斷力變差。更容易輸錢。"
+        },
+        {
+          "text": "【買健身環】在家邊玩邊動",
+          "type": "🔵 妥協",
+          "money": -2,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "玩兩天就放著長灰塵了。"
+        },
+        {
+          "text": "【Move to Earn】玩那種走路賺幣的遊戲（如 StepN）",
+          "type": "🟣 黑化",
+          "money": -10,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "為了回本每天走 10 公里。身體變好了，但幣價跌了，還是賠錢。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q31",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "幣圈賭徒危機 #31",
+      "desc": "SEC（美國證交會）起訴大交易所，幣圈恐慌，資金大逃亡。",
+      "choices": [
+        {
+          "text": "【空手觀望】全部賣成美金退場",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "躲過了暴跌。留得青山在。"
+        },
+        {
+          "text": "【做空】「這絕對會崩！」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "賺到了恐慌財。但如果反彈會被軋空。"
+        },
+        {
+          "text": "【抄底】「別人恐慌我貪婪！」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 10,
+          "feedback": "賭它是假消息。如果沒跌，你就賺到了便宜籌碼。"
+        },
+        {
+          "text": "【轉去 DEX】把幣提到去中心化交易所",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "避開了中心化風險。但操作複雜，手續費貴。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q32",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "幣圈賭徒危機 #32",
+      "desc": "新興公鏈（如 Solana/Avax）崛起，乙太坊手續費太貴，你要換鏈操作嗎？",
+      "choices": [
+        {
+          "text": "【跨鏈過去】把資產轉移到新公鏈",
+          "type": "🟢 保守",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "手續費便宜多了，體驗很好。抓住了早期紅利。"
+        },
+        {
+          "text": "【死守 ETH】「乙太坊才是王道！」",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "付出了昂貴的 Gas Fee。但乙太坊最安全。"
+        },
+        {
+          "text": "【兩邊都做】資金分散",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "管理困難。容易顧此失彼。"
+        },
+        {
+          "text": "【炒作新公鏈幣】直接買幣不操作",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "賺到了幣價上漲的錢。簡單粗暴。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q33",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "幣圈賭徒危機 #33",
+      "desc": "NFT 市場崩盤，你手上的 JPG 圖片從 10 ETH 跌到 0.1 ETH，無人問津。",
+      "choices": [
+        {
+          "text": "【認賠賣出】「拿回一點是一點。」",
+          "type": "🟢 保守",
+          "money": -30,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "心痛。幾百萬變幾千塊。夢醒了。"
+        },
+        {
+          "text": "【當傳家寶】「留著當頭像，不賣了。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "自我安慰。這張圖真的很貴。"
+        },
+        {
+          "text": "【自己左手換右手】製造交易量騙人來接盤",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "被鏈上數據抓包「洗盤」。沒人上當。還要付手續費。"
+        },
+        {
+          "text": "【創立賦能】自己幫這個 NFT 辦活動",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -10,
+          "reputation": 10,
+          "feedback": "從投資者變成項目方。累死，但可能讓 NFT 起死回生。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q34",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "幣圈賭徒危機 #34",
+      "desc": "國稅局開始查稅，要求交易所提供用戶資料，你賺的錢可能要繳重稅。",
+      "choices": [
+        {
+          "text": "【誠實申報】乖乖繳稅，洗白資產",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "繳了一大筆錢。但以後買房買車不用怕被查。睡得安穩。"
+        },
+        {
+          "text": "【轉到海外卡】用國外金融卡消費",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "手續費高，且有匯率損失。但暫時避開了查稅。"
+        },
+        {
+          "text": "【找人頭】把錢轉給沒收入的家人",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "涉及洗錢。被抓到罪很重。"
+        },
+        {
+          "text": "【不申報】「賭他查不到我！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -10,
+          "reputation": -20,
+          "feedback": "收到補稅單加罰款。國稅局不是吃素的。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q35",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "幣圈賭徒危機 #35",
+      "desc": "交易所推出「跟單功能」，你可以讓高手幫你下單，也可以當高手讓人跟。",
+      "choices": [
+        {
+          "text": "【當交易員】「我來帶單，賺分潤！」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -15,
+          "reputation": 10,
+          "feedback": "壓力超大。你賠錢會被跟單的人罵死。賺錢分一點點。"
+        },
+        {
+          "text": "【跟單】「找個勝率高的跟。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "一開始賺，後來高手失誤爆倉，你跟著爆。命運掌握在別人手裡。"
+        },
+        {
+          "text": "【不玩】「我自己操作最實在。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "盈虧自負。沒什麼好怨的。"
+        },
+        {
+          "text": "【開小號刷數據】自己跟自己，製造高勝率假象",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "騙到了跟單者。賺了佣金。但這是詐欺。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q36",
+      "type": "ROLE",
+      "category": "市場變化",
+      "title": "幣圈賭徒危機 #36",
+      "desc": "比特幣減半（Halving）週期到了，歷史數據顯示會大漲，但這次總體經濟很差。",
+      "choices": [
+        {
+          "text": "【信仰做多】「減半必漲！歐印！」",
+          "type": "🔴 激進",
+          "money": 20,
+          "sanity": 10,
+          "reputation": 5,
+          "feedback": "歷史重演，大牛市來臨！你財富自由了（如果沒賣飛的話）。"
+        },
+        {
+          "text": "【保守定投】「不管漲跌，定期買入。」",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "平均成本，穩健獲利。你是最後的贏家。"
+        },
+        {
+          "text": "【看空】「這次不一樣，經濟太差。」",
+          "type": "🟣 黑化",
+          "money": -20,
+          "sanity": -10,
+          "reputation": -10,
+          "feedback": "被軋空到外太空。不要跟趨勢作對。"
+        },
+        {
+          "text": "【觀望】「等確定漲了再追。」",
+          "type": "🔵 妥協",
+          "money": 5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "少賺了一大段魚身。但安全。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q37",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #37",
+      "desc": "你在 P2P 借貸平台放款賺高利息，結果平台倒閉（雷），你的錢拿不回來。",
+      "choices": [
+        {
+          "text": "【去抗議】加入受害者群組維權",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "漫漫長路。錢大概率是沒了。"
+        },
+        {
+          "text": "【認賠】「貪高利的代價。」",
+          "type": "🔵 妥協",
+          "money": -20,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "心痛。學到了一課：你貪他的利，他要你的本。"
+        },
+        {
+          "text": "【找黑道討債】找人去平台負責人家",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 5,
+          "reputation": -30,
+          "feedback": "負責人早就跑去國外了。你白花了一筆「處理費」。"
+        },
+        {
+          "text": "【騙下線】「平台只是維修，快點入金！」",
+          "type": "🔴 激進",
+          "money": 10,
+          "sanity": -5,
+          "reputation": -50,
+          "feedback": "在沉船前最後撈一筆。極度缺德。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q38",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #38",
+      "desc": "你的手機門號被駭客用「SIM 卡交換攻擊」（SIM Swapping）盜走，你的交易所帳號被登入。",
+      "choices": [
+        {
+          "text": "【立刻凍結】借電話打給交易所凍結帳號",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "反應夠快，保住了資產。但嚇出一身冷汗。"
+        },
+        {
+          "text": "【衝去電信行】把門號搶回來",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "花了一些時間。駭客可能已經轉走了一部分錢。"
+        },
+        {
+          "text": "【不管了】「反正裡面沒錢。」（誤）",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "裡面有錢啊！全部被轉走。你崩潰了。"
+        },
+        {
+          "text": "【用 2FA】「我有用 Google Authenticator，他不怕。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "資安觀念好！簡訊驗證是不安全的。你嘲笑駭客。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q39",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #39",
+      "desc": "你參加了「空投」（Airdrop）活動，領到了價值 10 萬的免費代幣，但要授權錢包。",
+      "choices": [
+        {
+          "text": "【授權領取】「免費的錢不拿白不拿！」",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "惡意合約！你的錢包被清空。因小失大。"
+        },
+        {
+          "text": "【用新錢包領】開一個空錢包去領",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "聰明！領到了空投，而且主錢包安全。這是正確操作。"
+        },
+        {
+          "text": "【不領】「天下沒有白吃的午餐。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "錯過了發財機會（如果是真的空投）。但絕對安全。"
+        },
+        {
+          "text": "【推薦別人領】「你先領領看。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -10,
+          "feedback": "把朋友當白老鼠。朋友被盜了，你逃過一劫。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q40",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #40",
+      "desc": "你在 OTC（場外交易）買 U，對方匯款後要求你放行，但你銀行帳戶沒收到錢（假圖）。",
+      "choices": [
+        {
+          "text": "【堅持沒收到】「沒看到錢絕不放行！」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 5,
+          "feedback": "對方恐嚇你，最後取消交易。你守住了幣。小心三角詐騙。"
+        },
+        {
+          "text": "【放行】「他傳截圖了，應該是延遲吧。」",
+          "type": "🔴 激進",
+          "money": -10,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "被騙了！那是 P 圖。幣轉給他就回不來了。"
+        },
+        {
+          "text": "【找平台客服】申請仲裁",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "凍結資產，等待調查。雖然麻煩，但安全。"
+        },
+        {
+          "text": "【反騙他】「我已經放行了啊，你重整看看。」（其實沒放）",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "跟詐騙集團玩心理戰。看誰先崩潰。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q41",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #41",
+      "desc": "你常用的看盤軟體/交易所 APP 被下架了（因為法規），要怎麼更新？",
+      "choices": [
+        {
+          "text": "【VPN 跨區】翻牆去國外商店下載",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "成功更新。雖然麻煩，但能繼續用。"
+        },
+        {
+          "text": "【下載 APK】去網路上找安裝包",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "下載到有木馬的假 APP。帳號被盜，資產被轉走。"
+        },
+        {
+          "text": "【換手機】買一支國外的手機",
+          "type": "🔵 妥協",
+          "money": -10,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "成本很高，但解決了問題。"
+        },
+        {
+          "text": "【不用了】「這是在暗示我退圈。」",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "離開了幣圈。或許是好事。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q42",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #42",
+      "desc": "你的信仰幣（例如 LUNA）歸零了，你還有 100 萬顆，現在價值 10 元。",
+      "choices": [
+        {
+          "text": "【留著紀念】「當作傳家寶。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "警惕自己不要再當韭菜。"
+        },
+        {
+          "text": "【賣掉】「拿回 10 元買養樂多。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "最貴的養樂多。心酸。"
+        },
+        {
+          "text": "【抄底賭復活】「跌深必反彈！」再買 100 萬顆",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "項目方已經跑路了，根本不會復活。浪費錢。"
+        },
+        {
+          "text": "【發行 NFT】把你的持倉截圖做成 NFT 賣「悲傷蛙」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": 5,
+          "feedback": "把悲劇變成藝術。有人同情買單。虧轉盈？"
+        }
+      ]
+    },
+    {
+      "id": "i2_q43",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #43",
+      "desc": "你忘記了你的錢包密碼，輸錯兩次了，再一次就會鎖死/重置。",
+      "choices": [
+        {
+          "text": "【停下來】「先冷靜，找回憶。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "過了一週突然想起來了。幸好沒衝動。"
+        },
+        {
+          "text": "【賭一把】「應該是生日吧！」輸入",
+          "type": "🔴 激進",
+          "money": -30,
+          "sanity": -20,
+          "reputation": 0,
+          "feedback": "錯了。資產被鎖死/刪除。你這輩子最大的遺憾。"
+        },
+        {
+          "text": "【找催眠師】試圖催眠自己想起密碼",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "沒用。還花了一筆錢。"
+        },
+        {
+          "text": "【去拜拜】求神明給靈感",
+          "type": "🟣 黑化",
+          "money": -1,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "擲筊問密碼。神明說：「我沒玩幣。」"
+        }
+      ]
+    },
+    {
+      "id": "i2_q44",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #44",
+      "desc": "你賺錢了，想出金換台幣，但銀行問你資金來源，你怕被凍結。",
+      "choices": [
+        {
+          "text": "【誠實說是投資】提供交易紀錄",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "銀行審核通過。雖然麻煩，但錢是乾淨的。"
+        },
+        {
+          "text": "【說是薪資/借款】隨便編個理由",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -10,
+          "feedback": "銀行覺得可疑，通報異常。帳戶被監控。"
+        },
+        {
+          "text": "【找車手領現】找人幫你領現金",
+          "type": "🟣 黑化",
+          "money": -5,
+          "sanity": 0,
+          "reputation": -30,
+          "feedback": "這是洗錢！被抓到罪很重。錢被黑吃黑。"
+        },
+        {
+          "text": "【分批小額出】每天領一點點",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "螞蟻搬家。雖然慢，但比較不會被盯上（其實銀行系統都有紀錄）。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q45",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #45",
+      "desc": "你的礦機（挖礦設備）因為電費太貴，挖出來的幣還不夠付電費（關機價）。",
+      "choices": [
+        {
+          "text": "【關機】「等幣價漲了再開。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "機器閒置折舊。但止損了。"
+        },
+        {
+          "text": "【偷電】改裝電表（竊電）",
+          "type": "🟣 黑化",
+          "money": 10,
+          "sanity": 5,
+          "reputation": -50,
+          "feedback": "台電抓到，重罰並移送法辦。坐牢去吧。"
+        },
+        {
+          "text": "【賣顯卡】把礦卡拿去網路上當全新卡賣",
+          "type": "🔴 激進",
+          "money": 5,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "買家發現是礦卡，退貨並負評。詐欺。"
+        },
+        {
+          "text": "【繼續挖】「賭幣價會漲回來！」",
+          "type": "🔵 妥協",
+          "money": -5,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "越挖越虧。你在做慈善事業。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q46",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #46",
+      "desc": "你的幣圈群組裡有個「大戶」私訊你，說要帶你做莊，一起割韭菜。",
+      "choices": [
+        {
+          "text": "【加入】「我也要當鐮刀！」",
+          "type": "🟣 黑化",
+          "money": 20,
+          "sanity": -10,
+          "reputation": -50,
+          "feedback": "賺了很多黑心錢。但大戶最後連你一起割了（黑吃黑）。"
+        },
+        {
+          "text": "【拒絕】「我雖然窮，但我不害人。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 10,
+          "feedback": "大戶把你踢出群組。你保住了良心。"
+        },
+        {
+          "text": "【截圖爆料】公開對話紀錄",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 15,
+          "reputation": 20,
+          "feedback": "成為幣圈吹哨者。大家感謝你。大戶換個帳號繼續騙。"
+        },
+        {
+          "text": "【裝傻】「我不懂這個，我只會囤幣。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "安全過關。明哲保身。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q47",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #47",
+      "desc": "你在 Discord 點了一個連結，結果簽署了惡意授權，錢包被清空（0 元）。",
+      "choices": [
+        {
+          "text": "【放棄治療】「幣圈太危險，我回火星了。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 10,
+          "reputation": 0,
+          "feedback": "退出幣圈。雖然錢沒了，但你自由了。"
+        },
+        {
+          "text": "【追蹤駭客】在鏈上追蹤資金流向",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -5,
+          "reputation": 0,
+          "feedback": "看到了錢進了混幣器，追不到了。死心吧。"
+        },
+        {
+          "text": "【借錢翻本】「借錢重新入金！」",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": -10,
+          "reputation": -5,
+          "feedback": "心態已經崩了，操作變形。很快又輸光。"
+        },
+        {
+          "text": "【發起募資】「我被盜了，求大家捐款。」",
+          "type": "🟣 黑化",
+          "money": 5,
+          "sanity": 5,
+          "reputation": -20,
+          "feedback": "利用同情心賺錢。被網友酸「乞丐」。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q48",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #48",
+      "desc": "為了看盤方便，你買了 Apple Watch，結果開會時手錶一直震動（爆倉通知）。",
+      "choices": [
+        {
+          "text": "【淡定開會】「震動是訊息而已。」",
+          "type": "🟢 保守",
+          "money": -20,
+          "sanity": -5,
+          "reputation": 5,
+          "feedback": "開完會發現爆倉了。為了工作犧牲資產。敬業？"
+        },
+        {
+          "text": "【衝出會議室】「我肚子痛！」",
+          "type": "🔴 激進",
+          "money": -5,
+          "sanity": 0,
+          "reputation": -10,
+          "feedback": "去廁所補保證金。老闆覺得你屎尿多。"
+        },
+        {
+          "text": "【當眾看錶】直接在會議上看盤",
+          "type": "🟣 黑化",
+          "money": 0,
+          "sanity": -5,
+          "reputation": -15,
+          "feedback": "老闆問：「很忙嗎？」你說：「我在賠錢。」全場尷尬。"
+        },
+        {
+          "text": "【脫手錶】把錶拿下來蓋住",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "眼不見為淨。心裡在滴血。"
+        }
+      ]
+    },
+    {
+      "id": "i2_q49",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #49",
+      "desc": "交易所空投了一件實體 T-shirt 給你，上面印著大大的比特幣 Logo。",
+      "choices": [
+        {
+          "text": "【穿出門】「我是幣圈人我驕傲！」",
+          "type": "🔴 激進",
+          "money": 0,
+          "sanity": 5,
+          "reputation": -5,
+          "feedback": "路人覺得你是怪人。還有可能被綁架（以為你有錢）。"
+        },
+        {
+          "text": "【當睡衣】「在家穿就好。」",
+          "type": "🟢 保守",
+          "money": 0,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "物盡其用。舒服。"
+        },
+        {
+          "text": "【賣掉】「全新未拆，信仰價 1000。」",
+          "type": "🟣 黑化",
+          "money": 2,
+          "sanity": 0,
+          "reputation": 0,
+          "feedback": "真的有盤子買了。賺到。"
+        },
+        {
+          "text": "【送給媽媽】「這是名牌喔！」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 5,
+          "reputation": 0,
+          "feedback": "媽媽穿去菜市場，被菜販問：「比特幣多少錢？」媽媽：「一斤 50。」"
+        }
+      ]
+    },
+    {
+      "id": "i2_q50",
+      "type": "ROLE",
+      "category": "工作困境",
+      "title": "幣圈賭徒危機 #50",
+      "desc": "經歷了兩輪牛熊（暴漲暴跌），你現在是賺是賠？下一步怎麼走？",
+      "choices": [
+        {
+          "text": "【長期持有】「我是 Hodler，傳給孫子。」",
+          "type": "🟢 保守",
+          "money": 10,
+          "sanity": 10,
+          "reputation": 10,
+          "feedback": "你是真正的贏家。時間是你的朋友。"
+        },
+        {
+          "text": "【繼續賭】「下一把一定翻身！」",
+          "type": "🔴 激進",
+          "money": -20,
+          "sanity": -10,
+          "reputation": 0,
+          "feedback": "賭徒的結局通常是破產。永無止境的輪迴。"
+        },
+        {
+          "text": "【退圈】「刪除所有 APP，回歸現實。」",
+          "type": "🔵 妥協",
+          "money": 0,
+          "sanity": 20,
+          "reputation": 0,
+          "feedback": "找回了平靜的生活。雖然沒發財，但健康回來了。"
+        },
+        {
+          "text": "【發幣】「我也來割韭菜！」",
+          "type": "🟣 黑化",
+          "money": 30,
+          "sanity": -20,
+          "reputation": -50,
+          "feedback": "你成為了莊家。賺了很多錢，但失去了靈魂。可能會有牢獄之災。"
+        }
+      ]
+    }
+  ]
+}

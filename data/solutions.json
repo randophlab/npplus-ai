@@ -1,0 +1,12 @@
+{
+  "solutions": [
+    { "id": "solution_1", "painCategory": "💰 資金", "gain": "🟢 啟動資金低、無需進銷存、零庫存" },
+    { "id": "solution_2", "painCategory": "❤️ 健康", "gain": "🟢 健康與財富雙贏，越做越健康" },
+    { "id": "solution_3", "painCategory": "🤝 人脈", "gain": "🟢 不傷人脈、共好模式、受人尊敬" },
+    { "id": "solution_4", "painCategory": "⏰ 時間", "gain": "🟢 時間自主、系統運作、被動收入" },
+    { "id": "solution_5", "painCategory": "🌍 市場", "gain": "🟢 宅配全世界、一支手機做全球" },
+    { "id": "solution_6", "painCategory": "📈 收入", "gain": "🟢 業績無限代、倍增永續收入" },
+    { "id": "solution_7", "painCategory": "🚀 專業", "gain": "🟢 AI教練、團隊陪跑、無經驗可" },
+    { "id": "solution_8", "painCategory": "🛡️ 風險", "gain": "🟢 免經手金流、制度透明、日結週領" }
+  ]
+}

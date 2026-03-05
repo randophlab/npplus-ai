@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>人生模擬器 REALITY v14.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { -webkit-tap-highlight-color: transparent; }
+        .fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .timer-danger { animation: pulse-red 1s infinite; }
+        @keyframes pulse-red { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.7)}50%{box-shadow:0 0 0 10px rgba(239,68,68,0)}}
+        .gold-btn {
+            background: linear-gradient(to right,#b45309 0%,#f59e0b 50%,#b45309 100%);
+            background-size: 200% auto; animation: shine 3s linear infinite;
+            box-shadow: 0 4px 15px rgba(245,158,11,.4); border:none;
+        }
+        @keyframes shine{0%{background-position:200% center}100%{background-position:-200% center}}
+        .matrix-card{transition:all .5s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;min-height:120px}
+        .matrix-card.locked{border:1px solid #7f1d1d;background:rgba(15,23,42,.95)}
+        .matrix-card.unlocked{border:2px solid #10b981;background:linear-gradient(135deg,rgba(6,78,59,.9),rgba(16,185,129,.2));transform:scale(1.02)}
+        .pain-text{transition:opacity .3s ease;position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;text-align:center}
+        .click-hint{transition:opacity .3s ease}
+        .solution-view{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;transition:opacity .5s ease .2s;padding:1rem;background:rgba(0,0,0,.2)}
+        .matrix-card.unlocked .pain-text{opacity:0;pointer-events:none}
+        .matrix-card.unlocked .click-hint{opacity:0}
+        .matrix-card.unlocked .solution-view{opacity:1}
+        .pb-safe{padding-bottom:env(safe-area-inset-bottom)}
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans min-h-screen pb-safe select-none">
+
+<nav class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 px-4 py-3 shadow-lg">
+    <div class="flex justify-between items-center max-w-xl mx-auto">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="renderHome()">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">🔥</div>
+            <div>
+                <h1 class="text-base font-black text-white leading-none tracking-wide">人生模擬器</h1>
+                <p class="text-xs text-slate-400 font-mono">REALITY v14.0 (Mix)</p>
+            </div>
+        </div>
+        <div id="game-header-stats" class="hidden text-right">
+            <div class="text-xs text-slate-500">SURVIVAL</div>
+            <div class="text-base font-bold text-emerald-400 font-mono">
+                <span id="month-num">1</span> / <span id="total-months-display">12</span> Months
+            </div>
+        </div>
+    </div>
+    <div id="stats-container" class="hidden max-w-xl mx-auto mt-2 pb-1"></div>
+</nav>
+
+<main id="app-root" class="max-w-xl mx-auto p-4 min-h-[80vh] flex flex-col relative"></main>
+
+<footer class="text-center py-6 text-[10px] text-slate-700 font-mono">MANUS SIMULATION ENGINE © 2025</footer>
+
+<script>
+// ==========================================
+// 設定：Supabase（會員系統）
+// ==========================================
+const SUPABASE_URL = 'https://nsgqsopqlkhayuefdout.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zZ3Fzb3BxbGtoYXl1ZWZkb3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MzgzMjgsImV4cCI6MjA4ODMxNDMyOH0.FCMF_WaWjmtuWUKO2vqQBM4cFVGrdqt9fdmxYwUii0Y';
+
+// ==========================================
+// 全域變數
+// ==========================================
+let ROLE_DATA = [];
+let CURRENT_ROLE_DATA = null;
+let GLOBAL_EVENTS = [];
+let PAIN_MATRIX = {};
+let GREENLEAF_GAINS = [];
+
+const ROLE_FILE_MAP = {
+    'e1':'e1_socialite.json','e2':'e2_engineer.json','e3':'e3_civil-servant.json',
+    'e4':'e4_healthcare.json','e5':'e5_laborer.json','e6':'e6_convenience-store.json',
+    'e7':'e7_police-fire.json','e8':'e8_teacher.json','s1':'s1_self-brand.json',
+    's2':'s2_ecommerce.json','s3':'s3_influencer.json','s4':'s4_freelancer.json',
+    's5':'s5_delivery.json','s6':'s6_insurance-realtor.json','s7':'s7_fulltime-mom.json',
+    's8':'s8_beauty-coach.json','s9':'s9_night-market.json','s10':'s10_student.json',
+    'b1':'b1_franchise.json','b2':'b2_mlm.json','b3':'b3_traditional-boss.json',
+    'b4':'b4_fund-victim.json','b5':'b5_young-farmer.json','b6':'b6_design-studio.json',
+    'i1':'i1_stock-trader.json','i2':'i2_crypto-gambler.json','i3':'i3_real-estate.json',
+    'i4':'i4_financial-advisor.json','i5':'i5_entertainer.json','i6':'i6_retiree.json'
+};
+
+const INITIAL_STATS = { money:100, sanity:100, reputation:100 };
+const LIVING_COSTS = {
+    12:{ money:0, sanity:0 },
+    24:{ money:3, sanity:1 },
+    36:{ money:5, sanity:3 }
+};
+let LIVING_COST = { money:0, sanity:0 };
+const TIME_LIMIT_SECONDS = 30;
+let GAME_DURATION = 12;
+let currentStats = { ...INITIAL_STATS };
+let currentScenarioIndex = 0;
+let activeScenarios = [];
+let timerInterval = null;
+let timeLeft = 30;
+let userHistory = [];
+let currentMode = null;
+let unlockedPKItems = new Set();
+let gameEnded = false;
+
+// ==========================================
+// 載入遊戲資料
+// ==========================================
+async function loadGameData() {
+    try {
+        ROLE_DATA = [
+            {id:'e1',name:'社畜上班族',icon:'💼',type:'E'},{id:'e2',name:'爆肝工程師',icon:'💻',type:'E'},
+            {id:'e3',name:'公務員/國營',icon:'🛡️',type:'E'},{id:'e4',name:'血汗醫護',icon:'🩺',type:'E'},
+            {id:'e5',name:'傳產勞工',icon:'🏗️',type:'E'},{id:'e6',name:'超商打工',icon:'🏪',type:'E'},
+            {id:'e7',name:'軍警消人員',icon:'👮',type:'E'},{id:'e8',name:'學校老師',icon:'📚',type:'E'},
+            {id:'s1',name:'自創品牌',icon:'🛠️',type:'S'},{id:'s2',name:'電商微商',icon:'📦',type:'S'},
+            {id:'s3',name:'自媒體網紅',icon:'🎬',type:'S'},{id:'s4',name:'自由接案',icon:'☕',type:'S'},
+            {id:'s5',name:'外送司機',icon:'🛵',type:'S'},{id:'s6',name:'保險房仲',icon:'☂️',type:'S'},
+            {id:'s7',name:'全職寶媽',icon:'👶',type:'S'},{id:'s8',name:'美業教練',icon:'💇',type:'S'},
+            {id:'s9',name:'夜市攤販',icon:'🍢',type:'S'},{id:'s10',name:'迷茫學生',icon:'🎓',type:'S'},
+            {id:'b1',name:'加盟連鎖',icon:'🏪',type:'B'},{id:'b2',name:'傳統直銷',icon:'💎',type:'B'},
+            {id:'b3',name:'傳產老闆',icon:'🏭',type:'B'},{id:'b4',name:'資金盤受害',icon:'💔',type:'B'},
+            {id:'b5',name:'返鄉青農',icon:'🌾',type:'B'},{id:'b6',name:'設計工作室',icon:'🎨',type:'B'},
+            {id:'i1',name:'股市韭菜',icon:'📊',type:'I'},{id:'i2',name:'幣圈賭徒',icon:'📈',type:'I'},
+            {id:'i3',name:'房產炒家',icon:'🏠',type:'I'},{id:'i4',name:'金融理專',icon:'🏦',type:'I'},
+            {id:'i5',name:'演藝人員',icon:'🎭',type:'I'},{id:'i6',name:'退休銀髮',icon:'🧓',type:'I'}
+        ];
+
+        const [eventsRes, painRes, solRes] = await Promise.all([
+            fetch('./data/events.json'),
+            fetch('./data/painMatrix.json'),
+            fetch('./data/solutions.json')
+        ]);
+        const eventsData = await eventsRes.json();
+        const painData = await painRes.json();
+        const solData = await solRes.json();
+
+        GLOBAL_EVENTS = eventsData.events;
+        PAIN_MATRIX = painData.painMatrix;
+        GREENLEAF_GAINS = solData.solutions.map(s => s.gain);
+
+        renderHome();
+    } catch(e) {
+        console.error('載入失敗:', e);
+        document.getElementById('app-root').innerHTML = `
+            <div class="text-center py-12 space-y-4">
+                <div class="text-4xl">⚠️</div>
+                <h2 class="text-xl font-bold text-red-400">資料載入失敗</h2>
+                <p class="text-sm text-slate-400">${e.message}</p>
+                <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-lg">重新整理</button>
+            </div>`;
+    }
+}
+
+async function loadRoleData(roleId) {
+    const fileName = ROLE_FILE_MAP[roleId];
+    if(!fileName) throw new Error(`未知職業: ${roleId}`);
+    const res = await fetch(`./data/roles/${fileName}`);
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    CURRENT_ROLE_DATA = await res.json();
+    return CURRENT_ROLE_DATA;
+}
+
+// ==========================================
+// 遊戲邏輯
+// ==========================================
+function shuffle(arr) {
+    let a = [...arr], i = a.length;
+    while(i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+    return a;
+}
+
+function setDuration(months, btnId) {
+    GAME_DURATION = months;
+    LIVING_COST = LIVING_COSTS[months];
+    document.querySelectorAll('.duration-btn').forEach(b => {
+        b.classList.remove('bg-emerald-600','text-white','border-emerald-500');
+        b.classList.add('bg-slate-900','text-slate-400','border-slate-700');
+    });
+    const btn = document.getElementById(btnId);
+    btn.classList.add('bg-emerald-600','text-white','border-emerald-500');
+    btn.classList.remove('bg-slate-900','text-slate-400','border-slate-700');
+}
+
+function renderHome() {
+    window.scrollTo(0,0);
+    if(timerInterval) clearInterval(timerInterval);
+    document.getElementById('game-header-stats').classList.add('hidden');
+    document.getElementById('stats-container').classList.add('hidden');
+    const app = document.getElementById('app-root');
+
+    const types = ['E','S','B','I'];
+    const labels = {E:'受雇者',S:'自雇者',B:'企業主',I:'投資者'};
+    const colors = {E:'blue',S:'indigo',B:'purple',I:'amber'};
+
+    const savedName = localStorage.getItem('gamePlayerName') || '';
+    const savedCode = localStorage.getItem('gameMemberCode') || '';
+
+    let html = `<div class="fade-in space-y-4 pt-2">
+        <div class="text-center space-y-2">
+            <h2 class="text-2xl font-black text-white">請選擇你的身分</h2>
+            <p class="text-sm text-slate-400">真實社會縮影，30 種職業劇本 + 隨機人生事件。</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-4 space-y-3">
+            <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">玩家資訊（選填，有填才記錄排行榜）</div>
+            <input id="input-player-name" type="text" placeholder="暱稱"
+                value="${savedName}"
+                class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white text-sm focus:border-emerald-500 outline-none"
+                oninput="localStorage.setItem('gamePlayerName', this.value)">
+            <input id="input-member-code" type="text" placeholder="會員編號（7碼）" value="${savedCode}" maxlength="7"
+                class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white text-sm focus:border-emerald-500 outline-none font-mono tracking-widest"
+                oninput="handleMemberCodeInput(this.value)">
+            <div id="member-status" class="text-xs h-4"></div>
+        </div>
+        <div class="flex gap-2 py-2">
+            <button id="btn-12" onclick="setDuration(12,'btn-12')" class="duration-btn flex-1 bg-slate-900 text-slate-400 border border-slate-700 px-4 py-3 rounded-lg text-base font-bold transition-all">1 年 (體驗)</button>
+            <button id="btn-24" onclick="setDuration(24,'btn-24')" class="duration-btn flex-1 bg-slate-900 text-slate-400 border border-slate-700 px-4 py-3 rounded-lg text-base font-bold transition-all">2 年 (進階)</button>
+            <button id="btn-36" onclick="setDuration(36,'btn-36')" class="duration-btn flex-1 bg-slate-900 text-slate-400 border border-slate-700 px-4 py-3 rounded-lg text-base font-bold transition-all">3 年 (地獄)</button>
+        </div>
+        <div class="flex gap-2 py-2 justify-center flex-wrap">
+            ${types.map(t=>`<button onclick="document.getElementById('anchor-${t}').scrollIntoView({behavior:'smooth'})" class="bg-${colors[t]}-600 hover:bg-${colors[t]}-700 text-white font-bold px-4 py-2 rounded-lg text-sm transition-all">${t} ${labels[t]}</button>`).join('')}
+        </div>`;
+
+    types.forEach(type => {
+        const roles = ROLE_DATA.filter(r => r.type === type);
+        html += `<div class="space-y-3 mt-4" id="anchor-${type}">
+            <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
+                <span class="bg-${colors[type]}-600 text-white text-sm font-bold px-3 py-1 rounded">${type}</span>
+                <span class="text-lg font-bold text-white">${labels[type]}</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                ${roles.map(r=>`
+                <button onclick="startGame('${r.id}')" class="p-3 bg-slate-900 border border-slate-800 rounded-xl hover:border-${colors[type]}-500 transition-all active:scale-95 text-left group">
+                    <div class="text-2xl mb-1">${r.icon}</div>
+                    <div class="font-bold text-sm text-slate-200">${r.name}</div>
+                </button>`).join('')}
+            </div>
+        </div>`;
+    });
+
+    html += `<div class="border-t border-slate-800 pt-4 mt-4">
+        <button onclick="goToLeaderboard()" class="w-full py-3 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg font-bold hover:border-slate-500 transition-all">🏆 查看排行榜</button>
+    </div></div>`;
+
+    app.innerHTML = html;
+    setDuration(12,'btn-12');
+}
+
+async function startGame(roleId) {
+    window.scrollTo(0,0);
+    const app = document.getElementById('app-root');
+    app.innerHTML = `<div class="text-center py-12"><p class="text-slate-400">載入職業資料中...</p></div>`;
+
+    try {
+        const roleData = await loadRoleData(roleId);
+        const typeMap = {'e':'E','s':'S','b':'B','i':'I'};
+        roleData.type = typeMap[roleId.charAt(0)];
+        currentMode = roleData;
+
+        const mixed = shuffle([...roleData.questions, ...GLOBAL_EVENTS]);
+        activeScenarios = mixed.slice(0, GAME_DURATION);
+
+        currentStats = { ...INITIAL_STATS };
+        currentScenarioIndex = 0;
+        userHistory = [];
+        gameEnded = false;
+
+        document.getElementById('game-header-stats').classList.remove('hidden');
+        document.getElementById('total-months-display').innerText = GAME_DURATION;
+        document.getElementById('stats-container').classList.remove('hidden');
+        updateStatsUI();
+        renderScenario();
+    } catch(e) {
+        app.innerHTML = `<div class="text-center py-12 space-y-4">
+            <div class="text-4xl">⚠️</div>
+            <h2 class="text-xl font-bold text-red-400">職業資料載入失敗</h2>
+            <p class="text-sm text-slate-400">${e.message}</p>
+            <button onclick="renderHome()" class="px-4 py-2 bg-emerald-600 text-white rounded-lg">返回首頁</button>
+        </div>`;
+    }
+}
+
+function renderScenario() {
+    window.scrollTo(0,0);
+    if(timerInterval) clearInterval(timerInterval);
+    if(currentScenarioIndex >= activeScenarios.length) return renderResult(true);
+    if(currentStats.money<=0 || currentStats.sanity<=0 || currentStats.reputation<=0) return renderResult(false);
+
+    const scenario = activeScenarios[currentScenarioIndex];
+    document.getElementById('month-num').innerText = currentScenarioIndex + 1;
+
+    const typeLabel = scenario.type==='ROLE' ? '職業專屬' : '隨機突發';
+    const typeColor = scenario.type==='ROLE' ? 'text-blue-400' : 'text-orange-400';
+
+    document.getElementById('app-root').innerHTML = `
+        <div class="fade-in space-y-4">
+            <div class="flex items-center justify-between">
+                <span class="text-xs font-bold ${typeColor} bg-slate-900 px-2 py-1 rounded">${typeLabel}</span>
+                <span class="text-xs text-slate-500">第 ${currentScenarioIndex+1} 個月</span>
+            </div>
+            <div class="p-4 bg-gradient-to-r from-slate-900/60 to-slate-800/40 rounded-lg border border-emerald-900/50">
+                <h3 class="text-xl font-bold text-emerald-300 leading-tight mb-2">${scenario.title}</h3>
+                <p class="text-base text-slate-100 leading-relaxed">${scenario.desc}</p>
+            </div>
+            <div class="space-y-2">
+                ${scenario.choices.map((c,i)=>`
+                <button onclick="selectChoice(${i})" class="w-full p-3 bg-slate-900 border border-slate-800 rounded-lg hover:border-emerald-500 hover:bg-slate-800 transition-all active:scale-95 text-left">
+                    <div class="flex items-start gap-2">
+                        <span class="text-sm font-bold text-slate-500 min-w-6">${'ABCD'[i]}.</span>
+                        <span class="text-sm text-slate-300">${c.text}</span>
+                    </div>
+                </button>`).join('')}
+            </div>
+            <div class="text-center text-xs text-slate-500">⛱️ 30 秒內選擇，否則自動失敗</div>
+        </div>`;
+    startTimer();
+}
+
+function startTimer() {
+    timeLeft = TIME_LIMIT_SECONDS;
+    updateTimerUI();
+    timerInterval = setInterval(()=>{
+        timeLeft--;
+        updateTimerUI();
+        if(timeLeft<=0){ clearInterval(timerInterval); selectChoice(-1); }
+    }, 1000);
+}
+
+function updateTimerUI() {
+    const el = document.querySelector('[data-timer]');
+    if(el){
+        el.style.width = (timeLeft/TIME_LIMIT_SECONDS*100)+'%';
+        el.className = `h-1 rounded transition-all ${timeLeft<=3?'timer-danger bg-red-600':'bg-emerald-500'}`;
+    }
+}
+
+function selectChoice(idx) {
+    clearInterval(timerInterval);
+    const scenario = activeScenarios[currentScenarioIndex];
+    let impact, feedback;
+
+    if(idx===-1){
+        feedback='⏰ 優柔寡斷，錯失良機，資源白白流失。';
+        impact={money:-10,sanity:-10,reputation:-10};
+    } else {
+        const c = scenario.choices[idx];
+        impact = c.impact || {money:c.money||0,sanity:c.sanity||0,reputation:c.reputation||0};
+        feedback = c.feedback;
+    }
+
+    const netMoney = impact.money - LIVING_COST.money;
+    const netSanity = impact.sanity - LIVING_COST.sanity;
+    currentStats.money += netMoney;
+    currentStats.sanity = Math.min(100, currentStats.sanity + netSanity);
+    currentStats.reputation += impact.reputation;
+
+    userHistory.push({
+        month: currentScenarioIndex+1,
+        scenario: scenario.title,
+        choice: idx===-1?'超時失敗':scenario.choices[idx].text,
+        feedback,
+        stats:{...currentStats}
+    });
+
+    const isFailed = currentStats.money<=0||currentStats.sanity<=0||currentStats.reputation<=0;
+    const isLast = (currentScenarioIndex+1) >= GAME_DURATION;
+    const displayImpact = {money:netMoney, sanity:netSanity, reputation:impact.reputation};
+
+    document.getElementById('app-root').innerHTML = `
+        <div class="fade-in space-y-4 text-center py-8">
+            <p class="text-xl font-bold text-white">${feedback}</p>
+            <div class="grid grid-cols-3 gap-3 py-4">
+                ${[['💵','現金',displayImpact.money,'emerald'],['❤️','健康',displayImpact.sanity,'red'],['🤝','信用',displayImpact.reputation,'blue']].map(([icon,label,val,c])=>`
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                    <div class="text-3xl mb-1">${icon}</div>
+                    <div class="text-sm text-slate-400">${label}</div>
+                    <div class="text-2xl font-bold ${val<0?'text-red-400':'text-green-400'}">${val>0?'+':''}${val}</div>
+                </div>`).join('')}
+            </div>
+            ${isFailed ? `
+                <div class="text-red-500 font-bold">⚠️ 你已經失敗了！</div>
+                <button onclick="renderResult(false)" class="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg font-bold">查看結果 →</button>
+            ` : isLast ? `
+                <div class="text-green-500 font-bold">✅ 最後一個月！</div>
+                <button onclick="renderResult(true)" class="mt-4 px-6 py-2 bg-emerald-600 text-white rounded-lg font-bold">完成遊戲 →</button>
+            ` : `
+                <button onclick="nextMonth()" class="mt-4 px-6 py-2 bg-emerald-600 text-white rounded-lg font-bold">下一個月 →</button>
+            `}
+        </div>`;
+    updateStatsUI();
+}
+
+function nextMonth() {
+    if(gameEnded) return;
+    currentScenarioIndex++;
+    updateStatsUI();
+    renderScenario();
+}
+
+function updateStatsUI() {
+    const c = document.getElementById('stats-container');
+    if(!c) return;
+    c.innerHTML = `<div class="space-y-1.5">
+        ${[['💵 現金','emerald',currentStats.money],['❤️ 健康','red',currentStats.sanity],['🤝 信用','blue',currentStats.reputation]].map(([label,color,val])=>`
+        <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-400">${label}</span>
+            <span class="text-${color}-400 font-bold">${Math.max(0,val)}</span>
+        </div>
+        <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-red-600 to-${color}-500 transition-all" style="width:${Math.max(0,Math.min(100,val))}%"></div>
+        </div>`).join('')}
+        <div data-timer class="h-1 rounded mt-2 bg-emerald-500 transition-all"></div>
+    </div>`;
+}
+
+function calculateFinalScore(isSuccess) {
+    const months = isSuccess ? GAME_DURATION : currentScenarioIndex;
+    const composite = (Math.max(0,currentStats.money)*1.5)+(Math.max(0,currentStats.sanity)*1.0)+(Math.max(0,currentStats.reputation)*1.2);
+    const bonus = months * 5;
+    const diff = {'E':1.0,'S':1.3,'B':1.6,'I':2.0}[currentMode?.type||'E'] || 1.0;
+    return {
+        totalScore: Math.round((composite+bonus)*diff),
+        money: Math.max(0,currentStats.money),
+        sanity: Math.max(0,currentStats.sanity),
+        reputation: Math.max(0,currentStats.reputation),
+        monthsCompleted: months,
+        role: currentMode?.name||'未知',
+        roleType: currentMode?.type||'E',
+        difficultyCoefficient: diff,
+        success: isSuccess,
+        timestamp: new Date().toISOString()
+    };
+}
+
+function renderResult(isSuccess) {
+    window.scrollTo(0,0);
+    if(timerInterval) clearInterval(timerInterval);
+    document.getElementById('game-header-stats').classList.add('hidden');
+    document.getElementById('stats-container').classList.add('hidden');
+    gameEnded = true;
+
+    const score = calculateFinalScore(isSuccess);
+    const painPoints = PAIN_MATRIX[currentMode.type] || [];
+
+    // 自動提交到 Supabase
+    const playerName = localStorage.getItem('gamePlayerName') || '匿名玩家';
+    const memberCode = localStorage.getItem('gameMemberCode') || '';
+    submitToSupabase(playerName, memberCode, score);
+
+    document.getElementById('app-root').innerHTML = `
+        <div class="fade-in space-y-6 py-8">
+            <div class="text-center space-y-2">
+                <div class="text-6xl">${isSuccess?'🎉':'💀'}</div>
+                <h2 class="text-2xl font-black text-white">${isSuccess?'你活下來了！':'你倒下了'}</h2>
+                <p class="text-sm text-slate-400">${isSuccess?`恭喜撐過 ${GAME_DURATION} 個月`:'你的人生在這一刻停止了'}</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-amber-900/50 to-orange-900/50 p-6 rounded-lg border-2 border-amber-500/50 text-center">
+                <div class="text-sm font-bold text-amber-300 mb-2">🏆 最終分數</div>
+                <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-300 to-red-300">${score.totalScore}</div>
+            </div>
+
+            <div class="bg-slate-900 p-4 rounded-lg">
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div><div class="text-2xl">💵</div><div class="text-xs text-slate-400">現金</div><div class="text-lg font-bold text-emerald-400">${score.money}</div></div>
+                    <div><div class="text-2xl">❤️</div><div class="text-xs text-slate-400">健康</div><div class="text-lg font-bold text-red-400">${score.sanity}</div></div>
+                    <div><div class="text-2xl">🤝</div><div class="text-xs text-slate-400">信用</div><div class="text-lg font-bold text-blue-400">${score.reputation}</div></div>
+                </div>
+            </div>
+
+            <button onclick="showGameReview()" class="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-bold">📖 人生覆盤</button>
+
+            <div class="space-y-3">
+                <h3 class="font-bold text-white">你的痛點 <span class="text-xs text-slate-400">（點擊查看解決方案）</span></h3>
+                <div class="grid grid-cols-2 gap-2">
+                    ${painPoints.map((p,i)=>`
+                    <div class="matrix-card locked p-3 rounded-lg cursor-pointer" onclick="togglePainCard(this,${i})">
+                        <div class="pain-text">
+                            <div class="text-base font-bold text-white">${p.category}</div>
+                            <div class="text-sm text-slate-300 mt-1">${p.description}</div>
+                            <div class="click-hint text-xs text-slate-400 mt-2">點擊查看解決方案</div>
+                        </div>
+                        <div class="solution-view">
+                            <div class="text-sm font-bold text-green-300">${GREENLEAF_GAINS[i]||''}</div>
+                        </div>
+                    </div>`).join('')}
+                </div>
+            </div>
+
+            <button id="cta-btn" onclick="handleCTA()" class="w-full py-3 bg-slate-800 text-slate-400 border border-slate-700 rounded-lg font-bold transition-all">
+                🔓 解鎖全部痛點 (0/8)
+            </button>
+
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="renderHome()" class="py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg font-bold">🔄 再玩一次</button>
+                <button onclick="goToLeaderboard()" class="py-3 bg-slate-900 text-slate-200 border border-slate-700 rounded-lg font-bold hover:border-slate-500 transition-all">🏆 排行榜</button>
+            </div>
+        </div>`;
+    unlockedPKItems.clear();
+}
+
+function togglePainCard(el, idx) {
+    el.classList.toggle('unlocked');
+    if(el.classList.contains('unlocked')) unlockedPKItems.add(idx);
+    else unlockedPKItems.delete(idx);
+    checkPKUnlock();
+}
+
+function handleCTA() {
+    if(unlockedPKItems.size===8) window.open('https://portaly.cc/mastersquid','_blank');
+    else alert('🔓 請先解鎖全部 8 個痛點！');
+}
+
+function checkPKUnlock() {
+    const btn = document.getElementById('cta-btn');
+    if(!btn) return;
+    btn.innerHTML = `🔓 解鎖全部痛點 (${unlockedPKItems.size}/8)`;
+    if(unlockedPKItems.size===8){
+        btn.innerHTML = '🚀 你的人生值得更好的選擇 (立即諮詢)';
+        btn.className = 'w-full py-3 gold-btn text-white rounded-lg font-bold text-base';
+    }
+}
+
+// ==========================================
+// Supabase 排行榜
+// ==========================================
+async function submitToSupabase(playerName, memberCode, score) {
+    try {
+        const payload = {
+            player_name: playerName || '匿名玩家',
+            role_name: score.role,
+            role_type: score.roleType,
+            duration: GAME_DURATION,
+            final_money: score.money,
+            final_sanity: score.sanity,
+            final_reputation: score.reputation,
+            final_score: score.totalScore,
+            success: score.success,
+            months_completed: score.monthsCompleted
+        };
+        // 有會員編號才關聯
+        if (memberCode && memberCode.length === 7) {
+            payload.member_code = memberCode;
+        }
+        await fetch(`${SUPABASE_URL}/rest/v1/game_scores`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify(payload)
+        });
+        console.log('✅ 成績已提交到 Supabase');
+    } catch(e) {
+        console.warn('⚠️ 排行榜提交失敗:', e);
+    }
+}
+
+async function goToLeaderboard() {
+    const app = document.getElementById('app-root');
+    app.innerHTML = '<div class="text-center py-8"><p class="text-slate-400">載入排行榜中...</p></div>';
+
+    let scores = [];
+    try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/game_scores?select=*&order=final_score.desc&limit=50`, {
+            headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
+        });
+        scores = await res.json();
+    } catch(e) {
+        console.warn('排行榜載入失敗:', e);
+    }
+
+    app.innerHTML = `
+        <div class="fade-in space-y-6 py-4">
+            <div class="text-center">
+                <div class="text-5xl mb-2">🏆</div>
+                <h2 class="text-2xl font-black text-white">全球排行榜</h2>
+                <p class="text-sm text-slate-400">共 ${scores.length} 筆紀錄</p>
+            </div>
+
+            ${scores.length===0 ? `
+                <div class="bg-slate-900 p-6 rounded-lg text-center">
+                    <p class="text-slate-400">還沒有紀錄，完成遊戲後成績會顯示在這裡！</p>
+                </div>
+            ` : `
+                <div class="space-y-2">
+                    ${scores.map((s,i)=>`
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-800">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xl">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</span>
+                                <div>
+                                    <div class="font-bold text-white text-sm">${s.player_name||'匿名'}</div>
+                                    <div class="text-xs text-slate-400">${s.role_name} · ${s.success?'✅存活':'❌失敗'}</div>
+                                </div>
+                            </div>
+                            <div class="text-xl font-black text-amber-400">${s.final_score}</div>
+                        </div>
+                    </div>`).join('')}
+                </div>
+            `}
+
+            <button onclick="renderHome()" class="w-full py-3 bg-slate-900 border border-slate-700 text-slate-200 rounded-lg font-bold">← 返回首頁</button>
+        </div>`;
+    window.scrollTo(0,0);
+}
+
+function showGameReview() {
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto';
+    modal.id = 'review-modal';
+    modal.innerHTML = `
+        <div class="bg-slate-900 rounded-lg border-2 border-purple-500 max-w-2xl w-full my-8">
+            <div class="sticky top-0 bg-gradient-to-r from-purple-900 to-indigo-900 p-4 border-b border-purple-500 flex justify-between items-center">
+                <h2 class="text-xl font-bold text-white">📖 人生覆盤</h2>
+                <button onclick="document.getElementById('review-modal').remove()" class="text-2xl text-purple-300">×</button>
+            </div>
+            <div class="p-4 space-y-4 max-h-[70vh] overflow-y-auto">
+                ${userHistory.length===0?'<p class="text-slate-400 text-center py-8">沒有紀錄</p>':
+                userHistory.map(e=>`
+                <div class="bg-slate-800 p-4 rounded-lg space-y-2">
+                    <div class="flex justify-between"><span class="font-bold text-purple-300">第 ${e.month} 個月</span><span class="text-xs text-slate-400">${e.scenario}</span></div>
+                    <div class="bg-slate-900 p-3 rounded border-l-4 border-purple-500">
+                        <div class="text-xs text-white font-bold mb-1">你的選擇：</div>
+                        <div class="text-sm text-purple-200">${e.choice}</div>
+                    </div>
+                    <div class="bg-slate-900 p-3 rounded border-l-4 border-amber-500">
+                        <div class="text-xs text-white font-bold mb-1">結果：</div>
+                        <div class="text-sm text-amber-200">${e.feedback}</div>
+                    </div>
+                </div>`).join('')}
+            </div>
+            <div class="p-4 border-t border-slate-700 text-center">
+                <button onclick="document.getElementById('review-modal').remove()" class="px-6 py-2 bg-slate-700 text-white rounded-lg">關閉</button>
+            </div>
+        </div>`;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', e=>{ if(e.target===modal) modal.remove(); });
+}
+
+// ==========================================
+// 會員編號處理
+// ==========================================
+let memberVerifyTimer = null;
+
+async function handleMemberCodeInput(val) {
+    localStorage.setItem('gameMemberCode', val);
+    const statusEl = document.getElementById('member-status');
+    if (!statusEl) return;
+    if (val.length < 7) {
+        statusEl.textContent = '';
+        return;
+    }
+    // 查 Supabase 確認會員存在
+    statusEl.textContent = '驗證中...';
+    statusEl.className = 'text-xs h-4 text-slate-400';
+    try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/members?member_code=eq.${val}&select=member_code,name,tier`, {
+            headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
+        });
+        const data = await res.json();
+        if (data.length > 0) {
+            const m = data[0];
+            statusEl.textContent = `✅ 找到會員：${m.name || '未命名'} (${m.tier}級)`;
+            statusEl.className = 'text-xs h-4 text-emerald-400';
+            // 更新最後活躍時間
+            fetch(`${SUPABASE_URL}/rest/v1/members?member_code=eq.${val}`, {
+                method: 'PATCH',
+                headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ last_seen_at: new Date().toISOString() })
+            });
+        } else {
+            statusEl.textContent = '⚠️ 找不到此會員編號，成績將以訪客身份記錄';
+            statusEl.className = 'text-xs h-4 text-amber-400';
+        }
+    } catch(e) {
+        statusEl.textContent = '';
+    }
+}
+
+// 啟動
+window.onload = () => loadGameData();
+</script>
+</body>
+</html>
+HTMLEOF
