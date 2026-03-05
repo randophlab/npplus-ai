@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人生模擬器 - 魷魚大師</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff; min-height: 100vh; padding: 20px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 40px; margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      font-size: 2.2em; margin-bottom: 8px;
+      background: linear-gradient(135deg, #fbbf24 0%, #10b981 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .subtitle { font-size: 1em; color: #a0aec0; margin-bottom: 25px; }
+    h2 { font-size: 1.2em; margin: 20px 0 10px; color: #fbbf24; }
+    p, ol { font-size: 0.95em; line-height: 1.8; color: #cbd5e0; margin-bottom: 10px; }
+    ol { margin-left: 20px; }
+    li { margin-bottom: 8px; }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display:block; font-size:0.95em; margin-bottom:6px; color:#cbd5e0; font-weight:500; }
+    .form-group input {
+      width:100%; padding:12px 15px; font-size:1em;
+      border:1px solid rgba(255,255,255,0.2); border-radius:8px;
+      background:rgba(255,255,255,0.05); color:#fff; transition:all 0.3s;
+    }
+    .form-group input:focus { outline:none; border-color:#fbbf24; box-shadow:0 0 10px rgba(251,191,36,0.2); }
+    .form-group input::placeholder { color:#718096; }
+    .error-msg { color:#fc8181; font-size:0.85em; margin-top:4px; display:none; }
+    .member-hint { color:#10b981; font-size:0.85em; margin-top:4px; min-height:18px; }
+
+    .btn-group { display:flex; gap:12px; margin-top:25px; }
+    .btn {
+      flex:1; padding:13px 20px; font-size:1em; font-weight:600;
+      border:none; border-radius:8px; cursor:pointer; transition:all 0.3s;
+    }
+    .btn-primary { background:linear-gradient(135deg, #fbbf24 0%, #10b981 100%); color:#1a1a2e; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(251,191,36,0.3); }
+    .btn-secondary { background:rgba(255,255,255,0.08); color:#fbbf24; border:1px solid #fbbf24; }
+    .btn-secondary:hover { background:rgba(251,191,36,0.1); transform:translateY(-2px); }
+
+    /* 排行榜 */
+    .tabs { display:flex; gap:10px; margin-bottom:20px; }
+    .tab {
+      padding:9px 18px; background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.2); color:#cbd5e0;
+      border-radius:6px; cursor:pointer; font-size:0.9em; transition:all 0.3s;
+    }
+    .tab.active { background:linear-gradient(135deg,#fbbf24,#10b981); color:#1a1a2e; border-color:transparent; font-weight:600; }
+    .lb-list { max-height:480px; overflow-y:auto; margin-bottom:25px; }
+    .lb-item {
+      display:flex; align-items:center; padding:14px;
+      background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.05);
+      transition:background 0.2s;
+    }
+    .lb-item:hover { background:rgba(255,255,255,0.05); }
+    .rank { font-size:1.2em; font-weight:bold; color:#fbbf24; min-width:38px; text-align:center; margin-right:14px; }
+    .rank.r1 { color:#fbbf24; } .rank.r2 { color:#a0aec0; } .rank.r3 { color:#cd7f32; }
+    .p-info { flex:1; }
+    .p-name { font-size:1em; font-weight:600; color:#fff; margin-bottom:3px; }
+    .p-sub { font-size:0.8em; color:#a0aec0; }
+    .p-score { text-align:right; }
+    .p-pts { font-size:1.1em; font-weight:bold; color:#10b981; margin-bottom:3px; }
+    .lb-empty { text-align:center; padding:30px; color:#a0aec0; }
+    .lb-list::-webkit-scrollbar { width:5px; }
+    .lb-list::-webkit-scrollbar-track { background:rgba(255,255,255,0.03); }
+    .lb-list::-webkit-scrollbar-thumb { background:rgba(251,191,36,0.3); border-radius:5px; }
+
+    @media(max-width:600px) {
+      .card { padding:25px; }
+      h1 { font-size:1.7em; }
+      .btn-group { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 橫幅 -->
+  <div style="text-align:center; margin-bottom:30px;">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663331366018/lgWsUcjaZnIJepyG.png"
+      alt="人生模擬器" style="max-width:100%; border-radius:12px; margin-bottom:16px;">
+    <button id="youtubeBtn" style="padding:11px 28px; background:linear-gradient(135deg,#fbbf24,#10b981); color:#1a1a2e; border:none; border-radius:8px; font-size:1em; font-weight:600; cursor:pointer;">
+      ▶️ 8秒公關
+    </button>
+  </div>
+
+  <!-- 遊戲說明 -->
+  <div class="card">
+    <h1>🔥 人生模擬器</h1>
+    <p class="subtitle">REALITY v14.0 (Mix)</p>
+    <h2>【遊戲目的】</h2>
+    <p>真實社會縮影，30 種職業劇本 + 隨機人生事件。選擇你的身分，體驗不同人生的挑戰與機遇。</p>
+    <h2>【遊戲規則】</h2>
+    <ol>
+      <li>選擇職業和體驗年份（1年/2年/3年）</li>
+      <li>每個月遇到一個抉擇，30秒內做選擇</li>
+      <li>追蹤三項數值：現金、健康、信用</li>
+      <li>任何一項降到 0 以下就失敗</li>
+      <li>撐過所有月份就成功</li>
+    </ol>
+    <h2>【計分方式】</h2>
+    <p>
+      • 綜合評分 = (現金×1.5) + (健康×1.0) + (信用×1.2)<br>
+      • 生存加分 = 存活月數×5<br>
+      • 職業難度係數：E(1.0x) / S(1.3x) / B(1.6x) / I(2.0x)<br>
+      • 最終分數 = (綜合評分 + 生存加分) × 職業難度係數
+    </p>
+  </div>
+
+  <!-- 開始遊戲 -->
+  <div class="card">
+    <h2 style="margin-top:0;">【開始遊戲】</h2>
+    <div class="form-group">
+      <label>暱稱（必填）</label>
+      <input type="text" id="playerName" placeholder="排行榜就是你">
+      <div class="error-msg" id="nameError">暱稱不能為空</div>
+    </div>
+    <div class="form-group">
+      <label>會員編號（7碼，有填才能記錄成績）</label>
+      <input type="text" id="memberCode" placeholder="例：1234567" maxlength="7"
+        oninput="verifyMember(this.value)" style="font-family:monospace; letter-spacing:3px;">
+      <div class="member-hint" id="memberHint"></div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="startGame()">開始遊戲</button>
+      <button class="btn btn-secondary" onclick="quickPlay()">快速遊戲（不記錄）</button>
+    </div>
+  </div>
+
+  <!-- 排行榜 -->
+  <div class="card">
+    <h2 style="margin-top:0;">🏆 全球排行榜</h2>
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('current', this)">當季排行榜</button>
+      <button class="tab" onclick="switchTab('historical', this)">歷史排行榜</button>
+    </div>
+    <div class="lb-list" id="lb-list">
+      <div class="lb-empty">載入中...</div>
+    </div>
+    <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+      <button class="btn btn-secondary" style="flex:none; padding:10px 24px;" onclick="document.getElementById('playerName').focus(); window.scrollTo(0,300);">
+        開始挑戰 →
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SUPABASE_URL = 'https://nsgqsopqlkhayuefdout.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zZ3Fzb3BxbGtoYXl1ZWZkb3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MzgzMjgsImV4cCI6MjA4ODMxNDMyOH0.FCMF_WaWjmtuWUKO2vqQBM4cFVGrdqt9fdmxYwUii0Y';
+
+// 載入上次資料
+window.onload = () => {
+  document.getElementById('playerName').value = localStorage.getItem('gamePlayerName') || '';
+  document.getElementById('memberCode').value = localStorage.getItem('gameMemberCode') || '';
+  const code = localStorage.getItem('gameMemberCode');
+  if (code && code.length === 7) verifyMember(code);
+  loadLeaderboard();
+};
+
+// YouTube 彈窗
+document.getElementById('youtubeBtn').onclick = function() {
+  const modal = document.createElement('div');
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:9999;';
+  const iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/q05w7uHlpcg?autoplay=1';
+  iframe.style.cssText = 'width:90%;max-width:800px;height:450px;border:none;border-radius:8px;';
+  iframe.allow = 'autoplay';
+  const closeBtn = document.createElement('button');
+  closeBtn.innerHTML = '×';
+  closeBtn.style.cssText = 'position:absolute;top:16px;right:20px;width:40px;height:40px;background:rgba(255,255,255,0.2);color:white;border:none;border-radius:50%;font-size:26px;cursor:pointer;';
+  closeBtn.onclick = () => modal.remove();
+  modal.appendChild(iframe); modal.appendChild(closeBtn);
+  modal.onclick = e => { if(e.target===modal) modal.remove(); };
+  document.body.appendChild(modal);
+};
+
+// 驗證會員編號
+async function verifyMember(val) {
+  localStorage.setItem('gameMemberCode', val);
+  const hint = document.getElementById('memberHint');
+  if (val.length < 7) { hint.textContent = ''; return; }
+  hint.textContent = '驗證中...'; hint.style.color = '#a0aec0';
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/members?member_code=eq.${val}&select=member_code,name,tier`, {
+      headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
+    });
+    const data = await res.json();
+    if (data.length > 0) {
+      const m = data[0];
+      hint.textContent = `✅ 找到會員：${m.name || '未命名'} (${m.tier}級)`;
+      hint.style.color = '#10b981';
+    } else {
+      hint.textContent = '⚠️ 找不到此會員編號，成績將以訪客身份記錄';
+      hint.style.color = '#f6ad55';
+    }
+  } catch(e) { hint.textContent = ''; }
+}
+
+// 開始遊戲
+function startGame() {
+  const name = document.getElementById('playerName').value.trim();
+  if (!name) { document.getElementById('nameError').style.display = 'block'; return; }
+  document.getElementById('nameError').style.display = 'none';
+  localStorage.setItem('gamePlayerName', name);
+  window.location.href = './survivalgame.html';
+}
+
+// 快速遊戲
+function quickPlay() {
+  localStorage.setItem('gamePlayerName', '快速遊戲玩家');
+  localStorage.setItem('gameMemberCode', '');
+  window.location.href = './survivalgame.html';
+}
+
+// 切換排行榜 tab
+let currentTab = 'current';
+function switchTab(tab, btn) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  loadLeaderboard();
+}
+
+// 載入排行榜
+async function loadLeaderboard() {
+  const el = document.getElementById('lb-list');
+  el.innerHTML = '<div class="lb-empty">載入中...</div>';
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/game_scores?select=player_name,member_code,role_name,role_type,duration,final_score,success&order=final_score.desc&limit=50`, {
+      headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
+    });
+    const data = await res.json();
+    if (!data.length) { el.innerHTML = '<div class="lb-empty">還沒有紀錄，快來挑戰！</div>'; return; }
+    el.innerHTML = data.map((s, i) => {
+      const r = i + 1;
+      const rankClass = r===1?'r1':r===2?'r2':r===3?'r3':'';
+      const medal = r===1?'🥇':r===2?'🥈':r===3?'🥉':r;
+      return `<div class="lb-item">
+        <div class="rank ${rankClass}">${medal}</div>
+        <div class="p-info">
+          <div class="p-name">${s.player_name || '匿名'}</div>
+          <div class="p-sub">${s.role_name || ''} · ${s.duration || 12}個月 · ${s.success ? '✅存活' : '❌失敗'}</div>
+        </div>
+        <div class="p-score">
+          <div class="p-pts">${s.final_score} 分</div>
+          <div class="p-sub">${s.role_type || ''}級</div>
+        </div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    el.innerHTML = '<div class="lb-empty">排行榜載入失敗</div>';
+  }
+}
+
+// 每 15 秒自動刷新
+setInterval(loadLeaderboard, 15000);
+</script>
+</body>
+</html>
