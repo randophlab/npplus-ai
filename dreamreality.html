@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>第一章：願景算力 | AI 數位賦能商務系統</title>
+    <script>
+        // 全局變數用於存儲通膨計算結果 - 在頁面加載時立即初始化
+        window.globalPotentialBuyingPower = 0;
+        window.globalActualBuyingPower = 0;
+        window.globalCurrencyInflationLoss = 0;
+        window.globalPotentialHousePrice = 0;
+        window.globalActualHousePrice = 0;
+        window.globalHouseInflationLoss = 0;
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>    <style>
+        body { background: linear-gradient(to bottom, #0f172a, #0f172a); }
+        .gradient-text { background: linear-gradient(to right, #fbbf24, #10b981, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* 夢想卡片 */
+        .dream-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+        }
+        
+        .dream-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .dream-card.selected {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(16, 185, 129, 0.4));
+            border: 2px solid #10b981;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+        }
+        
+        .dream-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 24px;
+            height: 24px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            animation: checkPop 0.3s ease-out;
+        }
+        
+        @keyframes checkPop {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* 收入層級卡片 */
+        .income-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+        }
+        
+        .income-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .income-card.selected {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(139, 92, 246, 0.4));
+            border: 2px solid #8b5cf6;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+        }
+        
+        .income-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 24px;
+            height: 24px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            animation: checkPop 0.3s ease-out;
+        }
+        
+        /* 數字動畫 */
+        .number-animate {
+            font-weight: bold;
+            color: #fbbf24;
+            font-size: 1.5rem;
+        }
+        
+        /* 脈搏效果 */
+        .pulse-button {
+            animation: pulseButton 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseButton {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+            }
+            50% { 
+                box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+            }
+        }
+        
+        /* 結果區域 */
+        .result-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+            border: 2px solid rgba(239, 68, 68, 0.5);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-title {
+            font-size: 0.875rem;
+            color: #fca5a5;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fca5a5;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-subtitle {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        /* 提示文字 */
+        .hint-text {
+            text-align: center;
+            color: #06b6d4;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="min-h-screen relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+
+        <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-12">
+            <div class="max-w-5xl mx-auto w-full">
+                <h1 class="text-6xl md:text-7xl font-bold gradient-text mb-6 text-center">願景算力</h1>
+                <p class="text-2xl text-gray-300 mb-4 text-center">量化您的夢想</p>
+                <p class="text-lg text-gray-400 mb-12 text-center">選擇您的夢想，計算達成所需時間</p>
+
+                <!-- 主容器 -->
+                <div class="bg-slate-900/80 backdrop-blur-lg rounded-2xl p-8 mb-8">
+                    
+                    <!-- 第一區：夢想選擇 -->
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-bold mb-2">1️⃣ 選擇您的夢想</h2>
+                        <p class="hint-text">點擊卡片可多選，已選項目會自動加總</p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3" id="dreamContainer">
+                            <!-- 夢想卡片會由 JavaScript 動態生成 -->
+                        </div>
+                        
+                        <!-- 夢想總額顯示 -->
+                        <div class="mt-6 bg-green-900/30 border border-green-500/50 rounded-lg p-4">
+                            <p class="text-sm text-gray-400 mb-1">已選夢想總額</p>
+                            <p class="text-3xl font-bold text-green-300">
+                                NT$ <span id="totalDreamAmount">0</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 分隔線 -->
+                    <div class="border-t border-gray-700 my-8"></div>
+
+                    <!-- 第二區：目前月收入輸入 -->
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-bold mb-2">2️⃣ 目前月收入</h2>
+                        <p class="hint-text">輸入您目前的月收入（單位：萬元）</p>
+                        
+                        <div class="flex items-center justify-center gap-4 mt-6">
+                            <button id="decreaseBtn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all text-xl">−</button>
+                            <div class="bg-slate-700 rounded-lg px-8 py-4 min-w-32 text-center">
+                                <input type="number" id="monthlyIncomeInput" value="0" step="0.5" min="0.5" max="100" class="bg-transparent text-white text-4xl font-bold text-center w-full border-none outline-none" />
+                            </div>
+                            <button id="increaseBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all text-xl">+</button>
+                        </div>
+                        <p class="text-center text-gray-400 text-sm mt-4">當前月收入：<span id="displayIncome">0</span> 萬元</p>
+                    </div>
+
+                    <!-- 第三區：預計再工作幾年 -->
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-bold mb-2">3️⃣ 預計再工作幾年</h2>
+                        <p class="hint-text">調整您預計還要工作的年限</p>
+                        
+                        <div class="mt-6">
+                            <label class="block text-slate-400 mb-2 text-sm">預計再工作幾年: <span id="yearsDisplay" class="text-yellow-400 font-bold">10</span> 年</label>
+                            <input type="range" id="yearsSlider" min="10" max="50" value="10" class="w-full h-4 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-yellow-500 mt-4" style="width: 100%; margin-top: 8px;" />
+                        </div>
+                    </div>
+
+                    <!-- 第四區：年增薪預估 -->
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-bold mb-2">4️⃣ 年增薪預估</h2>
+                        <p class="hint-text">輸入您預計的年增薪（單位：萬元）</p>
+                        
+                        <!-- 薪資增薪 -->
+                        <div class="mt-6 mb-6">
+                            <p class="text-slate-400 mb-2 text-sm">薪資增薪：<span id="salaryRaiseDisplay" class="text-green-400 font-bold">0.0</span> 萬元</p>
+                            <div class="flex items-center justify-center gap-4">
+                                <button id="decreaseSalaryRaiseBtn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all">−</button>
+                                <input type="number" id="salaryRaiseInput" value="0" step="0.1" min="0" max="100" class="bg-slate-700 text-white text-2xl font-bold text-center px-6 py-2 rounded-lg border-none outline-none w-32" />
+                                <button id="increaseSalaryRaiseBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-all">+</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 資產增長 -->
+                        <div class="mb-6">
+                            <p class="text-slate-400 mb-2 text-sm">資產增長：<span id="assetGrowthDisplay" class="text-blue-400 font-bold">0.0</span> 萬元</p>
+                            <div class="flex items-center justify-center gap-4">
+                                <button id="decreaseAssetGrowthBtn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all">−</button>
+                                <input type="number" id="assetGrowthInput" value="0" step="0.1" min="0" max="100" class="bg-slate-700 text-white text-2xl font-bold text-center px-6 py-2 rounded-lg border-none outline-none w-32" />
+                                <button id="increaseAssetGrowthBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-all">+</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 總年增薪預估 -->
+                        <div class="bg-slate-800 rounded-lg p-4 text-center">
+                            <p class="text-slate-400 mb-2 text-sm">總年增薪預估</p>
+                            <p class="text-2xl font-bold text-yellow-400" id="totalAnnualRaiseDisplay">0.0 萬元</p>
+                        </div>
+                    </div>
+
+                    <!-- 收入統計卡片 -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+                        <div class="bg-slate-800 rounded-lg p-4 text-center">
+                            <p class="text-slate-400 mb-2 text-sm">月均收入</p>
+                            <p class="text-3xl font-bold text-green-400"><span id="monthlyIncomeCard">4.5</span> 萬元</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-4 text-center">
+                            <p class="text-slate-400 mb-2 text-sm">總年收入</p>
+                            <p class="text-3xl font-bold text-cyan-400"><span id="annualIncomeCard">54</span> 萬元</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-4 text-center">
+                            <p class="text-slate-400 mb-2 text-sm">完成夢想要</p>
+                            <p class="text-3xl font-bold text-yellow-400"><span id="yearsNeededCard">0</span> 年</p>
+                        </div>
+                    </div>
+
+                    <!-- 分隔線 -->
+                    <div class="border-t border-gray-700 my-8"></div>
+
+                    <!-- 第五區：收入級距分析 -->
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-bold mb-8 text-center gradient-text">5️⃣ 您的收入級距分析</h2>
+                        
+                        <!-- 全球數據 -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-bold text-center mb-4 text-amber-400">🌐 全球數據</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-3" id="globalBrackets">
+                                <!-- 全球級距卡片會由 JavaScript 動態生成 -->
+                            </div>
+                        </div>
+                        
+                        <!-- 台灣數據 -->
+                        <div>
+                            <h3 class="text-lg font-bold text-center mb-4 text-cyan-400">🇹🇼 台灣數據</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-3" id="taiwanBrackets">
+                                <!-- 台灣級跟卡片會由 JavaScript 動態生成 -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 分隔線 -->
+                    <div class="border-t border-gray-700 my-8"></div>
+
+                    <!-- 第六區：社會通膨指數 -->
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-bold mb-8 text-center gradient-text">6️⃣ 社會通膨指數</h2>
+                        
+                        <!-- 通膨損失卡片 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8" id="inflationCardsContainer">
+                            <!-- 財富購買力損失評估 -->
+                            <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-red-500/30 rounded-xl p-6">
+                                <h3 class="text-lg font-bold text-red-400 mb-4">💰 財富購買力損失評估</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">年均通膨率：</span>
+                                        <span class="text-red-400 font-bold">3%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">預期退休年：</span>
+                                        <span class="text-yellow-400 font-bold" id="retirementYear">0 年</span>
+                                    </div>
+                                    <div class="flex justify-between border-t border-gray-700 pt-2 mt-2">
+                                        <span class="text-gray-400">預期購買力：</span>
+                                        <span class="text-yellow-400 font-bold" id="potentialBuyingPower">0 萬元</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">實際購買力：</span>
+                                        <span class="text-cyan-400 font-bold" id="actualBuyingPower">0 萬元</span>
+                                    </div>
+                                    <div class="flex justify-between border-t border-gray-700 pt-2 mt-2">
+                                        <span class="text-gray-400">購買力損失：</span>
+                                        <span class="text-red-400 font-bold" id="currencyInflationLoss">0 萬元</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 房屋購買力損失 -->
+                            <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-orange-500/30 rounded-xl p-6">
+                                <h3 class="text-lg font-bold text-orange-400 mb-4">🏠 房屋購買力損失評估</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">年均漲價率：</span>
+                                        <span class="text-orange-400 font-bold">8%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">月繳款佔收入比例：</span>
+                                        <span class="text-yellow-400 font-bold">33%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">銀行貸款佔總價：</span>
+                                        <span class="text-yellow-400 font-bold">80%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">預期退休分期年份：</span>
+                                        <span class="text-yellow-400 font-bold" id="mortgagePeriod">0 年</span>
+                                    </div>
+                                    <div class="flex justify-between border-t border-gray-700 pt-2 mt-2">
+                                        <span class="text-gray-400">今年購買總價：</span>
+                                        <span class="text-yellow-400 font-bold" id="potentialHousePrice">0 萬元</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-400">次年購買總價：</span>
+                                        <span class="text-cyan-400 font-bold" id="actualHousePrice">0 萬元</span>
+                                    </div>
+                                    <div class="flex justify-between border-t border-gray-700 pt-2 mt-2">
+                                        <span class="text-gray-400">購屋溢繳金額：</span>
+                                        <span class="text-orange-400 font-bold" id="houseInflationLoss">0 萬元</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 下面 2 格：階級逃逸率 + 退休等級 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 階級逃逸率 -->
+                        <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-purple-500/30 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-purple-400 mb-4">📈 階級逃逸率</h3>
+                            <p class="text-gray-400 text-sm mb-6">您的年增薪：<span class="text-purple-400 font-bold" id="userAnnualRaise">0 萬元</span></p>
+                            
+                            <!-- 年增薪進度條 -->
+                            <div class="mb-8">
+                                <div class="relative h-10 rounded-lg overflow-hidden border border-gray-600" id="raiseProgressBarContainer" style="background-color: #4b5563;">
+                                    <!-- 填滿進度條 -->
+                                    <div id="raiseProgressBar" class="absolute h-full transition-all duration-300 flex items-center justify-end pr-3" style="width: 0%; background-color: #6b7280;">
+                                        <span id="raiseProgressText" class="text-xs font-bold text-white">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 三段說明文字 -->
+                            <div class="mt-6 space-y-3 text-sm">
+                                <!-- 貧窮線 -->
+                                <div id="povertyLineDesc" class="flex items-start gap-2 p-3 rounded-lg bg-slate-700/50">
+                                    <span class="text-red-400 font-bold flex-shrink-0">0~2.99%</span>
+                                    <div>
+                                        <p class="text-red-400 font-bold">貧窮線：收入大幅貶值，生活品質每況愈下</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 生存線 -->
+                                <div id="survivalLineDesc" class="flex items-start gap-2 p-3 rounded-lg bg-slate-700/50">
+                                    <span class="text-green-400 font-bold flex-shrink-0 min-w-fit" id="survivalLinePointer"></span>
+                                    <div>
+                                        <p class="text-green-400 font-bold">3%~7.99% 生存線：通膨持平，生活品質暫時不影響</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 階級線 -->
+                                <div id="classLineDesc" class="flex items-start gap-2 p-3 rounded-lg bg-slate-700/50">
+                                    <span class="text-blue-400 font-bold flex-shrink-0 min-w-fit" id="classLinePointer"></span>
+                                    <div>
+                                        <p class="text-blue-400 font-bold">8%以上 階級線：收入開始累積倍增，生活品質漸入佳境</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 退休等級 -->
+                        <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-cyan-500/30 rounded-xl p-6">
+                            <h3 class="text-lg font-bold text-cyan-400 mb-4 whitespace-nowrap">🎯 退休等級</h3>
+                            <p class="text-gray-400 text-sm mb-6">資產增長：<span class="text-cyan-400 font-bold" id="retirementAssetGrowth">0 萬元</span></p>
+                            
+                            <!-- 四個等級框 -->
+                            <div class="space-y-2 overflow-hidden">
+                                <!-- 乞丐級 -->
+                                <div id="retirementBeggar" class="rounded-lg border-2 border-red-600 bg-red-950 transition-all duration-300 cursor-default p-2" style="transform: scale(0.95); opacity: 0.6; transform-origin: center;">
+                                    <div class="text-sm font-bold text-red-400">乞丐級</div>
+                                    <div class="text-xs text-red-400/70">3.49 萬以下</div>
+                                </div>
+                                
+                                <!-- 生存級 -->
+                                <div id="retirementSurvival" class="rounded-lg border-2 border-yellow-500 bg-yellow-900 transition-all duration-300 cursor-default p-2" style="transform: scale(0.95); opacity: 0.6; transform-origin: center;">
+                                    <div class="text-sm font-bold text-yellow-300">生存級</div>
+                                    <div class="text-xs text-yellow-300/80">3.5 ~ 5.99 萬</div>
+                                </div>
+                                
+                                <!-- 生活級 -->
+                                <div id="retirementLife" class="rounded-lg border-2 border-green-600 bg-green-950 transition-all duration-300 cursor-default p-2" style="transform: scale(0.95); opacity: 0.6; transform-origin: center;">
+                                    <div class="text-sm font-bold text-green-400">生活級</div>
+                                    <div class="text-xs text-green-400/70">6 ~ 9.99 萬</div>
+                                </div>
+                                
+                                <!-- 富足級 -->
+                                <div id="retirementAfluent" class="rounded-lg border-2 border-purple-600 bg-purple-950 transition-all duration-300 cursor-default p-2" style="transform: scale(0.95); opacity: 0.6; transform-origin: center;">
+                                    <div class="text-sm font-bold text-purple-400">富足級</div>
+                                    <div class="text-xs text-purple-400/70">10 萬以上</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 生成報告按鈕 -->
+                    <div class="text-center mt-16 mb-24">
+                        <button onclick="generateReport()" class="px-8 py-4 bg-gradient-to-r from-amber-400 to-green-400 text-slate-950 font-bold rounded-full text-lg shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
+                            📊 生成我的分析報告
+                        </button>
+                    </div>
+
+                    <!-- 報告 Modal -->
+                    <div id="reportModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+                        <div class="bg-slate-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                            <div id="reportContent"></div>
+                            <div class="sticky bottom-0 bg-slate-900 border-t border-gray-700 p-4 flex gap-4 justify-center">
+                                <button onclick="closeReport()" class="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-all">關閉</button>
+                                <button onclick="screenshotReport()" class="px-6 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all">📸 截圖分享</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA 按鈕 -->
+                    <div class="flex gap-4 justify-center">
+                        <button disabled class="inline-block px-8 py-3 bg-gray-400 text-gray-600 font-bold rounded-full cursor-not-allowed opacity-60">AI LINE 架構中</button>
+                        <a href="https://www.npplus.club/intro.html" class="inline-block px-8 py-3 bg-gradient-to-r from-green-400 to-cyan-400 text-slate-950 font-bold rounded-full hover:shadow-lg transition-all hover:scale-105">STEP 02</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 夢想數據
+        const dreams = [
+            { name: '提早財富自由', amount: 30000000 },
+            { name: '無貸款夢想宅', amount: 25000000 },
+            { name: '家族傳承信託', amount: 20000000 },
+            { name: '無憂尊嚴晚年', amount: 15000000 },
+            { name: '子女出國留學', amount: 10000000 },
+            { name: '個人慈善基金', amount: 10000000 },
+            { name: '頂級抗衰老療程', amount: 8000000 },
+            { name: '頂級醫療預備', amount: 5000000 },
+            { name: '十年奢華長假', amount: 5000000 },
+            { name: '夢想座駕超跑', amount: 3000000 },
+            { name: '帶父母環遊世界', amount: 2000000 },
+            { name: '專屬個人工作室', amount: 2000000 }
+        ];
+
+        // 級跟數據（全球和台灣）
+        const bracketData = {
+            'global': [
+                { name: '頂流層 1%', min: 45, max: Infinity, color: '#fbbf24', population: '1%', wealth: '40%' },
+                { name: '高流層 10%', min: 9.5, max: 44.99, color: '#06b6d4', population: '9%', wealth: '30%' },
+                { name: '中流層 40%', min: 1.2, max: 9.49, color: '#8b5cf6', population: '30%', wealth: '20%' },
+                { name: '底流層 50%', min: 0, max: 1.19, color: '#ef4444', population: '50%', wealth: '10%' }
+            ],
+            'taiwan': [
+                { name: '頂流層 1%', min: 50, max: Infinity, color: '#fbbf24', population: '1%', wealth: '45%' },
+                { name: '高流層 10%', min: 12, max: 49.99, color: '#06b6d4', population: '9%', wealth: '28%' },
+                { name: '中流層 40%', min: 4.2, max: 11.99, color: '#8b5cf6', population: '30%', wealth: '18%' },
+                { name: '底流層 50%', min: 0, max: 4.19, color: '#ef4444', population: '50%', wealth: '9%' }
+            ]
+        };
+        
+        // 月收入數據
+        let monthlyIncome = 4.5; // 預設为 4.5 萬元
+
+        // 年加薪數據
+        let salaryRaise = 0.0; // 薪資加薪
+        let assetGrowth = 0.0; // 資產增長
+        let workYears = 30; // 預設為 30 年
+
+        let selectedDreams = [];
+
+        // 初始化夢想卡片
+        function initDreams() {
+            const container = document.getElementById('dreamContainer');
+            dreams.forEach((dream, index) => {
+                const card = document.createElement('div');
+                card.className = 'dream-card p-4 bg-slate-800 rounded-lg';
+                card.textContent = dream.name;
+                card.dataset.index = index;
+                card.addEventListener('click', () => toggleDream(index, card));
+                container.appendChild(card);
+            });
+
+            // 從 LocalStorage 讀取之前的夢想選擇
+            const savedDreams = localStorage.getItem('selectedDreams');
+            if (savedDreams) {
+                selectedDreams = JSON.parse(savedDreams);
+                selectedDreams.forEach(index => {
+                    const cards = container.querySelectorAll('[data-index]');
+                    cards.forEach(card => {
+                        if (parseInt(card.dataset.index) === index) {
+                            card.classList.add('selected');
+                        }
+                    });
+                });
+            }
+        }
+
+        // 初始化月收入輸入
+        function initMonthlyIncomeInput() {
+            const input = document.getElementById('monthlyIncomeInput');
+            const decreaseBtn = document.getElementById('decreaseBtn');
+            const increaseBtn = document.getElementById('increaseBtn');
+            const displayIncome = document.getElementById('displayIncome');
+
+            // 減少按鈕
+            decreaseBtn.addEventListener('click', () => {
+                let value = parseFloat(input.value);
+                value = Math.max(0.5, value - 0.5);
+                input.value = value;
+                monthlyIncome = value;
+                displayIncome.textContent = value;
+                saveToLocalStorage();
+                updateCalculation();
+            });
+
+            // 增加按鈕
+            increaseBtn.addEventListener('click', () => {
+                let value = parseFloat(input.value);
+                value = Math.min(100, value + 0.5);
+                input.value = value;
+                monthlyIncome = value;
+                displayIncome.textContent = value;
+                saveToLocalStorage();
+                updateCalculation();
+            });
+
+            // 直接輸入
+            input.addEventListener('change', () => {
+                let value = parseFloat(input.value);
+                if (isNaN(value) || value < 0.5) value = 0.5;
+                if (value > 100) value = 100;
+                input.value = value;
+                monthlyIncome = value;
+                displayIncome.textContent = value;
+                saveToLocalStorage();
+                updateCalculation();
+            });
+
+            // 從 LocalStorage 讀取之前的月收入
+            const savedIncome = localStorage.getItem('monthlyIncome');
+            if (savedIncome) {
+                monthlyIncome = parseFloat(savedIncome);
+                input.value = monthlyIncome;
+                displayIncome.textContent = monthlyIncome;
+            }
+        }
+
+        // 保存到 LocalStorage
+        function saveToLocalStorage() {
+            localStorage.setItem('monthlyIncome', monthlyIncome);
+            localStorage.setItem('workYears', workYears);
+        }
+
+        // 切換夢想選擇
+        function toggleDream(index, element) {
+            const dreamIndex = selectedDreams.indexOf(index);
+            if (dreamIndex > -1) {
+                selectedDreams.splice(dreamIndex, 1);
+                element.classList.remove('selected');
+            } else {
+                selectedDreams.push(index);
+                element.classList.add('selected');
+            }
+            // 保存選擇的夢想到 LocalStorage
+            localStorage.setItem('selectedDreams', JSON.stringify(selectedDreams));
+            updateCalculation();
+        }
+
+
+
+        // 更新計算結果
+        function updateCalculation() {
+            // 計算夢想總額
+            const totalDream = selectedDreams.reduce((sum, index) => {
+                return sum + dreams[index].amount;
+            }, 0);
+
+            // 計算新的月均收入和年收入
+            const totalAnnualRaise = salaryRaise + assetGrowth;
+            const newMonthlyIncome = monthlyIncome + (totalAnnualRaise / 12);
+            const newAnnualIncome = (monthlyIncome * 12) + totalAnnualRaise;
+            
+            // 更新夢想總額
+            document.getElementById('totalDreamAmount').textContent = totalDream.toLocaleString();
+            
+            // 更新年加薪顯示
+            document.getElementById('salaryRaiseDisplay').textContent = salaryRaise.toFixed(1);
+            document.getElementById('assetGrowthDisplay').textContent = assetGrowth.toFixed(1);
+            document.getElementById('totalAnnualRaiseDisplay').textContent = totalAnnualRaise.toFixed(1) + ' 萬元';
+            
+            // 更新收入統計卡片
+            document.getElementById('monthlyIncomeCard').textContent = newMonthlyIncome.toFixed(2);
+            document.getElementById('annualIncomeCard').textContent = newAnnualIncome.toFixed(0);
+            
+            // 計算完成夢想需要的年數
+            if (totalDream > 0) {
+                // totalDream 的單位是元，需要轉換為萬元
+                const totalDreamInWan = totalDream / 10000;
+                const yearsNeeded = Math.ceil(totalDreamInWan / newAnnualIncome);
+                document.getElementById('yearsNeededCard').textContent = yearsNeeded;
+            } else {
+                document.getElementById('yearsNeededCard').textContent = '0';
+            }
+            
+            // 保存到 LocalStorage
+            saveToLocalStorage();
+
+            // 渲染級跟分析卡片
+            renderBrackets();
+            
+            // 計算通膨損失
+            updateInflationCalculations(monthlyIncome, totalAnnualRaise, workYears);
+            
+            // 添加震動反饋
+            if (navigator.vibrate) {
+                navigator.vibrate(100);
+            }
+        }
+
+        // ESBI 象限數據
+        const esbiData = {
+            'E': {
+                title: '👨‍💼 受僱者 (E)',
+                explanation: '依賴辣主的收入模式，速度穩定但受限於時間。',
+                abilities: ['穩定收入', '有保障', '有休閒'],
+                risks: ['上限受限', '時間依賴', '收入不會成長']
+            },
+            'S': {
+                title: '👨‍🔧 自雇者 (S)',
+                explanation: '不依賴雇主，但需要投入更多時間。',
+                abilities: ['收入比受僱者高', '有一定自主權', '收入有成長空間'],
+                risks: ['不穩定', '時間不自由', '沒有保障']
+            },
+            'B': {
+                title: '👨‍💼 企業家 (B)',
+                explanation: '担伏風險，但可成就不限。',
+                abilities: ['收入潜力大', '可以種子', '可以模式複製'],
+                risks: ['風險很大', '前期投入多', '需要管理能力']
+            },
+            'I': {
+                title: '💰 投資者 (I)',
+                explanation: '讓錢為你工作，收入不受時間限制。',
+                abilities: ['被動收入', '時間自由', '收入最高'],
+                risks: ['前期資金大', '需要知識', '有一定風險']
+            }
+        };
+
+        let selectedESBI = null;
+        let selectedAI = null;
+
+        // ESBI 選擇函數
+        function selectESBI(type) {
+            selectedESBI = type;
+            localStorage.setItem('selectedESBI', type);
+            
+            // 更新按鈕樣式
+            document.querySelectorAll('.esbi-button').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-offset-2', 'ring-offset-slate-950');
+            });
+            event.target.closest('.esbi-button').classList.add('ring-2', 'ring-offset-2', 'ring-offset-slate-950');
+            
+            // 顯示詳情區
+            const detailSection = document.getElementById('esbiDetailSection');
+            const data = esbiData[type];
+            
+            // 設置 ESBI Chart 圖片
+            const chartUrls = {
+                'e': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663331366018/nfGPFPXDhXlhYsOf.png',
+                's': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663331366018/yfiQHjoLZoKFtjPr.png',
+                'b': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663331366018/FlnZlitoeksLTFRz.png',
+                'i': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663331366018/XqREulAazIqEtKLE.png'
+            };
+            document.getElementById('esbiChartImage').src = chartUrls[type.toLowerCase()] || '';
+            
+            document.getElementById('esbiDetailTitle').textContent = data.title;
+            document.getElementById('esbiDetailExplanation').textContent = data.explanation;
+            
+            const abilitiesDiv = document.getElementById('esbiAbilities');
+            abilitiesDiv.innerHTML = data.abilities.map(a => `<p>• ${a}</p>`).join('');
+            
+            const risksDiv = document.getElementById('esbiRisks');
+            risksDiv.innerHTML = data.risks.map(r => `<p>• ${r}</p>`).join('');
+            
+            detailSection.style.display = 'block';
+            
+            validateForm();
+        }
+
+        // AI 路線選擇函數
+        function selectAIPath(path) {
+            selectedAI = path;
+            localStorage.setItem('selectedAI', path);
+            
+            // 更新按鈕樣式
+            document.querySelectorAll('.ai-choice-btn').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-offset-2', 'ring-offset-slate-950');
+            });
+            event.target.closest('.ai-choice-btn').classList.add('ring-2', 'ring-offset-2', 'ring-offset-slate-950');
+            
+            validateForm();
+        }
+
+        // 保存到 LocalStorage
+        function saveToLocalStorage() {
+            localStorage.setItem('salaryRaise', salaryRaise.toString());
+            localStorage.setItem('assetGrowth', assetGrowth.toString());
+            localStorage.setItem('workYears', workYears.toString());
+            localStorage.setItem('monthlyIncome', monthlyIncome.toString());
+        }
+
+        // 驗證表單是否完成
+        function validateForm() {
+            // 第一章不需要驗證，直接步進
+        }
+
+        // 初始化年加薪輸入
+        function initAnnualRaiseInput() {
+            const salaryRaiseInput = document.getElementById('salaryRaiseInput');
+            const assetGrowthInput = document.getElementById('assetGrowthInput');
+            const decreaseSalaryRaiseBtn = document.getElementById('decreaseSalaryRaiseBtn');
+            const increaseSalaryRaiseBtn = document.getElementById('increaseSalaryRaiseBtn');
+            const decreaseAssetGrowthBtn = document.getElementById('decreaseAssetGrowthBtn');
+            const increaseAssetGrowthBtn = document.getElementById('increaseAssetGrowthBtn');
+            
+            // 從 LocalStorage 讀取之前的年加薪
+            const savedSalaryRaise = localStorage.getItem('salaryRaise');
+            const savedAssetGrowth = localStorage.getItem('assetGrowth');
+            if (savedSalaryRaise) salaryRaise = parseFloat(savedSalaryRaise);
+            if (savedAssetGrowth) assetGrowth = parseFloat(savedAssetGrowth);
+            
+            salaryRaiseInput.value = salaryRaise.toFixed(1);
+            assetGrowthInput.value = assetGrowth.toFixed(1);
+            
+            // 薪資加薪按鈕
+            decreaseSalaryRaiseBtn.addEventListener('click', () => {
+                salaryRaise = Math.max(0, salaryRaise - 0.1);
+                salaryRaiseInput.value = salaryRaise.toFixed(1);
+                updateCalculation();
+            });
+            
+            increaseSalaryRaiseBtn.addEventListener('click', () => {
+                salaryRaise = Math.min(100, salaryRaise + 0.1);
+                salaryRaiseInput.value = salaryRaise.toFixed(1);
+                updateCalculation();
+            });
+            
+            salaryRaiseInput.addEventListener('change', () => {
+                salaryRaise = Math.max(0, Math.min(100, parseFloat(salaryRaiseInput.value) || 0));
+                salaryRaiseInput.value = salaryRaise.toFixed(1);
+                updateCalculation();
+            });
+            
+            // 資產增長按鈕
+            decreaseAssetGrowthBtn.addEventListener('click', () => {
+                assetGrowth = Math.max(0, assetGrowth - 0.1);
+                assetGrowthInput.value = assetGrowth.toFixed(1);
+                updateCalculation();
+            });
+            
+            increaseAssetGrowthBtn.addEventListener('click', () => {
+                assetGrowth = Math.min(100, assetGrowth + 0.1);
+                assetGrowthInput.value = assetGrowth.toFixed(1);
+                updateCalculation();
+            });
+            
+            assetGrowthInput.addEventListener('change', () => {
+                assetGrowth = Math.max(0, Math.min(100, parseFloat(assetGrowthInput.value) || 0));
+                assetGrowthInput.value = assetGrowth.toFixed(1);
+                updateCalculation();
+            });
+        }
+
+        // 初始化工作年限滑塊
+        function initYearsSlider() {
+            const slider = document.getElementById('yearsSlider');
+            const display = document.getElementById('yearsDisplay');
+            
+            // 從 LocalStorage 讀取之前的工作年限
+            const savedYears = localStorage.getItem('workYears');
+            if (savedYears) {
+                workYears = parseInt(savedYears);
+                slider.value = workYears;
+                display.textContent = workYears;
+            }
+            
+            slider.addEventListener('input', (e) => {
+                workYears = parseInt(e.target.value);
+                display.textContent = workYears;
+                saveToLocalStorage();
+                
+                // 重新計算通膨損失（房貸年限改變）
+                const monthlyIncome = parseFloat(document.getElementById('monthlyIncomeInput').value) || 0;
+                const annualRaise = parseFloat(document.getElementById('salaryRaiseInput').value) || 0;
+                updateInflationCalculations(monthlyIncome, annualRaise, workYears);
+            });
+        }
+
+        // 初始化
+        initDreams();
+        initMonthlyIncomeInput();
+        initYearsSlider();
+        initAnnualRaiseInput();
+        renderBrackets(); // 初始化級跟分析卡片
+        
+        // 初始化通膨損失計算
+        const initialMonthlyIncome = parseFloat(document.getElementById('monthlyIncomeInput').value) || 0;
+        const initialAnnualRaise = parseFloat(document.getElementById('salaryRaiseInput').value) || 0;
+        const initialWorkYears = parseInt(document.getElementById('yearsSlider').value) || 0;
+        updateInflationCalculations(initialMonthlyIncome, initialAnnualRaise, initialWorkYears);
+        
+        // 從 LocalStorage 讀取之前的 ESBI 和 AI 選擇
+        const savedESBI = localStorage.getItem('selectedESBI');
+        const savedAI = localStorage.getItem('selectedAI');
+        
+        if (savedESBI) {
+            selectedESBI = savedESBI;
+            // 模擬點擊 ESBI 按鈕
+            const esbiBtn = document.querySelector(`button[onclick="selectESBI('${savedESBI}')"]`);
+            if (esbiBtn) {
+                esbiBtn.click();
+            }
+        }
+        
+        if (savedAI) {
+            selectedAI = savedAI;
+            // 模擬點擊 AI 按鈕
+            const aiBtn = document.querySelector(`button[data-ai="${savedAI}"]`);
+            if (aiBtn) {
+                aiBtn.click();
+            }
+        }
+        
+        // 計算通膨損失函數
+        function updateInflationCalculations(monthlyIncome, annualRaise, years) {
+            // 貨幣通膨損失 (年均 3%)
+            const currencyInflationRate = 0.03;
+            const annualIncome = monthlyIncome * 12; // 年收入
+            const potentialBuyingPower = annualIncome * years; // 本可購買力
+            const actualBuyingPower = potentialBuyingPower * Math.pow(1 - currencyInflationRate, years); // 實際購買力
+            const currencyInflationLoss = potentialBuyingPower - actualBuyingPower;
+            
+            // 房屋購買力損失 (年均 8%)
+            // 簡化算法：基於月收入1/3的房貸繳款能力
+            const monthlyPayment = monthlyIncome / 3; // 月房貸繳款上限
+            const mortgageRate = 0.026 / 12; // 月利率 2.6%
+            const mortgagePeriod = years * 12; // 房貸年限 = 工作年限（月數）
+            
+            // 計算可貸款金額（等比級數求和）
+            const loanAmount = monthlyPayment * (1 - Math.pow(1 + mortgageRate, -mortgagePeriod)) / mortgageRate;
+            
+            // 計算房屋總價（貸款80%，自備款20%）
+            const potentialHousePrice = loanAmount / 0.8; // 本可購房價值（第0年）
+            
+            // 房價每年漲8%，隔一年的購買力損失
+            const houseInflationRate = 0.08;
+            const actualHousePrice = potentialHousePrice * (1 + houseInflationRate); // 隔一年房價漲8%
+            const houseInflationLoss = actualHousePrice - potentialHousePrice; // 隔一年的損失
+            
+            // 保存到全局變數 - 使用 window 對象以確保可訪問性
+            window.globalPotentialBuyingPower = potentialBuyingPower;
+            window.globalActualBuyingPower = actualBuyingPower;
+            window.globalCurrencyInflationLoss = currencyInflationLoss;
+            window.globalPotentialHousePrice = potentialHousePrice;
+            window.globalActualHousePrice = actualHousePrice;
+            window.globalHouseInflationLoss = houseInflationLoss;
+            
+            // 更新通膨損失水標 (底位已是萬元，直接顯示)
+            document.getElementById('retirementYear').textContent = years + ' 年';
+            document.getElementById('potentialBuyingPower').textContent = Math.round(potentialBuyingPower) + ' 萬元';
+            document.getElementById('actualBuyingPower').textContent = Math.round(actualBuyingPower) + ' 萬元';
+            document.getElementById('currencyInflationLoss').textContent = Math.round(currencyInflationLoss) + ' 萬元';
+            
+            document.getElementById('mortgagePeriod').textContent = years + ' 年';
+            document.getElementById('potentialHousePrice').textContent = Math.round(potentialHousePrice) + ' 萬元';
+            document.getElementById('actualHousePrice').textContent = Math.round(actualHousePrice) + ' 萬元';
+            document.getElementById('houseInflationLoss').textContent = Math.round(houseInflationLoss) + ' 萬元';
+            
+            // 調試：打印計算過程
+            console.log('房屋購買力損失計算:');
+            console.log('  月收入:', monthlyIncome.toFixed(2), '萬元');
+            console.log('  月房貸繳款:', monthlyPayment.toFixed(2), '萬元');
+            console.log('  房貸年限:', years, '年');
+            console.log('  可貸款金額:', loanAmount.toFixed(2), '萬元');
+            console.log('  房屋總價:', potentialHousePrice.toFixed(2), '萬元');
+            console.log('  隔一年房價:', actualHousePrice.toFixed(2), '萬元');
+            console.log('  隔一年損失:', houseInflationLoss.toFixed(2), '萬元');
+            
+            // 更新階級逃逸率水標
+            document.getElementById('userAnnualRaise').textContent = annualRaise.toFixed(1) + ' 萬元';
+            
+            // 計算年增薪的百分比（基於年收入）
+            const raisePercentage = (annualRaise / annualIncome) * 100; // 年增薪百分比
+            
+            // 更新填滿進度條
+            const progressBar = document.getElementById('raiseProgressBar');
+            const progressText = document.getElementById('raiseProgressText');
+            const progressContainer = document.getElementById('raiseProgressBarContainer');
+            // 進度條寬度基於最大 15% 的比例計算
+            const progressWidth = Math.min((raisePercentage / 15) * 100, 100);
+            progressBar.style.width = progressWidth + '%';
+            progressText.textContent = raisePercentage.toFixed(2) + '%';
+            
+            // 根據年增薪百分比設置進度條顏色
+            let barColor = '#6b7280'; // 默認灰色
+            let containerColor = '#4b5563'; // 默認深灰色
+            
+            if (raisePercentage <= 2.99) {
+                // 0~2.99%：深灰色背景，白色數字
+                barColor = '#6b7280';
+                containerColor = '#4b5563';
+            } else if (raisePercentage <= 7.99) {
+                // 3~7.99%：綠色背景，白色數字
+                barColor = '#22c55e';
+                containerColor = '#374151';
+            } else if (raisePercentage <= 14.99) {
+                // 8~14.99%：藍色背景，白色數字
+                barColor = '#3b82f6';
+                containerColor = '#374151';
+            } else {
+                // 15%以上：彩色漸層背景，白色數字
+                barColor = 'linear-gradient(90deg, #fbbf24 0%, #10b981 33%, #06b6d4 66%, #8b5cf6 100%)';
+                containerColor = '#374151';
+            }
+            
+            progressContainer.style.backgroundColor = containerColor;
+            if (barColor.includes('linear-gradient')) {
+                progressBar.style.background = barColor;
+            } else {
+                progressBar.style.backgroundColor = barColor;
+            }
+            
+            // 計算階級逃逸率
+            const survivalLineThreshold = annualIncome * 0.03; // 維持階級需要年加薪 > 3%
+            const classLineThreshold = annualIncome * 0.08; // 突破階級需要年加薪 > 8%
+            
+            // 更新三段說明文字的指標
+            const survivalLinePointer = document.getElementById('survivalLinePointer');
+            const classLinePointer = document.getElementById('classLinePointer');
+            
+            // 清除所有指標
+            survivalLinePointer.textContent = '';
+            classLinePointer.textContent = '';
+            
+            // 根據年增薪百分比添加指標
+            if (raisePercentage >= 3 && raisePercentage < 8) {
+                survivalLinePointer.textContent = '👉';
+            } else if (raisePercentage >= 8) {
+                classLinePointer.textContent = '👉';
+            }
+            
+            // 更新退休等級
+            updateRetirementLevel();
+        }
+        
+        function updateRetirementLevel() {
+            // 資產增長 = 用戶輸入的資產增長值
+            const totalAssetGrowth = assetGrowth;
+            
+            // 更新資產增長顯示
+            document.getElementById('retirementAssetGrowth').textContent = totalAssetGrowth.toFixed(2) + ' 萬元';
+            
+            // 四個等級框的元素
+            const retirementBeggar = document.getElementById('retirementBeggar');
+            const retirementSurvival = document.getElementById('retirementSurvival');
+            const retirementLife = document.getElementById('retirementLife');
+            const retirementAfluent = document.getElementById('retirementAfluent');
+            
+            // 重置所有框的樣式 - 未選擇時為縮小+灰階
+            [retirementBeggar, retirementSurvival, retirementLife, retirementAfluent].forEach(el => {
+                el.style.transform = 'scale(0.95)';
+                el.style.opacity = '0.6';
+                el.style.filter = 'grayscale(1) brightness(0.8)';
+                el.style.boxShadow = 'none';
+            });
+            
+            // 根據資產增長設置對應等級的樣式 - 選中時標準大小+亮度提升，未選中時縮小
+            if (totalAssetGrowth <= 3.49) {
+                retirementBeggar.style.transform = 'scale(1.0)';
+                retirementBeggar.style.opacity = '1';
+                retirementBeggar.style.filter = 'grayscale(0) brightness(1.1)';
+                retirementBeggar.style.boxShadow = 'none';
+            } else if (totalAssetGrowth >= 3.5 && totalAssetGrowth <= 5.99) {
+                retirementSurvival.style.transform = 'scale(1.0)';
+                retirementSurvival.style.opacity = '1';
+                retirementSurvival.style.filter = 'grayscale(0) brightness(1.1)';
+                retirementSurvival.style.boxShadow = 'none';
+            } else if (totalAssetGrowth >= 6 && totalAssetGrowth <= 9.99) {
+                retirementLife.style.transform = 'scale(1.0)';
+                retirementLife.style.opacity = '1';
+                retirementLife.style.filter = 'grayscale(0) brightness(1.1)';
+                retirementLife.style.boxShadow = 'none';
+            } else if (totalAssetGrowth >= 10) {
+                retirementAfluent.style.transform = 'scale(1.0)';
+                retirementAfluent.style.opacity = '1';
+                retirementAfluent.style.filter = 'grayscale(0) brightness(1.1)';
+                retirementAfluent.style.boxShadow = 'none';
+            }
+        }
+        
+        // 級跟分析渲染函數
+        function renderBrackets() {
+            const income = monthlyIncome + (salaryRaise + assetGrowth) / 12;
+            
+            // 渲染全球數據
+            const globalContainer = document.getElementById('globalBrackets');
+            globalContainer.innerHTML = bracketData['global'].map(bracket => {
+                const isActive = income >= bracket.min && income < bracket.max;
+                const scale = isActive ? 1.08 : 0.92;
+                const opacity = isActive ? 1 : 0.5;
+                const brightness = isActive ? 1 : 0.6;
+                
+                return `
+                    <div class="p-4 rounded-lg border-2 transition-all duration-300" 
+                         style="
+                            border-color: ${bracket.color};
+                            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9));
+                            transform: scale(${scale});
+                            opacity: ${opacity};
+                            filter: brightness(${brightness});
+                            ${isActive ? `box-shadow: 0 0 20px ${bracket.color}80, inset 0 0 20px ${bracket.color}40;` : ''}
+                         ">
+                        <div class="text-center">
+                            <div class="text-sm font-bold mb-2" style="color: ${bracket.color}">${bracket.name}</div>
+                            <div class="text-xs text-gray-400 mb-1">人口佔比：${bracket.population}</div>
+                            <div class="text-xs text-gray-400">財富佔比：${bracket.wealth}</div>
+                            ${isActive ? '<div class="text-lg mt-2">☝️</div>' : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // 渲染台灣數據
+            const taiwanContainer = document.getElementById('taiwanBrackets');
+            taiwanContainer.innerHTML = bracketData['taiwan'].map(bracket => {
+                const isActive = income >= bracket.min && income < bracket.max;
+                const scale = isActive ? 1.08 : 0.92;
+                const opacity = isActive ? 1 : 0.5;
+                const brightness = isActive ? 1 : 0.6;
+                
+                return `
+                    <div class="p-4 rounded-lg border-2 transition-all duration-300" 
+                         style="
+                            border-color: ${bracket.color};
+                            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9));
+                            transform: scale(${scale});
+                            opacity: ${opacity};
+                            filter: brightness(${brightness});
+                            ${isActive ? `box-shadow: 0 0 20px ${bracket.color}80, inset 0 0 20px ${bracket.color}40;` : ''}
+                         ">
+                        <div class="text-center">
+                            <div class="text-sm font-bold mb-2" style="color: ${bracket.color}">${bracket.name}</div>
+                            <div class="text-xs text-gray-400 mb-1">人口佔比：${bracket.population}</div>
+                            <div class="text-xs text-gray-400">財富佔比：${bracket.wealth}</div>
+                            ${isActive ? '<div class="text-lg mt-2">☝️</div>' : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        validateForm();
+
+        // 生成報告函數
+        function generateReport() {
+            // 計算總夢想金額
+            const totalDream = selectedDreams.reduce((sum, index) => sum + dreams[index].amount, 0);
+            
+            // 計算新的月均收入和年收入
+            const totalAnnualRaise = salaryRaise + assetGrowth;
+            const newMonthlyIncome = monthlyIncome + (totalAnnualRaise / 12);
+            const newAnnualIncome = (monthlyIncome * 12) + totalAnnualRaise;
+            
+            // 計算完成夢想需要的年數
+            const yearsNeeded = totalDream > 0 ? Math.ceil(totalDream / newAnnualIncome) : 0;
+            
+            // 計算階級逃逸率
+            const annualIncome = monthlyIncome * 12;
+            const raisePercentage = ((salaryRaise + assetGrowth) / annualIncome) * 100;
+            
+            // 確定退休等級
+            let retirementLevel = 'beggar';
+            if (assetGrowth >= 10) retirementLevel = 'affluent';
+            else if (assetGrowth >= 6) retirementLevel = 'living';
+            else if (assetGrowth >= 3.5) retirementLevel = 'survival';
+            
+            // 判斷全球和台灣級距（使用與 renderBrackets 相同的邏輯）
+            const income = monthlyIncome + (salaryRaise + assetGrowth) / 12;
+            
+            // 級距顏色對應
+            const bracketColors = {
+                '頂流層 1%': '#fbbf24',
+                '高流層 10%': '#06b6d4',
+                '中流層 40%': '#8b5cf6',
+                '底流層 50%': '#ef4444'
+            };
+            
+            // 全球數據級距判斷
+            let globalBracket = '底流層 50%';
+            if (income >= 45) {
+                globalBracket = '頂流層 1%';
+            } else if (income >= 9.5) {
+                globalBracket = '高流層 10%';
+            } else if (income >= 1.2) {
+                globalBracket = '中流層 40%';
+            }
+            const globalBracketColor = bracketColors[globalBracket];
+            
+            // 台灣數據級距判斷
+            let taiwanBracket = '底流層 50%';
+            if (income >= 50) {
+                taiwanBracket = '頂流層 1%';
+            } else if (income >= 12) {
+                taiwanBracket = '高流層 10%';
+            } else if (income >= 4.2) {
+                taiwanBracket = '中流層 40%';
+            }
+            const taiwanBracketColor = bracketColors[taiwanBracket];
+            
+            // 社會通膨指數數據
+            const wealthInflation = 3;
+            const houseInflation = 8;
+            const wealthExpected = 1200;
+            const wealthActual = Math.round(wealthExpected / Math.pow(1 + wealthInflation / 100, workYears));
+            const housePaymentRatio = 33;
+            const houseLoanRatio = 80;
+            const houseCurrentPrice = 390;
+            const houseNextPrice = Math.round(houseCurrentPrice * (1 + houseInflation / 100));
+            const houseOverpayment = houseNextPrice - houseCurrentPrice;
+            
+            // 計算購買力損失（貨幣通膨）
+            const currencyInflationRate = 0.03;
+            const potentialBuyingPower = annualIncome * workYears;
+            const actualBuyingPower = potentialBuyingPower * Math.pow(1 - currencyInflationRate, workYears);
+            const currencyInflationLoss = potentialBuyingPower - actualBuyingPower;
+            
+            // 計算房屋購買力損失
+            const monthlyPayment = monthlyIncome / 3;
+            const mortgageRate = 0.026 / 12;
+            const mortgagePeriod = workYears * 12;
+            const loanAmount = monthlyPayment * (1 - Math.pow(1 + mortgageRate, -mortgagePeriod)) / mortgageRate;
+            const potentialHousePrice = loanAmount / 0.8;
+            const houseInflationRate = 0.08;
+            const actualHousePrice = potentialHousePrice * (1 + houseInflationRate);
+            const houseInflationLoss = actualHousePrice - potentialHousePrice;
+            
+            // Calculate escape rate progress bar width and color
+            const progressWidth = Math.min((raisePercentage / 15) * 100, 100);
+            let barColor = '#6b7280';
+            let containerColor = '#4b5563';
+            
+            if (raisePercentage <= 2.99) {
+                barColor = '#6b7280';
+                containerColor = '#4b5563';
+            } else if (raisePercentage <= 7.99) {
+                barColor = '#22c55e';
+                containerColor = '#374151';
+            } else {
+                barColor = '#3b82f6';
+                containerColor = '#1e3a8a';
+            }
+            
+            // Prepare description texts
+            const povertyLineText = '0~2.99% 貧窮線：收入大幅貶值，生活品質每況愈下';
+            const survivalLineText = '3%~7.99% 生存線：通膨持平，生活品質暫時不影響';
+            const classLineText = '8%以上 階級線：收入開始累積倍增，生活品質漸入佳境';
+            
+            // 構建 URL 參數
+            const params = new URLSearchParams({
+                monthlyIncome: monthlyIncome,
+                workYears: workYears,
+                annualRaise: salaryRaise,
+                assetGrowth: assetGrowth,
+                dreams: JSON.stringify(selectedDreams.map(i => dreams[i])),
+                dreamTotal: totalDream,
+                escapeRate: raisePercentage,
+                retirementLevel: retirementLevel,
+                escapeRateProgressWidth: progressWidth,
+                escapeRateProgressColor: barColor,
+                escapeRateContainerColor: containerColor,
+                povertyLineText: povertyLineText,
+                survivalLineText: survivalLineText,
+                classLineText: classLineText,
+                globalBracket: globalBracket,
+                globalBracketColor: globalBracketColor,
+                taiwanBracket: taiwanBracket,
+                taiwanBracketColor: taiwanBracketColor,
+                wealthInflation: wealthInflation,
+                houseInflation: houseInflation,
+                wealthExpected: wealthExpected,
+                wealthActual: wealthActual,
+                housePaymentRatio: housePaymentRatio,
+                houseLoanRatio: houseLoanRatio,
+                houseOverpayment: houseOverpayment,
+                potentialBuyingPower: Math.round(potentialBuyingPower),
+                actualBuyingPower: Math.round(actualBuyingPower),
+                currencyInflationLoss: Math.round(currencyInflationLoss),
+                potentialHousePrice: Math.round(potentialHousePrice),
+                actualHousePrice: Math.round(actualHousePrice),
+                houseInflationLoss: Math.round(houseInflationLoss)
+            });
+            
+            // 跳轉到報告頁面
+            window.location.href = `/report.html?${params.toString()}`;
+        }
+
+        // 關閉報告函數
+        function closeReport() {
+            document.getElementById('reportModal').classList.add('hidden');
+        }
+
+        // 截圖報告函數
+        function screenshotReport() {
+            alert('截圖功能待實現');
+        }
+    </script>
+</body>
+</html>
