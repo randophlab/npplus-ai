@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>綠佳利 BIO-SCAN 旗艦版 (v7.8 Chart-Values)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrcodeContainer = document.getElementById('qrcode');
+            if (qrcodeContainer && typeof QRCode !== 'undefined') {
+                new QRCode(qrcodeContainer, {
+                    text: 'https://www.npplus.club/kc-data-center.html',
+                    width: 180,
+                    height: 180,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+        :root {
+            --neon-green: #00ff9d;
+            --neon-cyan: #00f3ff;
+            --neon-red: #ff2a2a;
+            --neon-amber: #ffae00;
+            --neon-purple: #bd00ff;
+            --bg-deep: #030508;
+            --glass-bg: rgba(10, 15, 25, 0.95);
+            --border-light: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-deep);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 243, 255, 0.1), transparent 60%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM0 22.485l.828.83-1.415 1.415-.828-.828-.828.828L-2.83 22.485l.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM0 54.627l.828.83-1.415 1.415-.828-.828-.828.828L-2.83 54.627l.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM54.627 32.142l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 32.142l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM32.142 54.627l.828.83-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM32.142 22.485l.828.83-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828z' fill='%232c3e50' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: #fff;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            height: auto;
+        }
+
+        .main-frame {
+            width: 100%;
+            max-width: 480px;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-frame::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        header { text-align: center; margin-bottom: 15px; }
+
+        .qr-code-section {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 243, 255, 0.05);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 12px;
+        }
+
+        .qr-code-container {
+            display: inline-block;
+            padding: 12px;
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .qr-code-container canvas {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .qr-code-text {
+            font-size: 12px;
+            color: var(--neon-cyan);
+            margin: 0;
+            font-family: 'Orbitron';
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+        .sys-ver { font-family: 'Orbitron'; font-size: 10px; color: var(--neon-cyan); letter-spacing: 2px; display: block; margin-bottom: 4px; opacity: 0.8; }
+        h1 { font-family: 'Orbitron'; font-size: 20px; margin: 0; letter-spacing: 1px; color: #fff; }
+        .section-header {
+            font-size: 11px;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 15px 0 8px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            padding-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .row { display: flex; gap: 8px; margin-bottom: 8px; }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(20, 30, 40, 0.6);
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #eee;
+            font-size: 13px;
+            outline: none;
+            transition: all 0.3s;
+            height: 40px;
+            line-height: 20px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus { border-color: var(--neon-cyan); box-shadow: 0 0 10px rgba(0, 243, 255, 0.1); }
+
+        /* Auth Screen */
+        #auth-screen {
+            position: fixed; top:0; left:0; width:100vw; height:100vh;
+            background: #030508;
+            z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding: 30px; box-sizing: border-box;
+            border-radius: 0;
+        }
+        .auth-box { text-align: center; width: 100%; }
+        .auth-input { 
+            font-family: 'Orbitron'; font-size: 24px; text-align: center; letter-spacing: 5px; 
+            border: 1px solid var(--neon-cyan); color: var(--neon-cyan); margin-bottom: 20px;
+        }
+        .auth-btn {
+            background: var(--neon-cyan); color: #000; font-family: 'Orbitron'; font-weight: 900;
+            padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; letter-spacing: 1px;
+        }
+
+        /* Toggle Grid */
+        .toggle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+        .toggle-btn {
+            background: #151a24;
+            border: 1px solid #333;
+            padding: 8px 5px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 10px;
+            color: #888;
+            cursor: pointer;
+            transition: 0.2s;
+            user-select: none;
+        }
+        .toggle-btn.active {
+            background: rgba(255, 42, 42, 0.15);
+            border-color: var(--neon-red);
+            color: var(--neon-red);
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 42, 42, 0.2);
+        }
+
+        /* Diet Slider (Fixed layout) */
+        .diet-slider-container {
+            background: rgba(255,255,255,0.03); padding: 12px 15px; border-radius: 8px; margin-bottom: 10px;
+            text-align: center;
+        }
+        .diet-slider {
+            -webkit-appearance: none; width: 95%; height: 6px; border-radius: 3px; background: #333; outline: none; margin-top: 8px;
+        }
+        .diet-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; 
+            background: var(--neon-green); cursor: pointer; box-shadow: 0 0 10px var(--neon-green);
+        }
+        .diet-val { font-family: 'Orbitron'; color: var(--neon-green); font-size: 16px; font-weight: bold; margin-left: 5px; }
+        .diet-target { font-size: 10px; color: #666; margin-left: 5px; }
+
+        /* Color Picker */
+        .color-picker { display: flex; justify-content: space-between; gap: 8px; margin-top: 5px; padding: 0 5px; }
+        .color-btn {
+            width: 40px; height: 40px; border-radius: 50%; border: 2px solid #444; cursor: pointer;
+            display: flex; justify-content: center; align-items: center; transition: transform 0.2s;
+            position: relative;
+        }
+        .color-btn.active { transform: scale(1.1); border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        .color-btn.active::after { content: '✔'; color: #fff; font-weight: bold; text-shadow: 0 0 2px #000; }
+        
+        .c-red { background: linear-gradient(135deg, #ff4d4d, #c0392b); }
+        .c-green { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .c-orange { background: linear-gradient(135deg, #f1c40f, #e67e22); }
+        .c-purple { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .c-white { background: linear-gradient(135deg, #ecf0f1, #bdc3c7); }
+
+        /* Supplement Section */
+        .supp-options { display: flex; gap: 5px; margin-bottom: 10px; }
+        .supp-btn {
+            flex: 1; background: #151a24; border: 1px solid #333; padding: 10px 0;
+            text-align: center; border-radius: 6px; font-size: 11px; color: #aaa; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .supp-btn:has(input:checked) {
+            background: rgba(0, 243, 255, 0.15); border-color: var(--neon-cyan); color: var(--neon-cyan); font-weight: bold;
+        }
+        .supp-btn input { display: none; }
+        .supp-details {
+            background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 10px; border-radius: 8px; margin-bottom: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+        .supp-details.hidden { display: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* KC Input */
+        .kc-scanner-input {
+            margin-top: 15px;
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.05) 0%, transparent 80%);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+        .kc-scanner-input label { font-family: 'Orbitron'; font-size: 10px; color: var(--neon-cyan); letter-spacing: 1px; }
+        .kc-scanner-input input {
+            background: transparent; border: none; border-bottom: 3px solid var(--neon-cyan);
+            border-radius: 0; font-size: 72px !important; font-family: 'Orbitron'; font-weight: 700;
+            width: 200px; text-align: center; color: #fff; padding: 20px 12px !important; margin-top: 10px;
+            letter-spacing: 2px; outline: none; transition: border-color 0.3s;
+            height: 120px; line-height: 72px; box-sizing: border-box;
+        }
+        .kc-scanner-input input:focus {
+            border-bottom-color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+        }
+        .kc-scanner-input input::-webkit-outer-spin-button,
+        .kc-scanner-input input::-webkit-inner-spin-button {
+            -webkit-appearance: auto;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .kc-scanner-input input::-moz-number-spin-up,
+        .kc-scanner-input input::-moz-number-spin-down {
+            cursor: pointer;
+        }
+
+        .btn-main {
+            width: 100%; margin-top: 15px; padding: 15px;
+            background: linear-gradient(135deg, var(--neon-cyan), #0099ff);
+            border: none; border-radius: 8px; font-family: 'Orbitron'; color: #000;
+            font-weight: 900; font-size: 16px; letter-spacing: 1px; cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3); transition: transform 0.1s;
+        }
+        .btn-main:active { transform: scale(0.98); }
+
+        #result-panel { display: none; animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .dashboard { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+        .stat-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px; padding: 12px; text-align: center; position: relative; overflow: hidden;
+        }
+        .stat-card.good { border-color: var(--neon-green); box-shadow: inset 0 0 10px rgba(0,255,157,0.1); }
+        .stat-card.warn { border-color: var(--neon-amber); box-shadow: inset 0 0 10px rgba(255,174,0,0.1); }
+        .stat-card.bad { border-color: var(--neon-red); box-shadow: inset 0 0 10px rgba(255,42,42,0.1); }
+
+        .stat-label { font-size: 10px; color: #888; display: block; margin-bottom: 4px; }
+        .stat-value { font-family: 'Orbitron'; font-size: 26px; font-weight: 700; color: #fff; }
+        .stat-detail { font-size: 10px; margin-top: 4px; display: block; opacity: 0.8; }
+
+        .chart-box {
+            height: 280px;
+            background: radial-gradient(circle, rgba(255,255,255,0.02), transparent);
+            border-radius: 12px; padding: 5px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center;
+        }
+
+        .diagnosis-box {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1);
+            border-left: 3px solid var(--neon-cyan); border-radius: 8px; padding: 15px; margin-bottom: 12px;
+        }
+        .diag-title { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px; display: block; font-family: 'Orbitron'; }
+        .diag-content { font-size: 13px; line-height: 1.6; color: #ccc; }
+
+        /* Benchmark */
+        .bench-box {
+            background: #000; border: 1px solid #333;
+            border-radius: 8px; padding: 15px; margin-bottom: 12px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        }
+        .bench-row { margin-bottom: 12px; }
+        .bench-label { font-size: 10px; color: #888; display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .bench-track {
+            height: 8px; background: #222; position: relative; border-radius: 4px;
+            overflow: hidden;
+        }
+        .bench-center-line {
+            position: absolute; left: 50%; top: 0; height: 100%; width: 1px; background: #555; z-index: 2;
+        }
+        .bench-fill {
+            height: 100%; position: absolute; top: 0; z-index: 1; transition: width 1.5s ease-out;
+        }
+        .bench-val { font-family: 'Orbitron'; font-weight: bold; }
+        .lead-text { color: var(--neon-green); }
+        .lag-text { color: var(--neon-red); }
+
+        #loading-ui { display: none; text-align: center; padding: 50px 0; }
+        #loading-ui.active { display: block; }
+        .spinner {
+            width: 40px; height: 40px; border: 3px solid rgba(0, 243, 255, 0.1);
+            border-top-color: var(--neon-cyan); border-radius: 50%;
+            animation: spin 0.8s linear infinite; margin: 0 auto 15px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* 豐富的加載動畫 */
+        .loading-steps {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .loading-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 11px;
+            color: #aaa;
+            opacity: 0;
+            animation: stepFadeIn 0.5s ease forwards;
+        }
+        .loading-step:nth-child(1) { animation-delay: 0.2s; }
+        .loading-step:nth-child(2) { animation-delay: 0.8s; }
+        .loading-step:nth-child(3) { animation-delay: 1.4s; }
+        .loading-step:nth-child(4) { animation-delay: 2.0s; }
+        .loading-step:nth-child(5) { animation-delay: 2.6s; }
+        
+        @keyframes stepFadeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .step-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+        
+        .loading-step.active .step-icon {
+            background: var(--neon-cyan);
+            color: #000;
+            border-color: var(--neon-cyan);
+            animation: pulse 1s ease-in-out infinite;
+        }
+        
+        .step-progress {
+            flex: 1;
+            height: 2px;
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 1px;
+            margin-left: 8px;
+            overflow: hidden;
+        }
+        
+        .step-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
+            border-radius: 1px;
+            animation: progressFill 2s ease-in-out forwards;
+        }
+        
+        @keyframes progressFill {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 8px rgba(0, 243, 255, 0.5); }
+            50% { box-shadow: 0 0 16px rgba(0, 243, 255, 0.8); }
+        }
+        
+        .rx-box {
+            border: 1px dashed rgba(255,255,255,0.2); background: rgba(0,0,0,0.3);
+            padding: 10px; margin-top: 5px; border-radius: 5px;
+        }
+        .rx-header { color: var(--neon-cyan); font-weight: bold; margin-bottom: 5px; display:block; font-size: 14px; }
+        .rx-item { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 5px 0; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<!-- 授權金鑰鎖定畫面 -->
+<div id="auth-screen">
+    <div class="auth-box">
+        <div style="font-family:'Orbitron'; font-size:12px; color:var(--neon-cyan); margin-bottom:15px; letter-spacing:2px;">SECURITY ACCESS REQUIRED</div>
+        <input type="tel" id="auth_key" class="auth-input" maxlength="7" placeholder="" oninput="checkAuth()" autofocus>
+        <div id="auth_msg" style="color:var(--neon-red); font-size:12px; height:20px;"></div>
+    </div>
+</div>
+
+<div class="main-frame">
+    <header>
+        <span class="sys-ver">BIOSCAN v7.8 [CHART-VALUES]</span>
+        <h1>數據交匯診斷中心</h1>
+    </header>
+
+    <!-- 輸入區 -->
+    <div id="input-ui">
+        <!-- 01. 生物參數矩陣 -->
+        <div class="section-header">01. 生物參數矩陣 <span>Bio-Metrics</span></div>
+        <div class="row">
+            <input type="text" id="cust_name" placeholder="受測者姓名/代號" style="flex:1">
+            <select id="cust_gender" style="flex:1" onchange="updateDietTarget()">
+                <option value="" disabled selected>性別</option>
+                <option value="male">生理男</option>
+                <option value="female">生理女</option>
+            </select>
+        </div>
+        <div class="row">
+            <input type="number" id="cust_age" placeholder="輸入年齢" style="flex:1" min="0" max="150">
+            <select id="cust_location" style="flex:1">
+                <option value="" disabled selected>居住區域</option>
+                <option value="north">北部</option>
+                <option value="central">中部</option>
+                <option value="south">南部</option>
+                <option value="east">東部/離島</option>
+            </select>
+        </div>
+        <div class="row">
+            <select id="cust_job" style="flex:1">
+                <option value="" disabled selected>職業類型</option>
+                <option value="indoor_brain">室內腦力</option>
+                <option value="service_sales">高壓業務</option>
+                <option value="shift_night">輪班夜勤</option>
+                <option value="outdoor_physical">戶外劳力</option>
+                <option value="freelance_owner">自由業/雁主</option>
+                <option value="house_retired">家管/樂齢</option>
+                <option value="student">學生/備考</option>
+            </select>
+            <select id="body_type" style="flex:1">
+                <option value="" disabled selected>體型評估</option>
+                <option value="slim">偏瘦</option>
+                <option value="normal">標準</option>
+                <option value="overweight">圓潤/壯碩</option>
+            </select>
+        </div>
+        <div class="row">
+            <div style="flex:1; display:flex; align-items:center; gap:8px;">
+                <span style="color:#00f3ff; font-weight:bold; white-space:nowrap;">資料調閱依據</span>
+                <input type="tel" id="phone_number" placeholder="0910234567" style="flex:1; padding:12px; border:1px solid rgba(0,243,255,0.3); border-radius:8px; background:rgba(0,243,255,0.05); color:#fff; font-size:14px;" />
+            </div>
+        </div>
+
+        <!-- 02. 氧化壓力 -->
+        <div class="section-header">02. 氧化壓力因子 <span>Stress Factors</span></div>
+        <div class="toggle-grid">
+            <div class="toggle-btn" onclick="toggleBtn(this)" data-val="smoke">吸菸習慣</div>
+            <div class="toggle-btn" onclick="toggleBtn(this)" data-val="stress">高壓/熬夜</div>
+            <div class="toggle-btn" onclick="toggleBtn(this)" data-val="meds">長期服藥</div>
+            <div class="toggle-btn" onclick="toggleBtn(this)" data-val="sun">戶外曝曬</div>
+            <div class="toggle-btn" onclick="toggleBtn(this)" data-val="food">外食/油炸</div>
+            <div class="toggle-btn" onclick="toggleBtn(this)" data-val="sport">劇烈運動</div>
+        </div>
+
+        <!-- 03. 飲食偏好 -->
+        <div class="section-header">03. 飲食慣性分析 <span>Dietary Habits</span></div>
+        <div class="diet-slider-container">
+            <div style="font-size:11px; color:#aaa; margin-bottom:5px;">
+                每日蔬果攝取量 (份) <span id="diet_val_display" class="diet-val">4</span>
+                <span id="diet_target_display" class="diet-target">(請先選性別)</span>
+            </div>
+            <input type="range" id="diet_qty" class="diet-slider" min="0" max="12" value="4" oninput="document.getElementById('diet_val_display').innerText = this.value">
+        </div>
+        <div style="font-size:11px; color:#aaa; margin-bottom:5px; text-align: center;">每日蔬菜水果配色 (標準5色，可複選)</div>
+        <div class="color-picker">
+            <div class="color-btn c-red" onclick="toggleColor(this)" data-color="red" title="紅 (茄紅素)"></div>
+            <div class="color-btn c-green" onclick="toggleColor(this)" data-color="green" title="綠 (葉綠素/葉黃素)"></div>
+            <div class="color-btn c-orange" onclick="toggleColor(this)" data-color="orange" title="黃橘 (胡蘿蔔素)"></div>
+            <div class="color-btn c-purple" onclick="toggleColor(this)" data-color="purple" title="紫黑 (花青素)"></div>
+            <div class="color-btn c-white" onclick="toggleColor(this)" data-color="white" title="白 (硫化物)"></div>
+        </div>
+
+        <!-- 04. 保健保養格局 -->
+        <div class="section-header">04. 保健保養格局 <span>Supplement Profile</span></div>
+        <div class="supp-options">
+            <label class="supp-btn" onclick="selectSupp('none')">
+                <input type="radio" name="supp_type" value="none" checked> 無食用
+            </label>
+            <label class="supp-btn" onclick="selectSupp('commercial')">
+                <input type="radio" name="supp_type" value="commercial"> 仿間商品
+            </label>
+            <label class="supp-btn" onclick="selectSupp('np')">
+                <input type="radio" name="supp_type" value="np"> 環貫綠佳利
+            </label>
+        </div>
+
+        <div id="supp-commercial-input" class="supp-details hidden">
+            <div class="row">
+                <input type="number" id="comm_count" placeholder="每日食用幾項?" style="text-align:center;">
+            </div>
+        </div>
+
+        <div id="supp-np-input" class="supp-details hidden">
+            <div class="row">
+                <input type="number" id="np_mp" placeholder="MP 顆數">
+                <input type="number" id="np_im" placeholder="IM 包數">
+                <input type="number" id="np_sr" placeholder="SR 顆數">
+            </div>
+        </div>
+
+        <!-- 05. MSRRS 光譜檢測 -->
+        <div class="kc-scanner-input">
+            <label>MSRRS 光譜檢測數值</label><br>
+            <input type="number" id="kc_val" placeholder="0.0" step="0.1" inputmode="decimal" min="0" max="12" oninput="validateMsrrsInput(this)" onchange="formatMsrrsInput(this)">
+        </div>
+
+        <button class="btn-main" onclick="processData()">啟動全維度分析</button>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading-ui">
+        <div class="spinner"></div>
+        <div style="font-family:'Orbitron'; font-size:12px; color:var(--neon-cyan);">PROCESSING DATA...</div>
+        <div class="loading-steps">
+            <div class="loading-step active">
+                <div class="step-icon">✓</div>
+                <span>初始化生物參數矩陣</span>
+                <div class="step-progress"><div class="step-progress-bar"></div></div>
+            </div>
+            <div class="loading-step">
+                <div class="step-icon">▶</div>
+                <span>掃描藥物交互作用</span>
+                <div class="step-progress"><div class="step-progress-bar"></div></div>
+            </div>
+            <div class="loading-step">
+                <div class="step-icon">▶</div>
+                <span>分析代謝數據模型</span>
+                <div class="step-progress"><div class="step-progress-bar"></div></div>
+            </div>
+            <div class="loading-step">
+                <div class="step-icon">▶</div>
+                <span>校正防禦指數</span>
+                <div class="step-progress"><div class="step-progress-bar"></div></div>
+            </div>
+            <div class="loading-step">
+                <div class="step-icon">▶</div>
+                <span>生成個性化報告</span>
+                <div class="step-progress"><div class="step-progress-bar"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 結果區 -->
+    <div id="result-panel">
+        <div class="dashboard">
+            <div style="background: rgba(0, 243, 255, 0.05); border: 1px solid rgba(0, 243, 255, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 15px; text-align: center;">
+                <div style="display: flex; gap: 2px; margin-bottom: 20px; justify-content: center; flex-wrap: nowrap; overflow-x: auto;" id="ageGaugeBars"></div>
+                <div style="font-family: 'Orbitron'; font-size: 12px; color: rgba(255,255,255,0.7);">
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">生理機能年齡</div>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 18px; color: var(--neon-cyan); font-weight: bold;" id="out_age_input">--</span>
+                        <span style="font-size: 13px;" id="out_gap">--</span>
+                        <span style="font-size: 13px;">>>> </span>
+                        <span style="font-size: 18px; color: var(--neon-cyan); font-weight: bold;" id="out_age">--</span>
+                    </div>
+                </div>
+            </div>
+            <div style="background: rgba(0, 243, 255, 0.05); border: 1px solid rgba(0, 243, 255, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 15px; text-align: center;">
+                <div style="display: flex; gap: 2px; margin-bottom: 20px; justify-content: center; flex-wrap: nowrap; overflow-x: auto;" id="energyBars"></div>
+                <div style="font-family: 'Orbitron'; font-size: 12px; color: rgba(255,255,255,0.7);">
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">KC 防禦指數 (校正後)</div>
+                    <div style="color: var(--neon-cyan); font-size: 28px; font-weight: bold; margin-bottom: 8px;" id="gaugeValue">--</div>
+                    <div id="gaugeStatus" style="font-size: 14px;">--</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-box">
+            <canvas id="radarCanvas"></canvas>
+        </div>
+
+        <div class="diagnosis-box" style="border-left-color: var(--neon-amber);">
+            <span class="diag-title">演算法解析 (Algorithm Insight)</span>
+            <div class="diag-content" id="analysis_text"></div>
+        </div>
+
+        <div class="bench-box">
+            <span class="diag-title" style="color:var(--neon-purple);">大數據落點分析 (Benchmark)</span>
+            <div id="bench-container"></div>
+        </div>
+
+        <div class="diagnosis-box" style="border-left-color: var(--neon-cyan); background: rgba(0, 243, 255, 0.05);">
+            <span class="diag-title">AI 建議處方 (Action Plan)</span>
+            <div class="diag-content" id="solution_text"></div>
+        </div>
+        
+        <!-- 授權連結按鈕 -->
+        <div id="auth-link-container" style="display:none; margin-bottom:15px;">
+            <button id="auth-link-btn" class="btn-main" style="background: linear-gradient(135deg, #ff6b6b, #ff8e53); margin-bottom: 10px;" onclick="openAuthLink()">👤 點擊即可聯繫您的專屬諮詢師</button>
+        </div>
+        
+        <div style="text-align:center; margin-top:10px;">
+            <span style="font-size:9px; color:#555;">DATA SYNC: READY</span>
+        </div>
+
+        <button class="btn-main" style="background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan)); margin-bottom: 10px;" onclick="downloadResultImage()">📥 下載分享圖片</button>
+        <button class="btn-main" style="background:transparent; border:1px solid #555; color:#888; font-size:12px; padding:10px;" onclick="location.reload()">重新校正</button>
+    </div>
+</div>
+
+<script>
+    // MSRRS 輸入驗證函數
+    function validateMsrrsInput(input) {
+        // 在輸入時不格式化，只驗證範圍
+        let value = parseFloat(input.value);
+        if (!isNaN(value)) {
+            if (value < 0) input.value = '0';
+            if (value > 12) input.value = '12';
+        }
+    }
+    
+    function formatMsrrsInput(input) {
+        // 失焦時格式化為 1 位小數
+        let value = parseFloat(input.value) || 0;
+        if (value < 0) value = 0;
+        if (value > 12) value = 12;
+        input.value = value.toFixed(1);
+    }
+
+    let activeRisks = new Set();
+    let activeColors = new Set();
+    let myChart = null;
+    let dataPayload = {};
+
+    // 存儲授權碼和對應的連結
+    let authCode = null;
+    let authUrl = null;
+    const DEFAULT_URL = 'https://portaly.cc/mastersquid'; // 預設連結
+
+    async function checkAuth() {
+        const key = document.getElementById('auth_key').value;
+        const msg = document.getElementById('auth_msg');
+        
+        if (key.length !== 7 || !/^\d+$/.test(key)) {
+            if (key.length === 7) {
+                msg.innerText = "INVALID KEY";
+            } else {
+                msg.innerText = "";
+            }
+            return;
+        }
+        
+        // 任何 7 位數字都能進入，查詢資料庫了解是否存在
+        authCode = key;
+        msg.innerText = "驗證中...";
+        msg.style.color = "var(--neon-amber)";
+        
+        try {
+            const response = await fetch(`https://nsgqsopqlkhayuefdout.supabase.co/rest/v1/auth_codes?code=eq.${key}&select=redirect_url,member_code`, {
+                headers: {
+                    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zZ3Fzb3BxbGtoYXl1ZWZkb3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MzgzMjgsImV4cCI6MjA4ODMxNDMyOH0.FCMF_WaWjmtuWUKO2vqQBM4cFVGrdqt9fdmxYwUii0Y',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zZ3Fzb3BxbGtoYXl1ZWZkb3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MzgzMjgsImV4cCI6MjA4ODMxNDMyOH0.FCMF_WaWjmtuWUKO2vqQBM4cFVGrdqt9fdmxYwUii0Y'
+                }
+            });
+            const data = await response.json();
+            if (data.length > 0 && data[0].redirect_url) {
+                authUrl = data[0].redirect_url;
+            } else {
+                authUrl = DEFAULT_URL;
+            }
+        } catch (error) {
+            console.error('Auth error:', error);
+            authUrl = DEFAULT_URL;
+        }
+        
+        // 無論如何都顯示 ACCESS GRANTED
+        msg.innerText = "ACCESS GRANTED";
+        msg.style.color = "var(--neon-green)";
+        setTimeout(() => {
+            document.getElementById('auth-screen').style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById('auth-screen').style.display = 'none';
+                showAuthLink();
+            }, 500);
+        }, 300);
+    }
+
+    // 顯示授權連結按鈕
+    function showAuthLink() {
+        const container = document.getElementById('auth-link-container');
+        const btn = document.getElementById('auth-link-btn');
+        if (authUrl) {
+            container.style.display = 'block';
+            // 可選：添加動畫效果
+            container.style.animation = 'slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+        }
+    }
+
+    // 打開授權連結
+    function openAuthLink() {
+        if (authUrl) {
+            window.open(authUrl, '_blank');
+        }
+    }
+
+    function toggleBtn(el) {
+        el.classList.toggle('active');
+        const val = el.getAttribute('data-val');
+        if(activeRisks.has(val)) activeRisks.delete(val);
+        else activeRisks.add(val);
+    }
+
+    function toggleColor(el) {
+        el.classList.toggle('active');
+        const col = el.getAttribute('data-color');
+        if(activeColors.has(col)) activeColors.delete(col);
+        else activeColors.add(col);
+    }
+
+    function selectSupp(type) {
+        document.getElementById('supp-commercial-input').classList.add('hidden');
+        document.getElementById('supp-np-input').classList.add('hidden');
+        if (type === 'commercial') document.getElementById('supp-commercial-input').classList.remove('hidden');
+        else if (type === 'np') document.getElementById('supp-np-input').classList.remove('hidden');
+    }
+
+    function updateDietTarget() {
+        const gender = document.getElementById('cust_gender').value;
+        const targetText = document.getElementById('diet_target_display');
+        if(gender === 'male') {
+            targetText.innerText = "(標準: 9份)";
+            targetText.style.color = "var(--neon-cyan)";
+        } else {
+            targetText.innerText = "(標準: 7份)";
+            targetText.style.color = "var(--neon-purple)";
+        }
+    }
+
+    function processData() {
+        const kcInputRaw = document.getElementById('kc_val').value;
+        const ageInput = document.getElementById('cust_age').value;
+        const gender = document.getElementById('cust_gender').value;
+        const bodyType = document.getElementById('body_type').value;
+        const dietQty = parseInt(document.getElementById('diet_qty').value);
+        const job = document.getElementById('cust_job').value;
+        const region = document.getElementById('cust_location').value;
+        
+        const suppType = document.querySelector('input[name="supp_type"]:checked').value;
+        const commCount = document.getElementById('comm_count').value;
+        const npMP = document.getElementById('np_mp').value;
+        const npIM = document.getElementById('np_im').value;
+        const npSR = document.getElementById('np_sr').value;
+
+        if(!kcInputRaw || !ageInput || !gender) { alert("請填寫完整檢測數值與性別"); return; }
+        if(!bodyType) { alert("請選擇體型"); return; }
+        if(!job || !region) { alert("請填寫職業與地區"); return; }
+
+        document.getElementById('input-ui').style.display = 'none';
+        document.getElementById('loading-ui').style.display = 'block';
+        
+        // 動畫化步驟
+        const steps = document.querySelectorAll('.loading-step');
+        steps.forEach((step, idx) => {
+            setTimeout(() => {
+                steps.forEach(s => s.classList.remove('active'));
+                if(idx < steps.length) step.classList.add('active');
+            }, 800 + idx * 1000);
+        });
+
+        dataPayload = {
+            timestamp: new Date().toISOString(),
+            kc_raw: parseFloat(kcInputRaw),
+            gender: gender,
+            age_group: ageInput,
+            job: job,
+            region: region,
+            diet_qty: dietQty,
+            diet_colors: Array.from(activeColors),
+            risks: Array.from(activeRisks),
+            supp_profile: { type: suppType, comm_count: commCount, np_mp: npMP, np_im: npIM, np_sr: npSR }
+        };
+
+        // 讀取電話號碼
+        const phoneNumber = document.getElementById('phone_number').value || '';
+        console.log('[DEBUG] Phone Number from HTML:', phoneNumber);
+        
+        setTimeout(() => {
+            document.getElementById('loading-ui').style.display = 'none';
+            document.getElementById('result-panel').style.display = 'block';
+            calculateWeightedLogic(parseFloat(kcInputRaw), parseInt(ageInput), bodyType, dietQty, gender, job, region, phoneNumber);
+        }, 6500);
+    }
+
+    function calculateWeightedLogic(kcRaw, ageBase, bodyType, dietQty, gender, job, region, phoneNumber) {
+        
+        let kcAdjusted = kcRaw;
+        let isDrugInterference = false;
+
+        if (activeRisks.has('meds')) {
+            kcAdjusted = kcRaw - 2.0;
+            isDrugInterference = true;
+        }
+        if (kcAdjusted < 0.1) kcAdjusted = 0.1;
+
+        const targetKC = 8.0; 
+        let bioAge = ageBase;
+        let gap = kcAdjusted - targetKC;
+        let agingImpact = 0;
+
+        if (gap < 0) agingImpact = Math.pow(Math.abs(gap), 1.3) * 1.5;
+        else agingImpact = gap * -1.2; 
+
+        let multiplier = 1.0;
+        let riskText = [];
+        if (activeRisks.has('smoke')) { multiplier += 0.25; riskText.push("菸害"); }
+        if (bodyType === 'overweight') { multiplier += 0.15; riskText.push("脂抗"); }
+        if (activeRisks.has('meds')) { multiplier += 0.10; riskText.push("藥物"); }
+        if (activeRisks.has('stress')) { multiplier += 0.10; riskText.push("壓力"); }
+
+        const targetQty = (gender === 'male') ? 9 : 7;
+        if (dietQty < targetQty) {
+            const missing = targetQty - dietQty;
+            multiplier += (missing * 0.05); 
+            riskText.push(`蔬果不足(-${missing})`);
+        }
+
+        const colorCount = activeColors.size;
+        if (colorCount < 5) {
+            const missingColors = 5 - colorCount;
+            multiplier += (missingColors * 0.08); 
+            riskText.push(`配色單調(-${missingColors})`);
+        }
+
+        if (agingImpact > 0) agingImpact *= multiplier;
+        
+        if (ageBase <= 35 && gap < -2) agingImpact *= 1.1; 
+        if (ageBase >= 55 && gap > 0) agingImpact *= 1.3; 
+        bioAge = Math.floor(ageBase + agingImpact);
+        bioAge = Math.min(Math.max(bioAge, ageBase - 10), ageBase + 20);
+
+        // Update KC gauge
+        document.getElementById('gaugeValue').innerText = kcAdjusted.toFixed(1);
+        if (kcAdjusted >= 8) {
+            document.getElementById('gaugeStatus').innerText = "防禦優異 (Optimal)";
+            document.getElementById('gaugeStatus').style.color = "var(--neon-green)";
+        } else if (kcAdjusted >= 5) {
+            document.getElementById('gaugeStatus').innerText = "代謝警示 (Warning)";
+            document.getElementById('gaugeStatus').style.color = "var(--neon-amber)";
+        } else {
+            document.getElementById('gaugeStatus').innerText = "防禦崩壞 (Critical)";
+            document.getElementById('gaugeStatus').style.color = "var(--neon-red)";
+        }
+        updateKCGauge(kcAdjusted);
+        
+        // Update age gauge
+        document.getElementById('out_age_input').innerText = ageBase + " 歲";
+        document.getElementById('out_age').innerText = bioAge + " 歲";
+        let gapVal = bioAge - ageBase;
+        document.getElementById('out_gap').innerText = gapVal > 0 ? `老化加速 +${gapVal}` : `逆齡狀態 ${gapVal}`;
+        document.getElementById('out_gap').style.color = gapVal > 0 ? "var(--neon-red)" : "var(--neon-green)";
+        updateAgeGauge(Math.abs(gapVal), gapVal > 0);
+
+        let decayFactor = 1.0;
+        if (kcAdjusted < 8) decayFactor = 0.8;  
+        if (kcAdjusted < 5) decayFactor = 0.5;  
+
+        let s_def = Math.min(10, (kcAdjusted/8)*8); 
+        let s_meta = (bodyType === 'overweight') ? 6 : (bodyType==='slim'?7:8);
+        s_meta *= decayFactor;
+        let s_detox = 10 - (activeRisks.size * 1.5);
+        s_detox *= decayFactor;
+        let s_repair = (gapVal > 0) ? Math.max(2, 8 - gapVal/2) : 9;
+        s_repair *= decayFactor;
+        
+        let s_absorb = 8;
+        if (dietQty >= 6 && kcAdjusted < 6) s_absorb = 2; 
+        else if (activeRisks.has('meds') || activeRisks.has('smoke')) s_absorb = 5;
+        s_absorb *= decayFactor; 
+
+        drawChart([s_def, s_meta, s_detox, s_repair, s_absorb]);
+
+        const analysisEl = document.getElementById('analysis_text');
+        let diagHtml = "";
+        let riskReason = riskText.length > 0 ? `受<b>[${riskText.join(" + ")}]</b>之加權影響，` : "";
+
+        if (kcAdjusted < 5) {
+            diagHtml += `偵測到<b>全系統防禦崩塌</b>。由於抗氧化庫存過低，您的代謝與淨化功能已被迫降載運作。`;
+        } else if (kcAdjusted < 8) {
+             diagHtml += `您的各項生理指標呈現<b>等比例衰退</b>。雖未見立即性病變，但身體修復效率已大幅降低。`;
+        } else {
+             diagHtml += `您的生理機能光譜呈現飽滿狀態，防禦與代謝能力均優於平均值。`;
+        }
+        
+        if (isDrugInterference) {
+            diagHtml += `<br><span style='color:var(--neon-red); font-weight:bold;'>[⚠ 藥物干擾警示]</span> 您的原始讀數雖為 ${kcRaw.toFixed(1)}，但因長期服藥，藥物殘留會造成檢測數值虛高。系統已自動執行校正，真實防禦力應為 ${kcAdjusted.toFixed(1)}。`;
+        } else if(riskReason) {
+            diagHtml += `<br><span style='color:var(--neon-amber); font-size:11px;'>${riskReason}加速了老化進程。</span>`;
+        }
+        
+        analysisEl.innerHTML = diagHtml;
+
+        renderBenchmark(kcAdjusted, ageBase, job, region);
+
+        const solEl = document.getElementById('solution_text');
+        let pills = 0;
+        let packs = 0;
+        let planTitle = "";
+
+        if (kcAdjusted >= 8) {
+            pills = 5; packs = 1;
+            planTitle = "積極維持方案 (Maintenance)";
+        } else if (kcAdjusted >= 5) {
+            pills = 10; packs = 3;
+            planTitle = "機能修復方案 (Recovery)";
+        } else if (kcAdjusted >= 3) {
+            pills = 15; packs = 5;
+            planTitle = "青春活化方案 (Youth Activation)";
+        } else {
+            pills = 30; packs = 8;
+            planTitle = "細胞衝擊療法 (Mega-Dose)";
+        }
+
+        solEl.innerHTML = `
+            <div class="rx-box">
+                <span class="rx-header">${planTitle}</span>
+                <div class="rx-item">
+                    <div>
+                        <span>綜合植化素 (FloraGLO® 葉黃素等級)</span>
+                    </div>
+                    <span style="color:var(--neon-green); font-weight:bold;">${pills} 顆/日</span>
+                </div>
+                <div class="rx-item">
+                    <div>
+                        <span>高濃度富氫水 (>3ppm濃度)</span>
+                    </div>
+                    <span style="color:var(--neon-cyan); font-weight:bold;">${packs} 包/日</span>
+                </div>
+            </div>
+            <div style="font-size:10px; color:#aaa; margin-top:5px; text-align:right;">
+                *請分次食用以達最佳吸收率
+            </div>
+        `;
+
+        // 保存數據到 Google Sheet
+        let ageGapValue = bioAge - ageBase;  // 計算實際的年齡差值
+        saveKCResultToSheet({
+            phoneNumber: phoneNumber || '',
+            name: document.getElementById('cust_name').value,
+            gender: gender,
+            age: parseInt(ageBase),
+            region: region,
+            occupation: job,
+            bodyType: bodyType,
+            smoking: activeRisks.has('smoke'),
+            highStress: activeRisks.has('stress'),
+            medication: activeRisks.has('meds'),
+            sunExposure: activeRisks.has('sun'),
+            eatingOut: activeRisks.has('eating'),
+            exercise: activeRisks.has('exercise'),
+            dietColor: Array.from(activeColors),
+            dietServings: dietQty,
+            supplement: document.querySelector('input[name="supp_type"]:checked').value,
+            supplementDetails: `MP:${document.getElementById('np_mp').value} IM:${document.getElementById('np_im').value} SR:${document.getElementById('np_sr').value}`,
+            kcValue: kcRaw,
+            kcScore: kcAdjusted,
+            biologicalAge: bioAge,
+            ageGap: ageGapValue,
+            defensePower: s_def,
+            metabolismPower: s_meta,
+            purificationPower: s_detox,
+            recoveryPower: s_repair,
+            absorptionPower: s_absorb,
+            timestamp: new Date().toISOString(),
+            authorizationKey: document.getElementById('auth_key').value || '0000000',
+        });
+    }
+
+    function saveKCResultToSheet(data) {
+        try {
+            // 直接從 HTML 中讀取電話號碼，確保不會遚罫
+            const phoneFromHTML = document.getElementById('phone_number')?.value || '';
+            console.log('[DEBUG] Data received in saveKCResultToSheet:', data);
+            console.log('[DEBUG] Phone from HTML (direct read):', phoneFromHTML);
+            
+            const googleSheetData = {
+                service_id: data.authorizationKey || '0000000',
+                phone_number: phoneFromHTML || data.phoneNumber || '',
+                user_name: data.name || '未填寫',
+                gender: data.gender,
+                age: data.age,
+                region: data.region,
+                job: data.occupation,
+                body_type: data.bodyType,
+                risks_smoke: data.smoking ? '是' : '否',
+                risks_stress: data.highStress ? '是' : '否',
+                risks_meds: data.medication ? '是' : '否',
+                risks_sun: data.sunExposure ? '是' : '否',
+                risks_food: data.eatingOut ? '是' : '否',
+                risks_sport: data.exercise ? '是' : '否',
+                diet_colors: Array.isArray(data.dietColor) ? data.dietColor.join(',') : data.dietColor,
+                diet_qty: data.dietServings,
+                supp_type: data.supplement,
+                supp_details: data.supplementDetails,
+                raw_kc: data.kcValue,
+                kc_adjusted: data.kcScore,
+                bio_age: data.biologicalAge,
+                age_gap: data.ageGap,
+                age_assessment: data.ageGap,
+                defense_score: data.defensePower,
+                metabolism_score: data.metabolismPower,
+                detox_score: data.purificationPower,
+                repair_score: data.recoveryPower,
+                absorption_score: data.absorptionPower
+            };
+            
+            console.log('[CRITICAL] Sending data to backend API:', googleSheetData);
+            
+            // 提交到後端 REST API
+            // 提交到 Supabase kc_results
+            const supabasePayload = {
+                auth_key: googleSheetData.service_id,
+                phone: googleSheetData.phone_number,
+                name: googleSheetData.user_name,
+                gender: googleSheetData.gender,
+                age: parseInt(googleSheetData.age) || null,
+                region: googleSheetData.region,
+                job: googleSheetData.job,
+                body_type: googleSheetData.body_type,
+                risks: [googleSheetData.risks_smoke==='是'?'smoke':null, googleSheetData.risks_stress==='是'?'stress':null, googleSheetData.risks_meds==='是'?'meds':null].filter(Boolean),
+                diet_qty: parseInt(googleSheetData.diet_qty) || null,
+                diet_colors: googleSheetData.diet_colors ? googleSheetData.diet_colors.split(',') : [],
+                supp_type: googleSheetData.supp_type,
+                kc_raw: parseFloat(googleSheetData.raw_kc) || null,
+                kc_adjusted: parseFloat(googleSheetData.kc_adjusted) || null,
+                bio_age: parseInt(googleSheetData.bio_age) || null,
+                age_gap: parseInt(googleSheetData.age_gap) || null,
+                defense_score: parseFloat(googleSheetData.defense_score) || null,
+                metabolism_score: parseFloat(googleSheetData.metabolism_score) || null,
+                detox_score: parseFloat(googleSheetData.detox_score) || null,
+                repair_score: parseFloat(googleSheetData.repair_score) || null,
+                absorption_score: parseFloat(googleSheetData.absorption_score) || null
+            };
+            fetch('https://nsgqsopqlkhayuefdout.supabase.co/rest/v1/kc_results', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zZ3Fzb3BxbGtoYXl1ZWZkb3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MzgzMjgsImV4cCI6MjA4ODMxNDMyOH0.FCMF_WaWjmtuWUKO2vqQBM4cFVGrdqt9fdmxYwUii0Y',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zZ3Fzb3BxbGtoYXl1ZWZkb3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MzgzMjgsImV4cCI6MjA4ODMxNDMyOH0.FCMF_WaWjmtuWUKO2vqQBM4cFVGrdqt9fdmxYwUii0Y',
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify(supabasePayload)
+            }).then(() => console.log('✅ KC數據已提交到 Supabase'))
+              .catch(err => console.error('⚠️ KC數據提交失敗:', err));
+        } catch (error) {
+            console.error('[KC Data Save Error]', error);
+        }
+    }
+
+    function renderBenchmark(userKC, age, job, region) {
+        let ageAvg = 6.0;
+        if(age <= 25) ageAvg = 7.2;
+        else if(age <= 35) ageAvg = 6.8;
+        else if(age <= 45) ageAvg = 6.4;
+        else if(age <= 55) ageAvg = 6.0;
+        else ageAvg = 5.6;
+
+        let jobAvg = 6.2;
+        if(job === 'indoor_brain') jobAvg = 6.5;
+        else if(job === 'service_sales') jobAvg = 5.8;
+        else if(job === 'shift_night') jobAvg = 5.2; 
+        else if(job === 'outdoor_physical') jobAvg = 5.5;
+        
+        let regionAvg = 6.3;
+        if(region === 'south') regionAvg = 5.9; 
+        else if(region === 'north') regionAvg = 6.4;
+
+        const container = document.getElementById('bench-container');
+        container.innerHTML = "";
+        
+        createBenchRow(container, "同年齡層平均 (Age Peer)", userKC, ageAvg);
+        createBenchRow(container, "同職業群體 (Industry)", userKC, jobAvg);
+        createBenchRow(container, "同地區平均 (Region)", userKC, regionAvg);
+    }
+
+    function createBenchRow(parent, label, userVal, avgVal) {
+        let diff = ((userVal - avgVal) / avgVal) * 100;
+        let isLead = diff >= 0;
+        let diffAbs = Math.abs(diff).toFixed(0);
+        let statusText = isLead ? `領先 ${diffAbs}%` : `落後 ${diffAbs}%`;
+        let statusClass = isLead ? "lead-text" : "lag-text";
+        let barWidth = Math.min(Math.abs(diff) / 2, 50); 
+        let barStyle = "";
+        
+        if (isLead) {
+            barStyle = `left: 50%; width: ${barWidth}%; background: var(--neon-green);`;
+        } else {
+            barStyle = `right: 50%; width: ${barWidth}%; background: var(--neon-red);`;
+        }
+
+        let html = `
+            <div class="bench-row">
+                <div class="bench-label">
+                    <span>${label}</span>
+                    <span class="bench-val ${statusClass}">${statusText}</span>
+                </div>
+                <div class="bench-track">
+                    <div class="bench-center-line"></div>
+                    <div class="bench-fill" style="${barStyle}"></div>
+                </div>
+            </div>
+        `;
+        parent.innerHTML += html;
+    }
+
+    function drawChart(data) {
+        const ctx = document.getElementById('radarCanvas').getContext('2d');
+        if(myChart) myChart.destroy();
+        
+        // Dynamically create labels with values
+        const labels = ['防禦力', '代謝力', '淨化力', '修復力', '吸收力'];
+        const displayLabels = labels.map((l, i) => [l, data[i].toFixed(1)]); 
+
+        myChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: displayLabels,
+                datasets: [{
+                    label: '生理機能光譜',
+                    data: data,
+                    backgroundColor: 'rgba(0, 243, 255, 0.2)',
+                    borderColor: '#00f3ff',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#00f3ff'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255,255,255,0.1)' },
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        pointLabels: { 
+                            color: '#00ff9d', 
+                            font: {size: 11, family: 'Noto Sans TC', weight: 'bold'} 
+                        },
+                        suggestedMin: 0, 
+                        suggestedMax: 10, 
+                        ticks: { 
+                            display: true,
+                            stepSize: 2,
+                            backdropColor: 'transparent',
+                            color: '#666',
+                            font: { size: 9 },
+                            showLabelBackdrop: false
+                        }
+                    }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    }
+
+    function downloadResultImage() {
+        const header = document.querySelector('header');
+        const actionPlanBox = Array.from(document.querySelectorAll('.diagnosis-box')).find(box => 
+            box.querySelector('.diag-title') && box.querySelector('.diag-title').textContent.includes('AI 建議處方')
+        );
+        
+        if (!header || !actionPlanBox) {
+            alert('無法找到截圖範圍');
+            return;
+        }
+        
+        // 建立臨時容器，包含 header 到 action-plan
+        const tempContainer = document.createElement('div');
+        tempContainer.style.background = '#030508';
+        tempContainer.style.padding = '20px';
+        tempContainer.style.position = 'absolute';
+        tempContainer.style.left = '-9999px';
+        tempContainer.style.top = '-9999px';
+        tempContainer.style.width = '1080px';
+        
+        // 複製 header
+        const headerClone = header.cloneNode(true);
+        tempContainer.appendChild(headerClone);
+        
+        // 複製 dashboard
+        const dashboard = document.querySelector('.dashboard');
+        if (dashboard) tempContainer.appendChild(dashboard.cloneNode(true));
+        
+        // 複製 chart-box (canvas 需要特殊處理)
+        const chartBox = document.querySelector('.chart-box');
+        if (chartBox) {
+            const chartClone = chartBox.cloneNode(true);
+            const originalCanvas = chartBox.querySelector('canvas');
+            const clonedCanvas = chartClone.querySelector('canvas');
+            if (originalCanvas && clonedCanvas) {
+                const ctx = clonedCanvas.getContext('2d');
+                ctx.drawImage(originalCanvas, 0, 0);
+            }
+            tempContainer.appendChild(chartClone);
+        }
+        
+        // 複製所有 diagnosis-box 直到 action-plan
+        const diagnosisBoxes = document.querySelectorAll('.diagnosis-box');
+        diagnosisBoxes.forEach((box) => {
+            tempContainer.appendChild(box.cloneNode(true));
+            if (box.querySelector('.diag-title') && box.querySelector('.diag-title').textContent.includes('AI 建議處方')) {
+                return false; // 停止在 action-plan
+            }
+        });
+        
+        // 複製 bench-box
+        const benchBox = document.querySelector('.bench-box');
+        if (benchBox) {
+            const benchClone = benchBox.cloneNode(true);
+            // 插入到 action-plan 之前
+            const actionPlanClone = tempContainer.querySelector('.diagnosis-box[style*="var(--neon-cyan)"]');
+            if (actionPlanClone && actionPlanClone.parentNode) {
+                actionPlanClone.parentNode.insertBefore(benchClone, actionPlanClone);
+            }
+        }
+        
+        document.body.appendChild(tempContainer);
+        
+        html2canvas(tempContainer, {
+            scale: 2,
+            backgroundColor: '#030508',
+            logging: false,
+            useCORS: true,
+            allowTaint: true
+        }).then(canvas => {
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'KC-Report-' + new Date().getTime() + '.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                document.body.removeChild(tempContainer);
+            }, 'image/png');
+        }).catch(err => {
+            console.error('截圖失敗:', err);
+            alert('截圖失敗，請稍後重試');
+            document.body.removeChild(tempContainer);
+        });
+    }
+
+    function updateKCGauge(kcValue) {
+        const totalBars = 20;
+        const filledBars = Math.ceil((kcValue / 12) * totalBars);
+        const container = document.getElementById('energyBars');
+        if (!container) return;
+        container.innerHTML = '';
+        for (let i = 0; i < totalBars; i++) {
+            const bar = document.createElement('div');
+            const isFilled = i < filledBars;
+            let barColor = '#333333';
+            if (isFilled) {
+                if (i < 8) barColor = '#ff2a2a';
+                else if (i < 13) barColor = '#ffae00';
+                else barColor = '#00ff9d';
+            }
+            bar.style.cssText = 'width: 8px; height: 40px; background-color: ' + barColor + '; border-radius: 2px; flex-shrink: 0;';
+            container.appendChild(bar);
+        }
+    }
+
+    function updateAgeGauge(ageGap, isAging) {
+        const container = document.getElementById('ageGaugeBars');
+        if (!container) return;
+        container.innerHTML = '';
+        const maxBars = 10;
+        const filledBars = Math.min(ageGap, maxBars);
+        for (let i = 10; i > 0; i--) {
+            const bar = document.createElement('div');
+            const isFilled = !isAging && i <= filledBars;
+            bar.style.cssText = 'width: 8px; height: 25px; background-color: ' + (isFilled ? '#00ff9d' : '#333333') + '; border-radius: 1px; flex-shrink: 0;';
+            container.appendChild(bar);
+        }
+        const centerBar = document.createElement('div');
+        centerBar.style.cssText = 'width: 8px; height: 25px; background-color: #000000; border-radius: 1px; margin: 0 2px; flex-shrink: 0;';
+        container.appendChild(centerBar);
+        for (let i = 1; i <= 10; i++) {
+            const bar = document.createElement('div');
+            const isFilled = isAging && i <= filledBars;
+            bar.style.cssText = 'width: 8px; height: 25px; background-color: ' + (isFilled ? '#ff2a2a' : '#333333') + '; border-radius: 1px; flex-shrink: 0;';
+            container.appendChild(bar);
+        }
+    }
+</script>
+
+</body>
+</html>
