@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>人生探索 - 掌握預防再生商機</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        // 提取自截圖的色系
+                        brandGreen: '#2ecc71',      // 亮綠色按鈕
+                        brandGreenHover: '#27ae60', // 按鈕懸停
+                        brandTeal: '#0097a7',       // 左上漸層色 (近似)
+                        brandBlue: '#0d47a1',       // 右下漸層色 (近似)
+                        darkText: '#1f2937',        // 卡片內文字深灰
+                    },
+                    backgroundImage: {
+                        // 模擬截圖的對角線漸層：左上青綠 -> 右下深藍
+                        'npplus-gradient': 'linear-gradient(135deg, #06b6d4 0%, #1e3a8a 100%)',
+                    },
+                    boxShadow: {
+                        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        * { -webkit-tap-highlight-color: transparent; }
+        
+        /* 模擬截圖背景的柔和圓形裝飾 */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-npplus-gradient text-white font-sans antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <!-- 背景裝飾 (模仿截圖中的光斑) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="bg-circle w-[500px] h-[500px] bg-teal-300 top-[-100px] left-[-100px]"></div>
+        <div class="bg-circle w-[400px] h-[400px] bg-blue-600 bottom-[-50px] right-[-50px]"></div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="relative z-20 bg-black/20 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+            <button id="backToSelect" class="text-white hover:text-brandGreen transition-colors font-bold flex items-center gap-2 bg-none border-none cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                返回選擇
+            </button>
+            <h2 class="text-lg font-bold">人生探索</h2>
+            <div class="w-20"></div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 flex-grow w-full max-w-md mx-auto md:max-w-4xl px-6 py-10 pb-32">
+        
+        <!-- 標題區：模仿截圖排版 -->
+        <header class="mb-10 text-center">
+            <!-- 頂部膠囊標籤 -->
+            <div class="inline-flex items-center justify-center bg-teal-800/40 backdrop-blur-sm border border-teal-200/20 text-teal-50 text-xs md:text-sm px-5 py-1.5 rounded-full mb-6 tracking-wide shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-green-400 mr-2"></span>
+                人生探索 × 痛點診斷 × 預防再生
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight drop-shadow-md tracking-tight">
+                探索自己的痛點<br>和可能
+            </h1>
+            
+            <p class="text-blue-50 text-lg md:text-xl font-medium mb-8 opacity-90">
+                將您的人生閱歷轉變財富現金。<br>
+                不用再憑感覺，讓數據成為您的「導航」。
+            </p>
+
+            <!-- 三按鈕區 -->
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <!-- 白色按鈕：開始探索人生可能 -->
+                <a href="./dreamreality.html" class="bg-white text-blue-800 font-bold py-3.5 px-8 rounded-full shadow-lg text-sm md:text-base transition-all hover:scale-110 hover:bg-blue-50 hover:shadow-xl hover:shadow-blue-200/50">
+                    開始探索人生可能
+                </a>
+                
+                <!-- 綠色按鈕：KC健康防禦檢測 -->
+                <a href="./kc-data-center.html" class="bg-[#2ecc71] hover:bg-[#27ae60] text-white font-bold py-3.5 px-8 rounded-full shadow-lg text-sm md:text-base transition-all hover:scale-110 hover:shadow-xl hover:shadow-green-400/50 flex items-center gap-2">
+                    KC健康防禦檢測
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+                
+                <!-- 藍色按鈕：溝通工具 -->
+                <a href="./communication-tools.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-8 rounded-full shadow-lg text-sm md:text-base transition-all hover:scale-110 hover:shadow-xl hover:shadow-blue-400/50 flex items-center gap-2">
+                    溝通工具
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- 卡片區：白底卡片風格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="vision">
+            
+            <!-- 1. 願景算力 -->
+            <a href="./dreamreality.html" class="group relative block bg-white rounded-3xl p-6 md:p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-left overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-blue-500"></div>
+                
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+                    </div>
+                    <span class="text-blue-600 text-xs font-bold px-2 py-1 bg-blue-50 rounded-lg">STEP 01</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors">願景算力</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                    量化您的夢想成本。現實與理想的距離，我們幫您算清楚。
+                </p>
+                
+                <div class="flex items-center text-blue-600 font-bold text-sm">
+                    開始計算 <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </div>
+            </a>
+
+            <!-- 2. 生存創業 -->
+            <a href="./intro.html" class="group relative block bg-white rounded-3xl p-6 md:p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-left overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-orange-500"></div>
+                
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                    </div>
+                    <span class="text-orange-500 text-xs font-bold px-2 py-1 bg-orange-50 rounded-lg">STEP 02</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold mb-2 text-gray-800 group-hover:text-orange-500 transition-colors">人生模擬器</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                    30 種職業 × 隨機人生事件。選擇你的身分，體驗不同人生的挑戰與機遇。
+                </p>
+                
+                <div class="flex items-center text-orange-500 font-bold text-sm">
+                    進入模擬 <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </div>
+            </a>
+
+            <!-- 3. KC 檢測 (重點強調 - 全寬) -->
+            <a href="./kc-data-center.html" class="md:col-span-2 group relative block bg-white rounded-3xl p-1 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left overflow-hidden">
+                <!-- 重點強調邊框 -->
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brandGreen to-teal-500"></div>
+
+                <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="md:w-3/4">
+                        <div class="flex items-center gap-2 mb-3">
+                             <div class="flex h-3 w-3 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandGreen opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-brandGreen"></span>
+                            </div>
+                            <span class="text-brandGreen font-bold text-xs tracking-wider uppercase">Health Defense</span>
+                        </div>
+                        
+                        <h2 class="text-2xl md:text-3xl font-bold mb-2 text-gray-800">KC 健康防禦檢測</h2>
+                        <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                            這是一切的基礎。若此數值歸零，所有財富皆無意義。<br>
+                            <span class="text-brandGreen font-bold">立即檢測，掌握您的健康底氣。</span>
+                        </p>
+                    </div>
+                    
+                    <div class="md:w-auto">
+                        <button class="w-full md:w-auto bg-brandGreen hover:bg-brandGreenHover text-white font-bold py-3 px-6 rounded-full shadow-lg transition-colors flex items-center justify-center gap-2">
+                            立即開始
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 4. 溝通工具 (複製自 KC 檢測區塊，藍色風格) -->
+            <a href="./communication-tools.html" class="md:col-span-2 group relative block bg-white rounded-3xl p-1 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left overflow-hidden">
+                <!-- 重點強調邊框 -->
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+
+                <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="md:w-3/4">
+                        <div class="flex items-center gap-2 mb-3">
+                             <div class="flex h-3 w-3 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                            </div>
+                            <span class="text-blue-600 font-bold text-xs tracking-wider uppercase">Communication Tools</span>
+                        </div>
+                        
+                        <h2 class="text-2xl md:text-3xl font-bold mb-2 text-gray-800">溝通工具</h2>
+                        <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                            認識環貫綠加利很簡單，分享推薦更簡單。<br>
+                            <span class="text-blue-600 font-bold">立即前往，善用數位推廣商機。</span>
+                        </p>
+                    </div>
+                    
+                    <div class="md:w-auto">
+                        <button class="w-full md:w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-colors flex items-center justify-center gap-2">
+                            立即前往
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- 底部 LINE 按鈕 (維持經典綠色膠囊) -->
+    <div class="fixed bottom-6 left-0 w-full z-50 px-6 flex justify-center">
+        <button disabled class="w-full max-w-sm bg-gray-400 text-gray-600 font-bold text-lg py-4 px-8 rounded-full shadow-lg cursor-not-allowed opacity-60 flex items-center justify-center gap-3">
+            <!-- LINE Icon -->
+            <svg class="text-gray-600 w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.046 11.455c0-4.992-4.937-9.056-11.023-9.056C4.937 2.4 0 6.464 0 11.455c0 4.47 3.96 8.217 9.255 8.91 0.36.078.85.235.975.54.11.275.072.766 0 1.056-.165.666-.6.82-.656 2.422-.016.43-.02.83.504.455 3.016-2.14 6.78-5.32 8.416-7.394 2.22-2.822 3.552-4.985 3.552-5.986zm-17.766 1.88h-1.31v-4.09h1.31v2.774h2.247v1.316h-2.247zm5.552 0h-1.31v-4.09h1.31v1.368h1.995v-1.367h1.312v4.09h-1.313v-1.407h-1.994v1.406zm6.307-2.383l-2.076 2.383h-1.572l2.152-2.31-2.08-2.162h1.565l1.39 1.485 1.432-1.485h1.51l-2.32 2.09z"/></svg>
+            <span>AI LINE 架構中</span>
+        </button>
+    </div>
+
+    <script>
+        document.getElementById('backToSelect').addEventListener('click', function() {
+            // 導航到 landing.html 並滾動到錨點
+            window.location.href = './index.html#explore-possibilities';
+        });
+    </script>
+</body>
+</html>
